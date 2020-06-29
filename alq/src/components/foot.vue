@@ -10,7 +10,8 @@ export default {
 footer{
   font-size: 12px;
   width: 100%;
-  height: 40px;
-  background-color: antiquewhite;
+  height: 500px;
+    background: #ffaa18;
+    // padding: 84px 0 72px;
 }
 </style>

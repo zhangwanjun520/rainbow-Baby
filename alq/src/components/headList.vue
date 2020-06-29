@@ -55,7 +55,7 @@ header {
   .nav {
     width: 70%;
     ul {
-      font-size: 16px;
+      font-size: 20px;
       list-style: none;
       display: flex;
       justify-content: space-around;

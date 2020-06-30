@@ -2,16 +2,20 @@
   <header>
     <div class="main">
       <div class="header-logo">
-        <img src="http://www.52alq.com/statics/images/logo.jpg" alt />
+        <router-link tag='span' to='/home'>
+           <img src="http://www.52alq.com/statics/images/logo.jpg" alt />
+        </router-link>
+
       </div>
       <nav class="nav">
         <ul>
-         <router-link tag="li" v-for="(item,index) in tablist" :key="index" :to="item.path">
+         <router-link tag="li" v-for="(item,index) in tablist" :key="index" :to="item.path" active-class="list">
           <span>{{item.name}}</span>
         </router-link>
         </ul>
       </nav>
     </div>
+
   </header>
 </template>
 <script>
@@ -19,6 +23,7 @@ export default {
   data(){
     return{
        tablist: [
+               { name: "首页", path: "/home" },
         { name: "关于我们", path: "/aboutUs" },
         { name: "课程介绍", path: "/lessonIntroduce" },
         { name: "探索发现", path: "/explore" },
@@ -61,7 +66,18 @@ header {
       justify-content: space-around;
       align-items: center;
       margin-left: 20px;
+      .list{
+        width: auto;
+  color: orange;
+}
     }
   }
 }
+
+.hokids-section {
+    width: 100%;
+    height: 7px;
+    display: flex;
+}
+
 </style>

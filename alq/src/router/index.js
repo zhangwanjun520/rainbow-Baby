@@ -7,7 +7,11 @@ VueRouter.prototype.push = function push(location) {
   return routerPush.call(this, location).catch(error=> error)
 }
 const routes = [
-
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('../pages/home.vue')
+  },
   {
     path: '/aboutUs',
     name: 'about',
@@ -41,7 +45,7 @@ const routes = [
   {
     // 兜底路由，匹配不到的路由跳转到首页
     path: '*',
-    redirect: '/aboutUs',
+    redirect: '/home',
 }
 
 

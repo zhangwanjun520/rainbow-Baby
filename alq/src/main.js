@@ -7,9 +7,10 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'lib-flexible/flexible'
 import 'element-ui/lib/theme-chalk/index.css';
-
-
+import { Carousel,CarouselItem} from 'element-ui'
 Vue.use(ElementUI);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
 axios.defaults.withCredentials = true;
 Vue.prototype.$axios=axios
 

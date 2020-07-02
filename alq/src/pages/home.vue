@@ -1,12 +1,15 @@
 <template>
   <div>
     <div class="block">
-      <el-carousel trigger="click">
+      <el-carousel trigger="click" id="carousel"  arrow='never'  @change='onchange'>
         <el-carousel-item v-for="item in imgs" :key="item.id">
           <router-link tag="span" :to="item.path">
             <img :src="item.adr" :alt="item.desc" class="img1" />
           </router-link>
         </el-carousel-item>
+        <ul class="point">
+          <li v-for='item in 3' :key='item'  :style="{'background-color': (index+1==item ? 'orange':'')}"></li>
+        </ul>
       </el-carousel>
     </div>
     <section class="hokids-section">
@@ -190,7 +193,7 @@
     <div class="hokids-authentication">
       <div class="hokids-authentication-l">
         <div>
-          <img src="http://www.52alq.com/statics/images/authentication.jpg" alt />
+          <img src="http://www.52alq.com/statics/images/authentication.jpg" alt class="im"/>
           <p class="pname">联合认证</p>
         </div>
         <div class="description">
@@ -214,6 +217,7 @@
 export default {
   data() {
     return {
+      index:'',
       imgs: [
         {
           adr: require("../assets/home1.jpg"),
@@ -283,9 +287,15 @@ export default {
         ]
       }
     };
+  },
+  methods:{
+    onchange(e){
+      this.index=e
+    }
   }
 };
 </script>
+
 <style lang="scss" scoped>
 .el-carousel__item h3 {
   color: #475669;
@@ -293,15 +303,33 @@ export default {
   opacity: 0.75;
   margin: 0;
 }
+el-carousel{
+  height: 400px;
+}
 .block {
   height: 564px;
+  position: relative;
+}
+.point{
+  position: absolute;
+  z-index:999;
+  display: flex;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -100px;
+  li{
+    list-style: none;
+    width: 30px;
+    height: 30px;
+    background-color: gainsboro;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
 }
 .img1 {
   height: 564px;
 }
-.el-carousel__container {
-  height: 564px;
-}
+
 .hokids-section div:nth-child(1) {
   background: #8dc63f;
   flex: 1;
@@ -569,14 +597,10 @@ export default {
 .el-carousel__arrow--right {
   background-color: #ff6f3c;
 }
-.el-carousel__arrow {
-  width: 51px;
-  height: 51px;
-  top: 29%;
-}
+
 .hokids-authentication{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
     margin-bottom: 100px;
     width: 1400px;
     height:600px;
@@ -604,11 +628,27 @@ export default {
     line-height: 30px;
     margin-bottom: 28px;
 }
+.im{
+  width: 443px;
+}
 .hokids-authentication-l li{
     margin-right: 80px;
     float: left;
 }
 .image{
   width: 611px;
+}
+</style>
+<style lang="">
+.el-carousel__container {
+  height: 564px !important;
+}
+.el-carousel__indicators--horizontal{
+  display: none;
+}
+.el-carousel__arrow {
+  width: 51px;
+  height: 51px;
+  top: 34%;
 }
 </style>

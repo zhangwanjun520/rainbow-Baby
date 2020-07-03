@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="block">
-      <el-carousel trigger="click" id="carousel"  arrow='never'  @change='onchange'>
-        <el-carousel-item v-for="item in imgs" :key="item.id">
+      <el-carousel trigger="click" id="carousel"  arrow='never'  @change='onchange' >
+        <el-carousel-item v-for="item in imgs" :key="item.id" class="ll">
           <router-link tag="span" :to="item.path">
             <img :src="item.adr" :alt="item.desc" class="img1" />
           </router-link>
         </el-carousel-item>
-        <ul class="point">
+        <!-- <ul class="point">
           <li v-for='item in 3' :key='item'  :style="{'background-color': (index+1==item ? 'orange':'')}"></li>
-        </ul>
+        </ul> -->
       </el-carousel>
     </div>
     <section class="hokids-section">
@@ -638,13 +638,17 @@ el-carousel{
 .image{
   width: 611px;
 }
+
 </style>
 <style lang="">
 .el-carousel__container {
-  height: 564px !important;
+  height: 564px;
 }
-.el-carousel__indicators--horizontal{
-  display: none;
+  .el-carousel__button{
+width: 30px;
+height: 30px;
+border-radius: 50%;
+/* background-color: orange; */
 }
 .el-carousel__arrow {
   width: 51px;

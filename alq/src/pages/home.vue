@@ -100,7 +100,7 @@
         <a class="prev"></a>
       </div>
       <div class="info">
-        <el-carousel trigger="click" class="picList" arrow="always">
+        <el-carousel trigger="click" class="picList" arrow="always" indicator-position='none'>
           <el-carousel-item class="list">
             <div class="leftList">
               <div>
@@ -638,17 +638,20 @@ el-carousel{
 .image{
   width: 611px;
 }
+#carousel /deep/ .el-carousel__container{
+// background: #fff;
+  height: 564px;
 
+}
 </style>
 <style lang="">
-.el-carousel__container {
-  height: 564px;
-}
+
   .el-carousel__button{
 width: 30px;
 height: 30px;
 border-radius: 50%;
-/* background-color: orange; */
+background-color: orange;
+top: 200px;
 }
 .el-carousel__arrow {
   width: 51px;

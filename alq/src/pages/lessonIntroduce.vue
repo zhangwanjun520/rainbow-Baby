@@ -58,7 +58,7 @@
         <!-- 课程三 -->
         <div class="content">
           <div class="img">
-            <img src="../assets/class1.jpg" alt />
+            <img src="../assets/classes3.jpg" alt />
             <div class="type type3">
               <p>A</p>
               <p>18个月-36个月</p>
@@ -232,6 +232,7 @@ export default {};
 
   .img {
     position: relative;
+    width: 678px;
   }
   .type {
     position: absolute;
@@ -265,7 +266,7 @@ export default {};
     // width: 49%;
     height: 300px;
     img {
-      width: 550px;
+      width: 678px;
       height: 300px;
     }
   }
@@ -277,6 +278,9 @@ export default {};
   }
   .info3 {
     background-color: #ffb943;
+    p:nth-child(3){
+      line-height: 30px;
+    }
   }
   p {
     margin-left: 20px;
@@ -299,14 +303,14 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
   .intro {
-    width: 1400px;
+    width: 1600px;
     display: flex;
     justify-content: space-around;
     margin: auto;
 
     .intro1 {
-      width: 450px;
-      height: 580px;
+      width: 500px;
+      height: 600px;
       background-color: white;
       // border: 1px solid;
       text-align: center;
@@ -420,7 +424,7 @@ export default {};
   font-size: 20px;
   margin: 50px auto;
   color: white;
-  line-height: 24px;
+  line-height: 28px;
   font-weight: 550;
 }
 

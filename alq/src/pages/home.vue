@@ -187,7 +187,7 @@
     </div>
 
     <!-- 新闻中心 -->
-    <div style="height:300px"></div>
+    <!-- <div style="height:300px"></div> -->
 
     <!-- 联合认证 -->
     <div class="hokids-authentication">
@@ -542,27 +542,30 @@ el-carousel{
   margin-bottom: 50px;
 }
 .info {
-  width: 1300px;
+  width: 1500px;
   height: 400px;
   margin: auto;
   margin-top: 80px;
   margin-bottom: 80px;
+  // border: 1px solid;
 }
 .list {
-  width: 1300px;
+  // border: 1px solid;
+
+  width: 1500px;
   //  height: 400px;
   display: flex;
   justify-content: space-around;
 }
 
 .leftList {
-  width: 600px;
-  height: 350px;
+  width: 700px;
+  height: 300px;
   background-color: #f5f5f5;
   border-radius: 8px;
   display: flex;
   align-items: center;
-
+margin-left: 30px;
   div {
     color: black;
     img {
@@ -573,9 +576,10 @@ el-carousel{
     p {
       margin-left: 20px;
       margin-right: 20px;
-      font-size: 18px;
+      font-size: 22px;
+      line-height: 30px;
       .sp {
-        font-size: 24px;
+        font-size: 26px;
         font-weight: bold;
         color: black;
       }
@@ -590,6 +594,7 @@ el-carousel{
   width: 600px;
   height: 350px;
   background-color: red;
+
 }
 .el-carousel__arrow--left {
   background-color: #ff6f3c;
@@ -656,6 +661,6 @@ top: 200px;
 .el-carousel__arrow {
   width: 51px;
   height: 51px;
-  top: 34%;
+  /* top: 34%; */
 }
 </style>

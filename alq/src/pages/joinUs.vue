@@ -23,7 +23,8 @@
       <img src="../assets/joinbg3.jpg" alt />
     </div>
     <!-- 爱乐祺加盟提供“7+1”管家式服务支持 -->
-    <div class="attentive">
+    <div class="attentiveBox">
+          <div class="attentive">
       <p>
         <img src="../assets/service.png" alt />
       </p>
@@ -60,7 +61,7 @@
           </el-collapse>
         </div>
         <div class="sup2">
-          <div class="title">全国电话客服支持</div>
+          <div class="title">运营期支持</div>
           <el-carousel trigger="click" indicator-position="none" id="sup2">
             <el-carousel-item class="sup2Content">
               <p class="img">
@@ -72,7 +73,7 @@
                 <br />· 会员开卡上课30天时，致电会员家长，增进客户粘度做满意度回访；提高单店课程出勤率
                 <br />· 会员生日祝福、解决客诉、提醒会员续费等增值服务
               </p>
-              <p class="subtitle">开业经营支持</p>
+              <p class="subtitle">全国电话客服支持</p>
             </el-carousel-item>
 
             <el-carousel-item class="sup2Content">
@@ -87,7 +88,7 @@
               <p class="subtitle">开业经营支持</p>
             </el-carousel-item>
 
-            <el-carousel-item class="sup2Content">
+            <el-carousel-item class="sup2Content"  >
               <p class="img">
                 <img src="../assets/run3.jpg" alt />
               </p>
@@ -96,7 +97,7 @@
                 <br />· 年度大型“全国早教师节”“品牌周年庆”活动，多渠道宣传推广支撑，全员狂欢
                 <br />· 总部官网开设专项招生页面，全面覆盖地方区域的线上宣传
               </p>
-              <p class="subtitle">开业经营支持</p>
+              <p class="subtitle">大市场运营支持</p>
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -108,17 +109,15 @@
             </p>
 
             <p><img src="../assets/people.png" alt="">
-                        <p>督导一对一管家服务<br>
-
-全程跟踪开业筹备、招生业绩、课程教学、会员管理服务</p>
-<p>HOKIDS托育早教管理系统
-
-提供统计收入确认、损益分析、签约提醒、销售跟踪、平台约课、定时视频监控等全方位的服务支持</p>
+                        <p>督导一对一管家服务<br/>全程跟踪开业筹备、招生业绩、课程教学、会员管理服务</p>
+<p>HOKIDS托育早教管理系统提供统计收入确认、损益分析、签约提醒、销售跟踪、平台约课、定时视频监控等全方位的服务支持</p>
             </p>
           </div>
         </div>
       </div>
     </div>
+    </div>
+
 
     <!-- 加盟流程 -->
     <div class="step">
@@ -139,6 +138,52 @@
           <span>400-1000-161</span>
         </div>
       </div>
+      <!-- 表单信息 -->
+      <div class="personInfo">
+        <p class="tit">“城市合伙人”招募计划</p>
+         <div class="one">
+           <span class="type">姓名</span> <el-input v-model="name" placeholder="请输入姓名"></el-input>
+
+         </div>
+         <div class="two">
+           <span class="type">性别</span>
+           <el-radio v-model="radio" label="1" class="rad">男</el-radio>
+             <el-radio v-model="radio" label="2" class="rad">女</el-radio>
+
+         </div>
+         <div class="two">
+            <span class="type">意向城市</span>  <el-select v-model="value" placeholder="请选择省/市" @change="val" id="sel">
+             <el-option v-for="item in $store.state.adressInfo.provinceInfo" :key="item.id" :value="item.name" ></el-option>
+        </el-select>
+         </div>
+            <div class="two">
+            <span class="type">投资能力</span>  <el-select v-model="moneyValue" placeholder="请选择投资额度" @change="money" id="sel">
+             <el-option v-for="item in moneyType" :key="item.id" :value="item" ></el-option>
+        </el-select>
+         </div>
+           <div class="one">
+           <span class="type">联系电话</span> <el-input v-model="phone" placeholder="请输入电话号码"></el-input>
+           <p class="mistakeCon">{{mistakePhone}}</p>
+
+         </div>
+             <div class="one">
+           <span class="type">邮箱</span> <el-input v-model="email" placeholder="请输入邮箱"></el-input>
+           <p class="mistakeCon">{{mistakeEmail}}</p>
+
+         </div>
+               <div class="one">
+           <span class="type2">留言</span><el-input
+                type="textarea"
+                :rows="2"
+                placeholder="请输入内容"
+                v-model="textarea">
+</el-input>
+
+         </div>
+         <div class="btn">
+             <el-button type="primary">提交</el-button>
+         </div>
+      </div>
     </div>
   </div>
 </template>
@@ -146,8 +191,63 @@
 export default {
   data() {
     return {
-      activeName: "1"
+      activeName: "1",
+      // 表单姓名
+      name:'',
+      // 表单性别
+       radio: '1',
+       value:'',
+       moneyValue:'',
+       moneyType:[
+         "50万以下",
+         '50万-100万',
+         '100万-150万',
+         '150万-200万',
+         '200万以上'
+       ],
+       phone:'',
+       email:'',
+       textarea:'',
+      //  正则验证错误提示
+       mistakePhone:'',
+       mistakeEmail:''
+
     };
+
+  },
+  methods:{
+     val(e) {
+      console.log(e);
+      this.value = e;
+    },
+     money(e) {
+      console.log(e);
+      this.moneyValue = e;
+    },
+  },
+  created() {
+    console.log(this)
+  },
+  watch:{
+    // phone(newVal,oldVal){
+    // if(!(/^1[3456789]\d{9}$/.test(newVal))){
+    //     this.mistakePhone='手机号格式错误'
+    //     return false;
+    // } else{
+    //   this.mistakePhone=''
+    //     return true;
+
+    // }
+    // },
+    //     email(newVal,oldVal){
+    // if(!(/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(newVal))){
+    //     this.mistakeEmail='邮箱格式错误'
+    //     return false;
+    // } else{
+    //   this.mistakeEmail=''
+    //     return true;
+    // }
+    // }
   }
 };
 </script>
@@ -191,7 +291,7 @@ export default {
 
   .p1 {
     color: #1b1b1b;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 550;
     line-height: 40px;
   }
@@ -214,13 +314,19 @@ export default {
 }
 
 //  <!-- 爱乐祺加盟提供“7+1”管家式服务支持 -->
+.attentiveBox{
+  width: 100%;
+  height: auto;
+  background-color: #eee;
+  padding-bottom: 100px;
+}
 .attentive {
   width: 1700px;
   display: flex;
   flex-direction: column;
 
   margin: auto;
-  border: 1px solid;
+  // border: 1px solid;
   img {
     width: 497px;
     margin-bottom: -40px;
@@ -242,14 +348,14 @@ export default {
     font-weight: bold;
     color: white;
     background-color: #f07855;
-    font-size: 22px;
+    font-size: 24px;
   }
   .sup1,
   .sup2,
   .sup3 {
     width: 550px;
     height: 700px;
-    border: 1px solid;
+    // border: 1px solid;
   }
 }
 .swiper-container {
@@ -259,6 +365,7 @@ export default {
 }
 
 .sup2Content {
+  background-color: white;
   p {
     img {
       width: 100%;
@@ -289,7 +396,7 @@ export default {
     line-height: 60px;
     font-weight: 550;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 .sup3{
@@ -324,8 +431,9 @@ line-height: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 80px;
   div:nth-child(1) {
-    margin-top: 50px;
+    margin-top: 80px;
     img {
       width: 374px;
     }
@@ -345,11 +453,12 @@ line-height: 40px;
 // 加盟服务顾问
 .banner4 {
   width: 100%;
-  height: 695px;
+  height: 800px;
   background: url("../assets/recruitbg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   .jiameng {
     padding-top: 100px;
     padding-left: 300px;
@@ -359,7 +468,6 @@ line-height: 40px;
     .telphone {
       // border: 1px solid;
       width: 369px;
-
       position: relative;
       img {
         width: 369px;
@@ -374,8 +482,65 @@ line-height: 40px;
     }
   }
 }
+// 表单
+.personInfo{
+  width: 650px;
+  height: 800px;
+  position: absolute;
+  background: #f07855;
+  right: 150px;
+  top: -50px;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  font-weight: 550;
+  .tit{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+.one{
+  width: 90%;
+  margin: 20px auto;
+  margin-left: 65px;
+}
+.two{
+  width: 90%;
+  margin: 20px auto;
+  margin-left: 65px;
+
+}
+.type{
+  display: inline-block;
+  width: 100px;
+  margin-right: 20px;
+  // border: 1px solid;
+  text-align: right;
+}
+.type2{
+  display: inline-block;
+  width: 100px;
+  margin-right: 20px;
+  // border: 1px solid;
+  text-align: right;
+  margin-bottom: 100px;
+}
+.btn{
+  width: 60px;
+  height: auto;
+  margin:  auto;
+  background-color: #f09a81;
+  margin-bottom: 20px;
+
+}
+.mistakeCon{
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 130px;
+}
 </style>
-<style lang="">
+<style lang="scss">
 /* //  <!-- 爱乐祺加盟提供“7+1”管家式服务支持 全局样式--> */
 
 .el-collapse-item__header {
@@ -388,7 +553,7 @@ line-height: 40px;
 }
 
 .el-collapse-item__content {
-  font-size: 18px;
+  font-size: 20px;
   height: 350px;
   overflow: auto;
 }
@@ -396,4 +561,43 @@ line-height: 40px;
   width: 95%;
   margin: 15px auto;
 }
+.one,.two{
+  .el-input__inner{
+    width: 280px;
+    height: 50px;
+        font-size: 18px;
+  }
+}
+.rad{
+  margin-left: 15px;
+}
+.rad>span{
+  color: white;
+  font-size: 20px;
+}
+.one{
+  .el-input {
+    width: auto;
+
+  }
+}
+.one{
+  .el-textarea{
+    width: 280px;
+    height: 200px;
+    .el-textarea__inner{
+      width: 285px;
+      height: 180px;
+    }
+  }
+
+}
+.btn{
+  .el-button--primary{
+     background-color: #f09a81;
+     border-color: white;
+  }
+
+}
 </style>
+

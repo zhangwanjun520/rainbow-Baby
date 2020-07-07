@@ -60,12 +60,13 @@ header {
   .nav {
     width: 70%;
     ul {
-      font-size: 20px;
+      font-size: 22px;
       list-style: none;
       display: flex;
       justify-content: space-around;
       align-items: center;
       margin-left: 20px;
+      cursor: pointer;
       .list{
         width: auto;
   color: orange;

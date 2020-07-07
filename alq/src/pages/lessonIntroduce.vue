@@ -285,7 +285,7 @@ export default {};
   p {
     margin-left: 20px;
     font-weight: 550;
-    font-size: 16px;
+    font-size: 18px;
   }
   .p1 {
     font-size: 30px;
@@ -307,16 +307,16 @@ export default {};
     display: flex;
     justify-content: space-around;
     margin: auto;
-
     .intro1 {
       width: 500px;
       height: 600px;
       background-color: white;
       // border: 1px solid;
+      color: rgba(0, 0, 0, 0.8);
       text-align: center;
       border-radius: 10px;
       overflow: hidden;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 550;
       position: relative;
       img {

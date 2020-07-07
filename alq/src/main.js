@@ -7,17 +7,13 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'lib-flexible/flexible'
 import 'element-ui/lib/theme-chalk/index.css';
-import { Carousel,CarouselItem,Tooltip,Collapse,CollapseItem } from 'element-ui'
+import { Carousel,CarouselItem,Tooltip,Collapse,CollapseItem ,Radio,Input,Button,Icon} from 'element-ui'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI);
-Vue.use(Carousel);
-Vue.use(CarouselItem);
-Vue.use(Collapse);
-Vue.use(CollapseItem);
-Vue.use(Tooltip);
-
+Vue.use(Carousel,CarouselItem,Collapse,CollapseItem,Tooltip,Radio,Input,Button,Icon);
 axios.defaults.withCredentials = true;
 Vue.prototype.$axios=axios
 

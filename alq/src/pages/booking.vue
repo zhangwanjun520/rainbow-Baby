@@ -34,7 +34,7 @@
                   @change="bookingval"
                   id="select"
                 >
-                  <el-option v-for="item in province" :key="item.id" :value="item.name"></el-option>
+                  <el-option v-for="item in allCity" :key="item.id" :value="item"></el-option>
                 </el-select>
               </p>
               <p>
@@ -45,8 +45,8 @@
               <p>
                 <el-input type="textarea" :rows="2" placeholder="留言" v-model="textarea"></el-input>
               </p>
-              <p class="btnn">
-                <el-button type="warning">预约课程</el-button>
+              <p class="btnnn">
+                <el-button type="warning" @click=" submitInfo">预约课程</el-button>
               </p>
             </div>
           </div>
@@ -65,6 +65,7 @@
         <img src="../assets/address.jpg" alt />
       </div>
       <div class="schoolContent">
+        <p class="lookfor">查询校区信息</p>
         <div class="schoolContent1">
           <!-- 省 -->
           <span class="des">省份</span>
@@ -111,12 +112,30 @@
             </div>
           </div>
         </div>
+        <div></div>
+      </div>
+    </div>
+    <!-- 所有校区信息 -->
+    <div class="allSchool">
+      <p class="lookfor2">所有校区信息</p>
+      <div class="searchInfo">
+        <el-table :data="allcenter" border style="width: 100%" id="tab" row-class-name="warning-row">
+          <el-table-column prop="coreProvince" label="省份" width="180" header-row-class-name="ff"></el-table-column>
+          <el-table-column prop="coreCity" label="城市" width="180"></el-table-column>
+          <el-table-column prop="coreName" label="中心名称" width="180"></el-table-column>
+          <el-table-column prop="coreAddress" label="地址"></el-table-column>
+        </el-table>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { getProvince, getCity, getDetailAlq } from "../api/request";
+import {
+  getProvince,
+  getCity,
+  getDetailAlq,
+  submitBabyInfo
+} from "../api/request";
 export default {
   data() {
     return {
@@ -125,12 +144,48 @@ export default {
       birthday: "",
       phoneNumber: "",
       bookingValue: "",
+      allCity: [
+        "北京市",
+        "上海市",
+        "天津市",
+        "重庆市",
+        "河北省",
+        "山西省",
+        "吉林省",
+        "辽宁省",
+        "黑龙江省",
+        "陕西省",
+        "甘肃省",
+        "青海省",
+        "山东省",
+        "福建省",
+        "浙江省",
+        "河南省",
+        "湖北省",
+        "湖南省",
+        "江西省",
+        "江苏省",
+        "安徽省",
+        "广东省",
+        "海南省",
+        "四川省",
+        "贵州省",
+        "云南省",
+        "台湾省",
+        "内蒙古自治区",
+        "新疆维吾尔自治区",
+        "宁夏回族自治区",
+        "广西壮族自治区",
+        "西藏自治区",
+        "香港特别行政区",
+        "澳门特别行政区"
+      ],
       object: ["基础课程", "核心课程", "提升课程"],
       objectVal: "",
       textarea: "",
       province: [],
       // v-model绑定的值
-      value:"",
+      value: "",
       provinceId: "",
       city: "",
       cityValue: "",
@@ -185,7 +240,7 @@ export default {
     getCityId(id) {
       this.cityId = id;
     },
-    // 获取具体地址
+    // 查询地址
     getAlq() {
       let info = {
         coreProvince: this.provinceId,
@@ -196,10 +251,53 @@ export default {
         // console.log(res)
         this.center = res.rows;
       });
+    },
+    // 获取全部地址
+    getAllAlq(){
+         let info = {
+        coreProvince:'',
+        coreCity:'',
+      };
+     getDetailAlq(info).then(res => {
+        // console.log(res)
+        this.allcenter = res.rows;
+      });
+    },
+    // 提交预约报名体验课程
+    submitInfo() {
+      let babyInfo = {
+        babyName: this.babyName,
+        babyBirthday: this.birthday,
+        phone: this.phoneNumber,
+        province: this.bookingValue,
+        course: this.objectVal,
+        remarks: this.textarea
+      };
+      if (
+        this.babyName == "" &&
+        this.birthday == "" &&
+        this.phoneNumber == "" &&this.bookingValue == ""&&
+        this.objectVal == "" &&
+        this.textarea == ""
+      ) {
+        this.$message("请填写您的信息");
+      } else {
+        submitBabyInfo(babyInfo).then(res => {
+          if (res.msg == "操作成功") {
+            this.$message({
+              showClose: true,
+              message: "您已提交成功",
+              type: "success",
+              customClass:'mess'
+            });
+          }
+        });
+      }
     }
   },
   created() {
     this.getProvinceInfo();
+    this.getAllAlq()
   }
 };
 </script>
@@ -283,6 +381,7 @@ export default {
     }
   }
 }
+
 // 校区信息
 
 .schoolInfo {
@@ -317,7 +416,7 @@ export default {
 }
 .map {
   width: 944px;
-  margin: 180px auto;
+  margin: 80px auto;
   img {
     display: inline-block;
     width: 944px;
@@ -329,6 +428,31 @@ export default {
     position: absolute;
     bottom: 0px;
   }
+}
+.lookfor {
+  width: 350px;
+  margin-top: 50px;
+  margin-bottom: -30px;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 50px auto;
+  text-align: center;
+}
+.lookfor2 {
+  width: 350px;
+  margin-top: 50px;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 50px auto;
+  text-align: center;
+}
+.allSchool {
+  width: 1400px;
+  height: auto;
+  margin: auto;
+  border: 1px dashed grey;
+  margin-bottom: 80px;
+  padding-bottom: 50px;
 }
 </style>
 <style lang="scss">
@@ -352,10 +476,7 @@ export default {
 }
 .has-gutter {
   font-size: 24px;
-
-
 }
-
 
 .el-table th,
 .el-table tr {
@@ -386,21 +507,25 @@ export default {
     height: 100px;
   }
 }
-.btnn{
-  .el-button{
-    background-color:#eb6100 ;
+.btnnn {
+  .el-button {
+    background-color: #eb6100;
     font-size: 18px;
     width: 140px;
     height: 50px;
   }
 }
-#tab{
-  .el-table__empty-text{
+#tab {
+  .el-table__empty-text {
     font-size: 20px;
   }
 }
-  .el-table .warning-row {
-    background: white;
-    color: gray;
-  }
+.el-table .warning-row {
+  background: white;
+  color: gray;
+}
+.el-message__content{
+   font-size: 20px;
+}
+
 </style>

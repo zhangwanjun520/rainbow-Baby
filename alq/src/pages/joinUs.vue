@@ -148,12 +148,11 @@
          <div class="two">
            <span class="type">性别</span>
            <el-radio v-model="radio" label="1" class="rad">男</el-radio>
-             <el-radio v-model="radio" label="2" class="rad">女</el-radio>
-
+            <el-radio v-model="radio" label="2" class="rad">女</el-radio>
          </div>
          <div class="two">
             <span class="type">意向城市</span>  <el-select v-model="value" placeholder="请选择省/市" @change="val" id="sel">
-             <el-option v-for="item in $store.state.adressInfo.provinceInfo" :key="item.id" :value="item.name" ></el-option>
+             <el-option v-for="item in allCity" :key="item.id" :value="item" ></el-option>
         </el-select>
          </div>
             <div class="two">
@@ -178,16 +177,16 @@
                 placeholder="请输入内容"
                 v-model="textarea">
 </el-input>
-
          </div>
          <div class="btn">
-             <el-button type="primary">提交</el-button>
+             <el-button type="primary" @click=" submitInfo">提交</el-button>
          </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import {submitJoinerInfo} from '../api/request'
 export default {
   data() {
     return {
@@ -195,9 +194,45 @@ export default {
       // 表单姓名
       name:'',
       // 表单性别
-       radio: '1',
+       radio: '',
        value:'',
        moneyValue:'',
+       allCity:[
+          "北京市",
+        "上海市",
+        "天津市",
+        "重庆市",
+        "河北省",
+        "山西省",
+        "吉林省",
+        "辽宁省",
+        "黑龙江省",
+        "陕西省",
+        "甘肃省",
+        "青海省",
+        "山东省",
+        "福建省",
+        "浙江省",
+        "河南省",
+        "湖北省",
+        "湖南省",
+        "江西省",
+        "江苏省",
+        "安徽省",
+        "广东省",
+        "海南省",
+        "四川省",
+        "贵州省",
+        "云南省",
+        "台湾省",
+        "内蒙古自治区",
+        "新疆维吾尔自治区",
+        "宁夏回族自治区",
+        "广西壮族自治区",
+        "西藏自治区",
+        "香港特别行政区",
+        "澳门特别行政区"
+       ],
        moneyType:[
          "50万以下",
          '50万-100万',
@@ -224,6 +259,42 @@ export default {
       console.log(e);
       this.moneyValue = e;
     },
+    //表单加盟信息提交
+    submitInfo(){
+      let info={
+        name:this.name,
+        sex:this.radio,
+        intendedCity:this.value,
+        ability:this.moneyValue,
+        phone:this.phone,
+        email:this.email,
+        leavingMessage:this.textarea
+      }
+
+         if (
+        this.name == "" &&
+        this.radio == "" &&
+        this.value == "" &&
+         this.moneyValue== "" &&
+        this.phone == "" &&
+        this.email == ""&&
+        this.textarea==''
+      ) {
+        this.$message("请填写您的信息");
+      } else {
+            submitJoinerInfo(info).then(res=>{
+       if (res.msg == "操作成功") {
+            this.$message({
+              showClose: true,
+              message: "您已提交成功",
+              type: "success",
+              customClass:'mess'
+            });
+          }
+      })
+      }
+    }
+
   },
   created() {
     console.log(this)
@@ -350,11 +421,15 @@ export default {
     background-color: #f07855;
     font-size: 24px;
   }
+  .sup1{
+      background-color: white;
+  }
   .sup1,
   .sup2,
   .sup3 {
     width: 550px;
     height: 700px;
+
     // border: 1px solid;
   }
 }
@@ -598,6 +673,11 @@ line-height: 40px;
      border-color: white;
   }
 
+}
+</style>
+<style lang="scss">
+.el-message__content{
+   font-size: 20px;
 }
 </style>
 

@@ -43,6 +43,17 @@ const routes = [
     component: () => import('../pages/newCenter.vue')
   },
   {
+    path: '/newCenter',
+    name: 'newCenter',
+    component: () => import('../pages/newCenter.vue')
+  },
+  {
+    path: '/:id',
+    name: 'newsDetail',
+    component: () => import(/*webpackChunkName:'position'*/'../pages/newsDetail'),
+
+  },
+  {
     // 兜底路由，匹配不到的路由跳转到首页
     path: '*',
     redirect: '/home',

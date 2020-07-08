@@ -7,8 +7,11 @@
       <p>
         <img src="http://www.52alq.com/statics/images/about.jpg" alt />
       </p>
-      <p>北京爱乐祺文化发展股份有限公司是一家专业从事托育早教的多元化集团发展公司</p>
-      <p>2010年，提出“托育早教”的园所教养模式</p>
+      <p>
+        北京爱乐祺文化发展股份有限公司是一家专业从事托育早教的多元化集团发展公司
+        <br />2010年，提出“托育早教”的园所教养模式
+      </p>
+
       <p class="des">
         我们的托育早教园所，是欧美国家的“daycare”、日本的“保育园”这样社区式托儿所
         ，中国传统托儿所的结合体教育养育一体化，主要针对0-6岁的婴幼儿及家庭，能够同时满足家庭的托管需求和早期专业教育的需求
@@ -48,9 +51,10 @@
       <p>国家“十一五”科研重点课题《0-3岁早期教育师资培训研究》实验基地</p>
       <p>全国托育早教服务机构认证标准课题组组长单位</p>
       <p>托育早教研究院组长单位</p>
-      <p><img src="http://www.52alq.com/statics/images/renzheng.jpg" alt=""></p>
+      <p>
+        <img src="http://www.52alq.com/statics/images/renzheng.jpg" alt />
+      </p>
     </div>
-
   </section>
 </template>
 <script>
@@ -74,7 +78,9 @@ export default {};
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // line-height: 30px;
+  text-align: center;
+  // line-height: 36px;
+  // font-weight: 550;
   p {
     font-size: 24px;
     img {
@@ -82,7 +88,7 @@ export default {};
     }
   }
   .des {
-    margin-top: 30px;
+    margin-top:0px;
     text-align: center;
     line-height: 40px;
     margin-bottom: 50px;
@@ -153,30 +159,26 @@ export default {};
     }
   }
 }
-.offical{
-
+.offical {
   width: 1200px;
   margin: 100px auto;
   text-align: center;
-  p{
+  p {
     font-size: 25px;
   }
-  p:nth-child(1){
+  p:nth-child(1) {
     font-size: 60px;
     font-weight: bold;
-     line-height: 0px;
+    line-height: 0px;
   }
-  p:nth-child(2){
+  p:nth-child(2) {
     font-size: 40px;
     font-weight: bold;
-
   }
-  p:last-child{
-    img{
+  p:last-child {
+    img {
       width: 611px;
     }
   }
 }
-
-
 </style>

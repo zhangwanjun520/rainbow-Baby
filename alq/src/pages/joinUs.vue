@@ -179,7 +179,9 @@
 </el-input>
          </div>
          <div class="btn">
-             <el-button type="primary" @click=" submitInfo">提交</el-button>
+             <p class="but">
+                <el-button type="warning" @click=" submitInfo">提交</el-button>
+              </p>
          </div>
       </div>
     </div>
@@ -245,8 +247,10 @@ export default {
        textarea:'',
       //  正则验证错误提示
        mistakePhone:'',
-       mistakeEmail:''
-
+       mistakeEmail:'',
+       flag:true,
+      judgePhone:'',
+      judgeEmail:''
     };
 
   },
@@ -280,15 +284,28 @@ export default {
         this.email == ""&&
         this.textarea==''
       ) {
-        this.$message("请填写您的信息");
-      } else {
+        this.$message({
+          message:"请填写您的信息",
+             offset:200,
+               showClose: true,
+          });
+      }
+      else if(this.judgePhone!=true||this.judgeEmail!=true){
+         this.$message({
+          message:"手机号或邮箱错误",
+             offset:200,
+               showClose: true,
+          });
+      }
+      else if(this.judgePhone==true){
             submitJoinerInfo(info).then(res=>{
        if (res.msg == "操作成功") {
             this.$message({
               showClose: true,
               message: "您已提交成功",
               type: "success",
-              customClass:'mess'
+              customClass:'mess',
+              offset:200,
             });
           }
       })
@@ -300,25 +317,25 @@ export default {
     console.log(this)
   },
   watch:{
-    // phone(newVal,oldVal){
-    // if(!(/^1[3456789]\d{9}$/.test(newVal))){
-    //     this.mistakePhone='手机号格式错误'
-    //     return false;
-    // } else{
-    //   this.mistakePhone=''
-    //     return true;
+    phone(newVal,oldVal){
+    if(!(/^([1]\d{10}|([\(（]?0[0-9]{2,3}[）\)]?[-]?)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?)$/.test(newVal))){
+        this.mistakePhone='号码格式错误'
+      this.judgePhone=false;
+    } else{
+      this.mistakePhone=''
+    this.judgePhone=true;
 
-    // }
-    // },
-    //     email(newVal,oldVal){
-    // if(!(/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(newVal))){
-    //     this.mistakeEmail='邮箱格式错误'
-    //     return false;
-    // } else{
-    //   this.mistakeEmail=''
-    //     return true;
-    // }
-    // }
+    }
+    },
+        email(newVal,oldVal){
+    if(!(/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(newVal))){
+        this.mistakeEmail='邮箱格式错误'
+          this.judgeEmail=false;
+    } else{
+      this.mistakeEmail=''
+      this.judgeEmail=true;
+    }
+    }
   }
 };
 </script>
@@ -560,7 +577,7 @@ line-height: 40px;
 // 表单
 .personInfo{
   width: 650px;
-  height: 800px;
+  height: 850px;
   position: absolute;
   background: #f07855;
   right: 150px;
@@ -638,7 +655,7 @@ line-height: 40px;
 }
 .one,.two{
   .el-input__inner{
-    width: 280px;
+    width: 300px;
     height: 50px;
         font-size: 18px;
   }
@@ -658,10 +675,10 @@ line-height: 40px;
 }
 .one{
   .el-textarea{
-    width: 280px;
+    width: 300px;
     height: 200px;
     .el-textarea__inner{
-      width: 285px;
+      width: 305px;
       height: 180px;
     }
   }
@@ -678,6 +695,17 @@ line-height: 40px;
 <style lang="scss">
 .el-message__content{
    font-size: 20px;
+}
+.one .el-textarea{
+  font-size: 18px;
+}
+.but {
+  .el-button {
+    background-color: #eb6100;
+    font-size: 18px;
+    width: 140px;
+    height: 50px;
+  }
 }
 </style>
 

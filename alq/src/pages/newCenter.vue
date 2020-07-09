@@ -47,7 +47,7 @@
             @current-change="handleCurrentChange"
             layout="prev, pager, next"
             :page-size="4"
-            :total="sitem.length"
+            :total="tab[sindex].length"
           ></el-pagination>
         </div>
       </div>

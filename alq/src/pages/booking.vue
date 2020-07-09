@@ -119,7 +119,13 @@
     <div class="allSchool">
       <p class="lookfor2">所有校区信息</p>
       <div class="searchInfo">
-        <el-table :data="allcenter" border style="width: 100%" id="tab" row-class-name="warning-row">
+        <el-table
+          :data="allcenter"
+          border
+          style="width: 100%"
+          id="tab"
+          row-class-name="warning-row"
+        >
           <el-table-column prop="coreProvince" label="省份" width="180" header-row-class-name="ff"></el-table-column>
           <el-table-column prop="coreCity" label="城市" width="180"></el-table-column>
           <el-table-column prop="coreName" label="中心名称" width="180"></el-table-column>
@@ -190,7 +196,8 @@ export default {
       city: "",
       cityValue: "",
       centerName: "",
-      center: ""
+      center: [],
+      allcenter: []
       // 学校信息表格
     };
   },
@@ -240,6 +247,17 @@ export default {
     getCityId(id) {
       this.cityId = id;
     },
+    // 获取全部地址
+    getAllAlq() {
+      let info = {
+        coreProvince: "",
+        coreCity: ""
+      };
+      getDetailAlq(info).then(res => {
+        console.log(res);
+        this.allcenter = res.rows;
+      });
+    },
     // 查询地址
     getAlq() {
       let info = {
@@ -252,17 +270,7 @@ export default {
         this.center = res.rows;
       });
     },
-    // 获取全部地址
-    getAllAlq(){
-         let info = {
-        coreProvince:'',
-        coreCity:'',
-      };
-     getDetailAlq(info).then(res => {
-        // console.log(res)
-        this.allcenter = res.rows;
-      });
-    },
+
     // 提交预约报名体验课程
     submitInfo() {
       let babyInfo = {
@@ -276,11 +284,22 @@ export default {
       if (
         this.babyName == "" &&
         this.birthday == "" &&
-        this.phoneNumber == "" &&this.bookingValue == ""&&
+        this.phoneNumber == "" &&
+        this.bookingValue == "" &&
         this.objectVal == "" &&
         this.textarea == ""
       ) {
-        this.$message("请填写您的信息");
+        this.$message({
+          message: "请填写您的信息",
+          offset: 200,
+          showClose: true
+        });
+      } else if (this.phoneNumber == "") {
+        this.$message({
+          message: "请填写您的手机号码",
+          offset: 200,
+          showClose: true
+        });
       } else {
         submitBabyInfo(babyInfo).then(res => {
           if (res.msg == "操作成功") {
@@ -288,16 +307,19 @@ export default {
               showClose: true,
               message: "您已提交成功",
               type: "success",
-              customClass:'mess'
+              customClass: "mess",
+              offset: 200
             });
           }
         });
       }
     }
   },
+  mounted() {
+    this.getAllAlq();
+  },
   created() {
     this.getProvinceInfo();
-    this.getAllAlq()
   }
 };
 </script>
@@ -524,8 +546,7 @@ export default {
   background: white;
   color: gray;
 }
-.el-message__content{
-   font-size: 20px;
+.el-message__content {
+  font-size: 20px;
 }
-
 </style>

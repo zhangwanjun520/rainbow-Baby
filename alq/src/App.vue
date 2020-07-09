@@ -6,6 +6,7 @@
    <foot></foot>
    <message></message>
    <rightContent></rightContent>
+   <alertImg></alertImg>
   </div>
 </template>
 <script>
@@ -14,8 +15,10 @@ import booking from './components/booking'
 import foot from './components/foot'
 import message from './components/message'
 import rightContent from './components/rightSide'
+import alertImg from './components/alertImg'
+
 export default {
-  components: {headList,booking,foot,message,rightContent},
+  components: {headList,booking,foot,message,rightContent,alertImg},
   data() {
     return {
       left: 0

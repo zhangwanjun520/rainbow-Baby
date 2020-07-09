@@ -43,6 +43,7 @@ export default {
 header {
   width: 100%;
   height: 126px;
+  border-bottom: 1px solid gainsboro;
   .main {
     // background-color: antiquewhite;
     display: flex;

@@ -48,6 +48,11 @@ const routes = [
     component: () => import('../pages/newCenter.vue')
   },
   {
+    path: '/provicy',
+    name: 'provicyPolicy',
+    component: () => import('../pages/provicyPolicy.vue')
+  },
+  {
     path: '/:id',
     name: 'newsDetail',
     component: () => import(/*webpackChunkName:'position'*/'../pages/newsDetail'),

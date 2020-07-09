@@ -35,7 +35,11 @@ export default {
         city: this.city
       };
       if (this.name == "" && this.phoneNumber == "" && this.city == "") {
-        this.$message("请填写信息");
+        this.$message({
+          message: "请填写信息",
+          offset: 200,
+           showClose: true,
+        });
       } else {
         submitMsg(info).then(res => {
           if (res.msg == "操作成功") {
@@ -43,7 +47,8 @@ export default {
               showClose: true,
               message: "您已提交成功",
               type: "success",
-              customClass: "mess"
+              customClass: "mess",
+              offset: 200
             });
           }
         });
@@ -90,7 +95,7 @@ footer {
 }
 </style>
 <style lang="scss">
-.el-message__content{
-   font-size: 20px;
+.el-message__content {
+  font-size: 20px;
 }
 </style>

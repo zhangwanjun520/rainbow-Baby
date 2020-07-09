@@ -23,7 +23,7 @@
           <router-link tag="li" to="/lessonIntroduce">课程介绍</router-link>
           <router-link tag="li" to="/newCenter">新闻中心</router-link>
           <router-link tag="li" to="/joinUs">加盟我们</router-link>
-          <router-link tag="li" to="/privacy">隐私条款</router-link>
+          <router-link tag="li" to="/provicy">隐私条款</router-link>
         </ul>
       </div>
       <div class="right">
@@ -98,6 +98,7 @@ footer {
         color: white;
         li {
           width: 100px;
+          cursor: pointer;
           // border: 1px solid;
         }
       }

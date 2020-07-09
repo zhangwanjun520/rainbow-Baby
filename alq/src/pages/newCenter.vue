@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       num: 0,
-      title:["全国中心活动", "创业者说"],
+      title: ["全国中心活动", "创业者说"],
       tab: [],
       currentPage: 1,
       pagesize: 4
@@ -92,19 +92,26 @@ export default {
         this.tab.unshift(res.rows);
       });
       //获取创业者说
-      getEntrepreneurs(info).then(res => {
-        this.tab.push(res.rows);
+
+        this.tab.push(this.$store.state.news.newsInfo);
         console.log(this.tab)
-      });
+
+
       // 分页
     },
     // 跳到详情页
-    goDetail(id){
+    goDetail(id) {
       // console.log(id)
-      this.$router.push(`/${id}`)
+      this.$router.push({
+        path:`/${id}`,
+        query:{
+          come:'1'
+        }
+        });
     }
   },
   created() {
+
     this.getNews();
   }
 };
@@ -186,7 +193,7 @@ export default {
       line-height: 36px;
       font-weight: bold;
     }
-    .newsTit:hover{
+    .newsTit:hover {
       color: orange;
       cursor: pointer;
     }

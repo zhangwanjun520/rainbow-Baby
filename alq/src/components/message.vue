@@ -40,7 +40,14 @@ export default {
           offset: 200,
            showClose: true,
         });
-      } else {
+      }  else if (this.phoneNumber == "") {
+        this.$message({
+          message: "请填写您的手机号码",
+          offset: 200,
+           showClose: true,
+        });
+      }
+      else {
         submitMsg(info).then(res => {
           if (res.msg == "操作成功") {
             this.$message({

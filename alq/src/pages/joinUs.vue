@@ -24,100 +24,103 @@
     </div>
     <!-- 爱乐祺加盟提供“7+1”管家式服务支持 -->
     <div class="attentiveBox">
-          <div class="attentive">
-      <p>
-        <img src="../assets/service.png" alt />
-      </p>
-      <p>
-        爱乐祺加盟提供
-        <br />“7+1”管家式服务支持
-      </p>
-      <!-- 筹备期支持，运营期支持 -->
-      <div class="sup">
-        <div class="sup1">
-          <div class="title">筹备期支持</div>
-          <el-collapse v-model="activeName" accordion>
-            <el-collapse-item title="选址装修支持" name="1">
-              <div>—— 专业运营督导一对一指导场地的选址、评估、审核工作</div>
-              <div>—— SI标准化装修手册，精细到厘米的装修材质标准，根据经营场址的特性免费设计场地功能区划分</div>
-              <div>—— VI视觉规范系统，总部设计工程师提供CAD施工、效果图纸，确保环境细节的使用和规范</div>
-            </el-collapse-item>
-            <el-collapse-item title="市场靶向推广支持" name="2">
-              <div>—— 国内行业信息、区域市场调研分析，靶向市场宣传投入获取目标客户</div>
-              <div>—— 《市场推广手册》详细讲解客户形象定位、开业活动策划，异业同盟谈判技巧</div>
-              <div>—— 全国专家巡回讲座，专业普及婴幼儿科学教养。</div>
-            </el-collapse-item>
-            <el-collapse-item title="师资招聘支持" name="3">
-              <div>—— 《人力资源管理手册》全程指导团队建设</div>
-              <div>—— 国内2大招聘平台，同时发布人员招聘信息</div>
-              <div>—— 7个学前教育专业高校合作，保证师资的专业输出（含配送)</div>
-            </el-collapse-item>
-            <el-collapse-item title="可控 Controllability" name="4">
-              <div>—— 体验式全员培训体系，每月开班，提升团队凝聚力、成员执行力、师资技能专业</div>
-              <div>—— 《HOKIDS商学院年度培训框架表》月度定期常规培训、师资提升培训、市场销售培训、季度精英再造训练营时间规划；考核评估宽进严出，制定行业标准</div>
-              <div>—— 发放“全国托育早教服务认证标准课题组”执业证书，全员持证上岗、证书公示、编码查询</div>
-              <div>—— 明星讲师云端视频互动培训，系列课程不断升级，远程也能接触最先进的教学标准</div>
-            </el-collapse-item>
-          </el-collapse>
-        </div>
-        <div class="sup2">
-          <div class="title">运营期支持</div>
-          <el-carousel trigger="click" indicator-position="none" id="sup2">
-            <el-carousel-item class="sup2Content">
-              <p class="img">
-                <img src="../assets/run.jpg" alt />
+      <div class="attentive">
+        <p>
+          <img src="../assets/service.png" alt />
+        </p>
+        <p>
+          爱乐祺加盟提供
+          <br />“7+1”管家式服务支持
+        </p>
+        <!-- 筹备期支持，运营期支持 -->
+        <div class="sup">
+          <div class="sup1">
+            <div class="title">筹备期支持</div>
+            <el-collapse v-model="activeName" accordion>
+              <el-collapse-item title="选址装修支持" name="1">
+                <div>—— 专业运营督导一对一指导场地的选址、评估、审核工作</div>
+                <div>—— SI标准化装修手册，精细到厘米的装修材质标准，根据经营场址的特性免费设计场地功能区划分</div>
+                <div>—— VI视觉规范系统，总部设计工程师提供CAD施工、效果图纸，确保环境细节的使用和规范</div>
+              </el-collapse-item>
+              <el-collapse-item title="市场靶向推广支持" name="2">
+                <div>—— 国内行业信息、区域市场调研分析，靶向市场宣传投入获取目标客户</div>
+                <div>—— 《市场推广手册》详细讲解客户形象定位、开业活动策划，异业同盟谈判技巧</div>
+                <div>—— 全国专家巡回讲座，专业普及婴幼儿科学教养。</div>
+              </el-collapse-item>
+              <el-collapse-item title="师资招聘支持" name="3">
+                <div>—— 《人力资源管理手册》全程指导团队建设</div>
+                <div>—— 国内2大招聘平台，同时发布人员招聘信息</div>
+                <div>—— 7个学前教育专业高校合作，保证师资的专业输出（含配送)</div>
+              </el-collapse-item>
+              <el-collapse-item title="可控 Controllability" name="4">
+                <div>—— 体验式全员培训体系，每月开班，提升团队凝聚力、成员执行力、师资技能专业</div>
+                <div>—— 《HOKIDS商学院年度培训框架表》月度定期常规培训、师资提升培训、市场销售培训、季度精英再造训练营时间规划；考核评估宽进严出，制定行业标准</div>
+                <div>—— 发放“全国托育早教服务认证标准课题组”执业证书，全员持证上岗、证书公示、编码查询</div>
+                <div>—— 明星讲师云端视频互动培训，系列课程不断升级，远程也能接触最先进的教学标准</div>
+              </el-collapse-item>
+            </el-collapse>
+          </div>
+          <div class="sup2">
+            <div class="title">运营期支持</div>
+            <el-carousel trigger="click" indicator-position="none" id="sup2">
+              <el-carousel-item class="sup2Content">
+                <p class="img">
+                  <img src="../assets/run.jpg" alt />
+                </p>
+                <p>
+                  · 总部电话客服实时对接客户口碑，量化服务标准
+                  <br />· 客户成交报名，“爱乐祺客户管理系统”的合同录入24小时之内，致电客户欢迎新会员加入
+                  <br />· 会员开卡上课30天时，致电会员家长，增进客户粘度做满意度回访；提高单店课程出勤率
+                  <br />· 会员生日祝福、解决客诉、提醒会员续费等增值服务
+                </p>
+                <p class="subtitle">全国电话客服支持</p>
+              </el-carousel-item>
+
+              <el-carousel-item class="sup2Content">
+                <p class="img">
+                  <img src="../assets/run2.jpg" alt />
+                </p>
+                <p>
+                  · 业绩经营指标分解，各部门岗位个人目标确定，全方位支持开业
+                  <br />· 预售活动策划，帮助单店市场预热，快速资金回笼
+                  <br />· 签订《业绩保障协议》总部督导下店支持，保障开业前期的招生数量和业绩收入
+                </p>
+                <p class="subtitle">开业经营支持</p>
+              </el-carousel-item>
+
+              <el-carousel-item class="sup2Content">
+                <p class="img">
+                  <img src="../assets/run3.jpg" alt />
+                </p>
+                <p>
+                  · 微信营销平台线上集赞、砍价等营销活动，增加区域市场曝光度；并能实现近点约课、在线选课
+                  <br />· 年度大型“全国早教师节”“品牌周年庆”活动，多渠道宣传推广支撑，全员狂欢
+                  <br />· 总部官网开设专项招生页面，全面覆盖地方区域的线上宣传
+                </p>
+                <p class="subtitle">大市场运营支持</p>
+              </el-carousel-item>
+            </el-carousel>
+          </div>
+          <div class="sup3">
+            <div class="people">
+              <p>
+                12年直营单店的运营管理经验支持
+                <br />“管家”式服务支持
+              </p>
+
+              <p>
+                <img src="../assets/people.png" alt />
               </p>
               <p>
-                · 总部电话客服实时对接客户口碑，量化服务标准
-                <br />· 客户成交报名，“爱乐祺客户管理系统”的合同录入24小时之内，致电客户欢迎新会员加入
-                <br />· 会员开卡上课30天时，致电会员家长，增进客户粘度做满意度回访；提高单店课程出勤率
-                <br />· 会员生日祝福、解决客诉、提醒会员续费等增值服务
+                督导一对一管家服务
+                <br />全程跟踪开业筹备、招生业绩、课程教学、会员管理服务
               </p>
-              <p class="subtitle">全国电话客服支持</p>
-            </el-carousel-item>
-
-            <el-carousel-item class="sup2Content">
-              <p class="img">
-                <img src="../assets/run2.jpg" alt />
-              </p>
-              <p>
-                · 业绩经营指标分解，各部门岗位个人目标确定，全方位支持开业
-                <br />· 预售活动策划，帮助单店市场预热，快速资金回笼
-                <br />· 签订《业绩保障协议》总部督导下店支持，保障开业前期的招生数量和业绩收入
-              </p>
-              <p class="subtitle">开业经营支持</p>
-            </el-carousel-item>
-
-            <el-carousel-item class="sup2Content"  >
-              <p class="img">
-                <img src="../assets/run3.jpg" alt />
-              </p>
-              <p>
-                · 微信营销平台线上集赞、砍价等营销活动，增加区域市场曝光度；并能实现近点约课、在线选课
-                <br />· 年度大型“全国早教师节”“品牌周年庆”活动，多渠道宣传推广支撑，全员狂欢
-                <br />· 总部官网开设专项招生页面，全面覆盖地方区域的线上宣传
-              </p>
-              <p class="subtitle">大市场运营支持</p>
-            </el-carousel-item>
-          </el-carousel>
-        </div>
-        <div class="sup3">
-          <div class="people">
-            <p>
-              12年直营单店的运营管理经验支持<br>
-              “管家”式服务支持
-            </p>
-
-            <p><img src="../assets/people.png" alt="">
-                        <p>督导一对一管家服务<br/>全程跟踪开业筹备、招生业绩、课程教学、会员管理服务</p>
-<p>HOKIDS托育早教管理系统提供统计收入确认、损益分析、签约提醒、销售跟踪、平台约课、定时视频监控等全方位的服务支持</p>
-            </p>
+              <p>HOKIDS托育早教管理系统提供统计收入确认、损益分析、签约提醒、销售跟踪、平台约课、定时视频监控等全方位的服务支持</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-
 
     <!-- 加盟流程 -->
     <div class="step">
@@ -141,66 +144,64 @@
       <!-- 表单信息 -->
       <div class="personInfo">
         <p class="tit">“城市合伙人”招募计划</p>
-         <div class="one">
-           <span class="type">姓名</span> <el-input v-model="name" placeholder="请输入姓名"></el-input>
-
-         </div>
-         <div class="two">
-           <span class="type">性别</span>
-           <el-radio v-model="radio" label="1" class="rad">男</el-radio>
-            <el-radio v-model="radio" label="2" class="rad">女</el-radio>
-         </div>
-         <div class="two">
-            <span class="type">意向城市</span>  <el-select v-model="value" placeholder="请选择省/市" @change="val" id="sel">
-             <el-option v-for="item in allCity" :key="item.id" :value="item" ></el-option>
-        </el-select>
-         </div>
-            <div class="two">
-            <span class="type">投资能力</span>  <el-select v-model="moneyValue" placeholder="请选择投资额度" @change="money" id="sel">
-             <el-option v-for="item in moneyType" :key="item.id" :value="item" ></el-option>
-        </el-select>
-         </div>
-           <div class="one">
-           <span class="type">联系电话</span> <el-input v-model="phone" placeholder="请输入电话号码"></el-input>
-           <p class="mistakeCon">{{mistakePhone}}</p>
-
-         </div>
-             <div class="one">
-           <span class="type">邮箱</span> <el-input v-model="email" placeholder="请输入邮箱"></el-input>
-           <p class="mistakeCon">{{mistakeEmail}}</p>
-
-         </div>
-               <div class="one">
-           <span class="type2">留言</span><el-input
-                type="textarea"
-                :rows="2"
-                placeholder="请输入内容"
-                v-model="textarea">
-</el-input>
-         </div>
-         <div class="btn">
-             <p class="but">
-                <el-button type="warning" @click=" submitInfo">提交</el-button>
-              </p>
-         </div>
+        <div class="one">
+          <span class="type">姓名</span>
+          <el-input v-model="name" placeholder="请输入姓名"></el-input>
+        </div>
+        <div class="two">
+          <span class="type">性别</span>
+          <el-radio v-model="radio" label="1" class="rad">男</el-radio>
+          <el-radio v-model="radio" label="2" class="rad">女</el-radio>
+        </div>
+        <div class="two">
+          <span class="type">意向城市</span>
+          <el-select v-model="value" placeholder="请选择省/市" @change="val" id="sel">
+            <el-option v-for="item in allCity" :key="item.id" :value="item"></el-option>
+          </el-select>
+        </div>
+        <div class="two">
+          <span class="type">投资能力</span>
+          <el-select v-model="moneyValue" placeholder="请选择投资额度" @change="money" id="sel">
+            <el-option v-for="item in moneyType" :key="item.id" :value="item"></el-option>
+          </el-select>
+        </div>
+        <div class="one">
+          <span class="type">联系电话</span>
+          <el-input v-model="phone" placeholder="请输入电话号码"></el-input>
+          <p class="mistakeCon">{{mistakePhone}}</p>
+        </div>
+        <div class="one">
+          <span class="type">邮箱</span>
+          <el-input v-model="email" placeholder="请输入邮箱"></el-input>
+          <p class="mistakeCon">{{mistakeEmail}}</p>
+        </div>
+        <div class="one">
+          <span class="type2">留言</span>
+          <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
+        </div>
+        <div class="btn">
+          <p class="but">
+            <el-button type="warning" @click=" submitInfo">提交</el-button>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import {submitJoinerInfo} from '../api/request'
+import { submitJoinerInfo } from "../api/request";
 export default {
   data() {
     return {
       activeName: "1",
       // 表单姓名
-      name:'',
+      name: "",
       // 表单性别
-       radio: '',
-       value:'',
-       moneyValue:'',
-       allCity:[
-          "北京市",
+      radio: "",
+      value: "",
+      moneyValue: "",
+      allCity: [
+        "北京市",
         "上海市",
         "天津市",
         "重庆市",
@@ -234,107 +235,110 @@ export default {
         "西藏自治区",
         "香港特别行政区",
         "澳门特别行政区"
-       ],
-       moneyType:[
-         "50万以下",
-         '50万-100万',
-         '100万-150万',
-         '150万-200万',
-         '200万以上'
-       ],
-       phone:'',
-       email:'',
-       textarea:'',
+      ],
+      moneyType: [
+        "50万以下",
+        "50万-100万",
+        "100万-150万",
+        "150万-200万",
+        "200万以上"
+      ],
+      phone: "",
+      email: "",
+      textarea: "",
       //  正则验证错误提示
-       mistakePhone:'',
-       mistakeEmail:'',
-       flag:true,
-      judgePhone:'',
-      judgeEmail:''
+      mistakePhone: "",
+      mistakeEmail: "",
+      flag: true,
+      judgePhone: "",
+      judgeEmail: ""
     };
-
   },
-  methods:{
-     val(e) {
+  methods: {
+    val(e) {
       console.log(e);
       this.value = e;
     },
-     money(e) {
+    money(e) {
       console.log(e);
       this.moneyValue = e;
     },
     //表单加盟信息提交
-    submitInfo(){
-      let info={
-        name:this.name,
-        sex:this.radio,
-        intendedCity:this.value,
-        ability:this.moneyValue,
-        phone:this.phone,
-        email:this.email,
-        leavingMessage:this.textarea
-      }
+    submitInfo() {
+      let info = {
+        name: this.name,
+        sex: this.radio,
+        intendedCity: this.value,
+        ability: this.moneyValue,
+        phone: this.phone,
+        email: this.email,
+        leavingMessage: this.textarea
+      };
 
-         if (
+      if (
         this.name == "" &&
         this.radio == "" &&
         this.value == "" &&
-         this.moneyValue== "" &&
+        this.moneyValue == "" &&
         this.phone == "" &&
-        this.email == ""&&
-        this.textarea==''
+        this.email == "" &&
+        this.textarea == ""
       ) {
         this.$message({
-          message:"请填写您的信息",
-             offset:200,
-               showClose: true,
-          });
-      }
-      else if(this.judgePhone!=true||this.judgeEmail!=true){
-         this.$message({
-          message:"手机号或邮箱错误",
-             offset:200,
-               showClose: true,
-          });
-      }
-      else if(this.judgePhone==true){
-            submitJoinerInfo(info).then(res=>{
-       if (res.msg == "操作成功") {
+          message: "请填写您的信息",
+          offset: 200,
+          showClose: true
+        });
+      } else if (this.judgePhone != true || this.judgeEmail != true) {
+        this.$message({
+          message: "手机号或邮箱错误",
+          offset: 200,
+          showClose: true
+        });
+      } else if (this.judgePhone == true) {
+        submitJoinerInfo(info).then(res => {
+          if (res.msg == "操作成功") {
             this.$message({
               showClose: true,
               message: "您已提交成功",
               type: "success",
-              customClass:'mess',
-              offset:200,
+              customClass: "mess",
+              offset: 200
             });
           }
-      })
+        });
       }
     }
-
   },
   created() {
-    console.log(this)
+    console.log(this);
   },
-  watch:{
-    phone(newVal,oldVal){
-    if(!(/^([1]\d{10}|([\(（]?0[0-9]{2,3}[）\)]?[-]?)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?)$/.test(newVal))){
-        this.mistakePhone='号码格式错误'
-      this.judgePhone=false;
-    } else{
-      this.mistakePhone=''
-    this.judgePhone=true;
-
-    }
+  watch: {
+    phone(newVal, oldVal) {
+      if (
+        !/^([1]\d{10}|([\(（]?0[0-9]{2,3}[）\)]?[-]?)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?)$/.test(
+          newVal
+        )
+      ) {
+        this.mistakePhone = "号码格式错误";
+        this.judgePhone = false;
+      } else {
+        this.mistakePhone = "";
+        this.judgePhone = true;
+      }
     },
-        email(newVal,oldVal){
-    if(!(/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(newVal))){
-        this.mistakeEmail='邮箱格式错误'
-          this.judgeEmail=false;
-    } else{
-      this.mistakeEmail=''
-      this.judgeEmail=true;
-    }
+    email(newVal, oldVal) {
+      if (
+        !/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(
+          newVal
+        )
+      ) {
+        this.mistakeEmail = "邮箱格式错误";
+        this.judgeEmail = false;
+      } else {
+        this.mistakeEmail = "";
+        this.judgeEmail = true;
+      }
     }
   }
 };
@@ -402,7 +406,7 @@ export default {
 }
 
 //  <!-- 爱乐祺加盟提供“7+1”管家式服务支持 -->
-.attentiveBox{
+.attentiveBox {
   width: 100%;
   height: auto;
   background-color: #eee;
@@ -438,8 +442,8 @@ export default {
     background-color: #f07855;
     font-size: 24px;
   }
-  .sup1{
-      background-color: white;
+  .sup1 {
+    background-color: white;
   }
   .sup1,
   .sup2,
@@ -491,31 +495,29 @@ export default {
     font-size: 22px;
   }
 }
-.sup3{
-  background:#f07855 ;
-  p:nth-child(1){
+.sup3 {
+  background: #f07855;
+  p:nth-child(1) {
     font-size: 28px;
   }
-  p{
+  p {
     font-size: 28px;
-color: white;
-font-weight: 550;;
-    img{
+    color: white;
+    font-weight: 550;
+    img {
       width: 151px;
     }
   }
-   p:nth-child(3){
+  p:nth-child(3) {
     font-size: 24px;
     font-weight: 500;
-line-height: 40px;
+    line-height: 40px;
     margin-top: 80px;
   }
-  p:nth-child(4){
+  p:nth-child(4) {
     font-size: 24px;
     font-weight: 500;
-line-height: 40px;
-
-
+    line-height: 40px;
   }
 }
 // 加盟流程
@@ -545,7 +547,7 @@ line-height: 40px;
 // 加盟服务顾问
 .banner4 {
   width: 100%;
-  height: 800px;
+  height: 850px;
   background: url("../assets/recruitbg.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -575,7 +577,7 @@ line-height: 40px;
   }
 }
 // 表单
-.personInfo{
+.personInfo {
   width: 650px;
   height: 850px;
   position: absolute;
@@ -586,31 +588,30 @@ line-height: 40px;
   color: white;
   font-size: 20px;
   font-weight: 550;
-  .tit{
+  .tit {
     font-size: 30px;
     text-align: center;
     margin-top: 30px;
   }
 }
-.one{
+.one {
   width: 90%;
   margin: 20px auto;
   margin-left: 65px;
 }
-.two{
+.two {
   width: 90%;
   margin: 20px auto;
   margin-left: 65px;
-
 }
-.type{
+.type {
   display: inline-block;
   width: 100px;
   margin-right: 20px;
   // border: 1px solid;
   text-align: right;
 }
-.type2{
+.type2 {
   display: inline-block;
   width: 100px;
   margin-right: 20px;
@@ -618,15 +619,14 @@ line-height: 40px;
   text-align: right;
   margin-bottom: 100px;
 }
-.btn{
+.btn {
   width: 60px;
   height: auto;
-  margin:  auto;
+  margin: auto;
   background-color: #f09a81;
   margin-bottom: 20px;
-
 }
-.mistakeCon{
+.mistakeCon {
   font-size: 14px;
   font-weight: normal;
   margin-left: 130px;
@@ -653,50 +653,48 @@ line-height: 40px;
   width: 95%;
   margin: 15px auto;
 }
-.one,.two{
-  .el-input__inner{
+.one,
+.two {
+  .el-input__inner {
     width: 300px;
     height: 50px;
-        font-size: 18px;
+    font-size: 18px;
   }
 }
-.rad{
+.rad {
   margin-left: 15px;
 }
-.rad>span{
+.rad > span {
   color: white;
   font-size: 20px;
 }
-.one{
+.one {
   .el-input {
     width: auto;
-
   }
 }
-.one{
-  .el-textarea{
+.one {
+  .el-textarea {
     width: 300px;
     height: 200px;
-    .el-textarea__inner{
+    .el-textarea__inner {
       width: 305px;
       height: 180px;
     }
   }
-
 }
-.btn{
-  .el-button--primary{
-     background-color: #f09a81;
-     border-color: white;
+.btn {
+  .el-button--primary {
+    background-color: #f09a81;
+    border-color: white;
   }
-
 }
 </style>
 <style lang="scss">
-.el-message__content{
-   font-size: 20px;
+.el-message__content {
+  font-size: 20px;
 }
-.one .el-textarea{
+.one .el-textarea {
   font-size: 18px;
 }
 .but {

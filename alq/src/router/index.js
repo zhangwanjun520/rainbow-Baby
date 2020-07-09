@@ -55,7 +55,7 @@ const routes = [
   {
     path: '/:id',
     name: 'newsDetail',
-    component: () => import(/*webpackChunkName:'position'*/'../pages/newsDetail'),
+    component: () => import('../pages/newsDetail'),
 
   },
   {

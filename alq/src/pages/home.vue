@@ -187,7 +187,27 @@
     </div>
 
     <!-- 新闻中心 -->
-    <!-- <div style="height:300px"></div> -->
+    <p class="tit">NEWS</p>
+      <p class="tit">新闻中心</p>
+    <div class="newsCon">
+
+       <div
+          v-for="item in newsCon"
+          :key="item.id"
+          @click="goDetail(item.newsId)"
+        >
+          <div class="con">
+            <div>
+              <img :src="item.newsIndexImg" alt class="imgg" />
+            </div>
+            <p class="newsTit">{{item.newsTitle}}</p>
+            <p class="time">{{item.createTime}}</p>
+            <p class="editor">作者:{{item.newsEditor}}</p>
+            <p class="subtit">{{item.newsSubtitle}}</p>
+            <p class="rm" @click="goDetail(item.newsId)">READ MORE <i class="el-icon-right"></i></p>
+          </div>
+        </div>
+    </div>
 
     <!-- 联合认证 -->
     <div class="hokids-authentication">
@@ -214,6 +234,7 @@
   </div>
 </template>
 <script>
+import { getEntrepreneurs} from '../api/request'
 export default {
   data() {
     return {
@@ -270,7 +291,7 @@ export default {
           },
           {
             title: "招生年龄",
-            age: "0-72个月",
+            age: "18-72个月",
             img:
               "http://www.52alq.com/uploadfile/2018/1219/20181219051558411.jpg",
             color: "#f76930",
@@ -285,13 +306,39 @@ export default {
             ]
           }
         ]
-      }
+      },
+      newsCon:[]
     };
   },
   methods:{
     onchange(e){
       this.index=e
-    }
+    },
+    getNews() {
+      let info = {
+        pageNum: "",
+        pageSize: ""
+      };
+      //获取创业者说
+      getEntrepreneurs(info).then(res => {
+        console.log(res.rows)
+         this.$store.dispatch("news/Val", res.rows);
+       this.newsCon=res.rows.slice(0,3)
+      });
+      // 分页
+    },
+    goDetail(id){
+      this.$router.push({
+        path:`/${id}`,
+        query:{
+          come:'1'
+        }
+      })
+    },
+  },
+  created(){
+     this.getNews()
+
   }
 };
 </script>
@@ -647,6 +694,64 @@ margin-left: 30px;
 // background: #fff;
   height: 564px;
 
+}
+// 新闻
+  .tit{
+    font-size: 38px;
+    font-weight: bold;
+    width: 1600px;
+  margin: auto;
+  text-align: center;
+  line-height: 60px;
+
+  }
+.newsCon {
+  width: 1600px;
+  margin: auto;
+  // height: 1000px;
+  // border: 1px dashed grey;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .con {
+    width: 500px;
+    height: 780px;
+    border: 1px solid gainsboro;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    line-height: 36px;
+    p {
+      width: 450px;
+      margin: 30px auto;
+    }
+    .imgg {
+      width: 100%;
+      height: 300px;
+    }
+
+    .newsTit {
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: bold;
+    }
+    .newsTit:hover {
+      color: orange;
+      cursor: pointer;
+    }
+    .time,
+    .editor,
+    .subtit {
+      font-size: 20px;
+      margin-top: -20px;
+    }
+  }
+}
+.rm{
+  font-size: 26px;
+  font-weight: bold;
+  color: #475669;
+  cursor: pointer;
 }
 </style>
 <style lang="">

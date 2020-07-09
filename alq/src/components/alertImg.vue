@@ -21,9 +21,10 @@ export default {
   methods: {
     close() {
       this.flag = false;
-      setTimeout(() => {
+     setTimeout(() => {
         this.flag = true;
-      }, 5000);
+      }, 6000);
+
     }
   }
 };

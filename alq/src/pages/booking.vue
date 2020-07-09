@@ -316,10 +316,11 @@ export default {
     }
   },
   mounted() {
-    this.getAllAlq();
+
   },
   created() {
     this.getProvinceInfo();
+       this.getAllAlq();
   }
 };
 </script>

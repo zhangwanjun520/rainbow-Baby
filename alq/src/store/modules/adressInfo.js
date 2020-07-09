@@ -20,8 +20,6 @@ const actions = {
     Val(context, payload){
     context.commit('newVal',payload);
     },
-
-
 };
 export default {
     namespaced: true,

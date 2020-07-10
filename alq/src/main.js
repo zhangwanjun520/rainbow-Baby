@@ -4,8 +4,9 @@ import App from './App.vue'
 import router from './router'
 import axios from  'axios'
 import store from './store'
+import 'babel-polyfill'
 import ElementUI from 'element-ui';
-import 'lib-flexible/flexible'
+// import 'lib-flexible/flexible'
 import 'element-ui/lib/theme-chalk/index.css';
 import { Carousel,CarouselItem,Tooltip,Collapse,CollapseItem ,Radio,Input,Button,Icon,Message} from 'element-ui'
 import VueAwesomeSwiper from 'vue-awesome-swiper'

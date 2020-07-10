@@ -48,10 +48,10 @@ export default {
 .right {
   position: fixed;
   right: 0;
-  top: 40%;
+  top: 30%;
   z-index: 1000;
   img {
-    width: 60px;
+    width: 40px;
   }
 }
 </style>

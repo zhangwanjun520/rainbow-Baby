@@ -121,7 +121,7 @@
 
       <!-- 提升课程 -->
       <div class="box3">
-           <div class="title" >提升课程——个性培养，技能提升</div>
+        <div class="title">提升课程——个性培养，技能提升</div>
         <div class="promot">
           <div class="nine-image1">
             <img src="../assets/pro1.jpg" alt srcset />
@@ -145,7 +145,7 @@
             </div>
           </div>
 
-              <div class="nine-image1">
+          <div class="nine-image1">
             <img src="../assets/pro3.jpg" alt srcset />
             <div class="nine-image-title">运动提升24-72个月</div>
             <!-- 动画定位 -->
@@ -156,7 +156,7 @@
             </div>
           </div>
 
-              <div class="nine-image1">
+          <div class="nine-image1">
             <img src="../assets/pro4.jpg" alt srcset />
             <div class="nine-image-title">蒙氏特色提升24-72个月</div>
             <!-- 动画定位 -->
@@ -166,7 +166,6 @@
               >蒙氏特色课程是让我们的宝宝通过操作大量的教具，来进行日常生活教学、感官教学、数学教学、语言和科学文化教学这5个领域的学习。例如感官教学，就是让宝宝操作视觉教具、听觉教具、触觉教具、嗅觉、味觉教具，通过操作这些教具，建立概念培养思维逻辑性能力</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -178,14 +177,14 @@ export default {};
 <style lang="scss" scoped>
 .about {
   width: 100%;
-  height: 564px;
+  height: 350px;
   background: url("../assets/home3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .hokids {
-  width: 1200px;
+  width: 80%;
   // height: 400px;
   margin: auto;
   // border: 1px solid;
@@ -195,18 +194,20 @@ export default {};
   align-items: center;
   // line-height: 30px;
   p {
-    font-size: 24px;
+    font-size: 16px;
     img {
-      width: 880px;
+      width: 430px;
+      margin-top: 50px;
     }
     .circle {
-      width: 514px;
+      width: 300px;
+      margin-bottom: 30px;
     }
   }
 }
 .banner2 {
   width: 100%;
-  height: 348px;
+  height: 180px;
   background: url("../assets/tixi.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -214,15 +215,15 @@ export default {};
 }
 // ABC核心课程
 .title {
-  width: 1200px;
+  width: 80%;
   text-align: center;
   margin: auto;
   font-weight: bold;
-  font-size: 36px;
-  padding: 80px;
+  font-size: 20px;
+  padding-top: 50px;
 }
 .content {
-  width: 1400px;
+  width: 80%;
   border: 1px solid;
   margin: auto;
   display: flex;
@@ -232,7 +233,7 @@ export default {};
 
   .img {
     position: relative;
-    width: 678px;
+    height: 230px;
   }
   .type {
     position: absolute;
@@ -245,10 +246,10 @@ export default {};
       color: #8dc63f;
     }
     p:nth-child(1) {
-      font-size: 50px;
+      font-size: 30px;
     }
     p:nth-child(2) {
-      font-size: 24px;
+      font-size: 20px;
       margin-top: -20px;
     }
   }
@@ -266,30 +267,40 @@ export default {};
     // width: 49%;
     height: 300px;
     img {
-      width: 678px;
-      height: 300px;
+      width: 450px;
+      height: 230px;
     }
   }
   .info {
+    width: 550px;
+      height: 230px;
     background-color: #8dc63f;
+    p {
+      margin-left: 40px;
+    }
   }
   .info2 {
+    width: 550px;
+    height: 230px;
     background-color: #f07855;
   }
   .info3 {
+    width: 550px;
+    height: 230px;
+
     background-color: #ffb943;
-    p:nth-child(3){
-      line-height: 30px;
+    p:nth-child(3) {
+      line-height: 28px;
     }
   }
   p {
     margin-left: 20px;
     font-weight: 550;
-    font-size: 18px;
+    font-size: 14px;
   }
   .p1 {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 550;
     border-left: 2px solid white;
     text-indent: 0.5em;
   }
@@ -297,28 +308,30 @@ export default {};
 // 基础课程
 .box2 {
   width: 100%;
-  height: 800px;
+  height: 500px;
   background: url("../assets/bg1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   .intro {
-    width: 1600px;
+    width: 85%;
     display: flex;
     justify-content: space-around;
-    margin: auto;
+    margin: 50px auto;
+
     .intro1 {
-      width: 500px;
-      height: 600px;
+      width: 330px;
+      height: 450px;
       background-color: white;
       // border: 1px solid;
       color: rgba(0, 0, 0, 0.8);
       text-align: center;
       border-radius: 10px;
       overflow: hidden;
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 550;
       position: relative;
+
       img {
         width: 100%;
         margin-top: -20px;
@@ -339,14 +352,14 @@ export default {};
         bottom: -20px;
         // border: 1px solid;
         position: absolute;
-        height: 60px;
+        height: 50px;
         display: flex;
         justify-content: space-around;
         margin-top: 60px;
         background-color: #8dc63f;
-        line-height: 60px;
+        line-height: 50px;
         color: white;
-        font-size: 20px;
+        font-size: 16px;
       }
     }
   }
@@ -354,44 +367,42 @@ export default {};
 // 提升课程
 .box3 {
   width: 100%;
-  height: 800px;
+  height: 600px;
   background: url("../assets/bg2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 .promot {
-  width: 1600px;
-  margin: auto;
+  width: 85%;
+  margin: 70px auto;
   // padding-top: 80px;
   display: flex;
   justify-content: space-around;
-
 }
 
 .nine-image1 > img {
-  width: 350px;
+  width: 250px;
+
   // float: left;
 }
 
 .nine-image1 {
-
   height: auto;
   position: relative;
   transition: all 0.5s linear;
 }
 
 .nine-image-title {
-  width: 350px;
-  height: 81px;
+  width: 250px;
+  height: 45px;
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   bottom: 0;
   left: 0;
-  font-size: 26px;
+  font-size: 14px;
   text-align: center;
-  line-height: 81px;
+  line-height: 50px;
   font-weight: 500;
   color: rgba(255, 255, 255, 1);
   opacity: 1;
@@ -399,7 +410,7 @@ export default {};
 }
 
 .nine-image-info {
-  width: 350px;
+  width: 250px;
   height: auto;
   position: absolute;
   top: 0;
@@ -415,17 +426,17 @@ export default {};
 .nine-image-info1 {
   font-weight: 500;
   color: white;
-  font-size: 28px;
+  font-size: 12px;
 }
 
 .nine-image-info2 {
   font-weight: 400;
-  width: 304px;
-  font-size: 20px;
+  width: 230px;
+  font-size: 12px;
   margin: 50px auto;
   color: white;
-  line-height: 28px;
-  font-weight: 550;
+  line-height: 18px;
+  // font-weight: 550;
 }
 
 .nine-image1:hover > .nine-image-title {

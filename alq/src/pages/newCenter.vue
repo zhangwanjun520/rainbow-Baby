@@ -119,7 +119,7 @@ export default {
 <style lang="scss" scoped>
 .banner1 {
   width: 100%;
-  height: 564px;
+  height: 380px;
   background: url("../assets/news-banner1.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -140,57 +140,57 @@ export default {
 }
 // 新闻中心
 .news1 {
-  width: 1600px;
+  width: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   img {
-    width: 461px;
+    width: 300px;
     margin: 80px 0 80px 0;
   }
 }
 .tabTitle {
-  width: 1600px;
+  width: 80%;
   margin: 10px auto;
   font-weight: bold;
-  border: 1px dashed grey;
+  border: 1Px dashed gainsboro;;/*no*/
   font-size: 34px;
   .t1 {
     display: flex;
-    width: 400px;
+    width: 300px;
     margin: auto;
     // border: 1px solid;
     justify-content: space-around;
   }
 }
 .newsCon {
-  width: 1600px;
+  width: 80%;
   margin: auto;
   // height: 1000px;
-  border: 1px dashed grey;
+  border: 1Px dashed gainsboro;;/*no*/
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   .con {
-    width: 700px;
-    height: 780px;
-    border: 1px solid gainsboro;
+    width: 400px;
+    height: 480px;
+    border: 1Px solid gainsboro;;/*no*/
     margin-top: 50px;
     margin-bottom: 70px;
-    line-height: 36px;
+    line-height: 30px;
     p {
-      width: 95%;
+      width: 90%;
       margin: 30px auto;
     }
     .imgg {
       width: 100%;
-      height: 400px;
+      height: 200px;
     }
 
     .newsTit {
-      font-size: 24px;
-      line-height: 36px;
+      font-size: 14px;
+      line-height: 10px;
       font-weight: bold;
     }
     .newsTit:hover {
@@ -200,7 +200,7 @@ export default {
     .time,
     .editor,
     .subtit {
-      font-size: 20px;
+      font-size: 13px;
       margin-top: -20px;
     }
   }
@@ -215,9 +215,9 @@ export default {
 <style lang="scss">
 .btnn {
   .el-button {
-    width: 250px;
-    height: 80px;
-    font-size: 30px;
+    width: 180px;
+    height: 60px;
+    font-size: 18px;
     font-weight: bold;
     margin-right: 20px;
   }
@@ -225,9 +225,9 @@ export default {
 
 .el-pagination .btn-next .el-icon,
 .el-pagination .btn-prev .el-icon {
-  font-size: 30px;
+  font-size: 16px;
 }
 .el-pager li {
-  font-size: 30px;
+  font-size: 16px;
 }
 </style>

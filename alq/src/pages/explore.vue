@@ -21,22 +21,22 @@ export default {
 <style lang="scss" scoped>
 .banner1{
  width: 100%;
-  height: 564px;
+  height: 380px;
   background: url("../assets/banner1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .titleImg{
-  width: 450px;
+  width: 250px;
   margin:80px auto;
   img{
-    width: 450px;
+    width: 250px;
   }
 }
 .banner2{
    width: 100%;
-  height: 593px;
+  height: 380px;
     background: url("../assets/ts2.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -46,16 +46,16 @@ export default {
 }
 .banner3{
    width: 100%;
-  height: 593px;
+  height: 380px;
   background: url("../assets/ts3.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 
 }
 .banner4{
    width: 100%;
-  height: 593px;
+  height: 380px;
   background: url("../assets/ts4.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -64,7 +64,7 @@ export default {
 }
 .banner5{
    width: 100%;
-  height: 593px;
+  height: 380px;
   background: url("../assets/ts5.jpg");
   background-position: center;
   background-repeat: no-repeat;

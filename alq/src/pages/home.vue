@@ -86,10 +86,10 @@
     <div class="hokids-explore">
       <div class="hokids-explore-content">
         <router-link to="/explore" tag="button">探索与发现</router-link>
-        <p>
+        <span>
           爱乐祺认为，教育是源自于对每一个生命个体的理解和尊重,
           <br />塑造每一个宝宝优良、完整的人格
-        </p>
+        </span>
       </div>
     </div>
     <!-- 教育品牌优势 -->
@@ -352,9 +352,10 @@ export default {
 }
 el-carousel{
   height: 400px;
+  text-align: center;
 }
 .block {
-  height: 564px;
+  height: 400px;
   position: relative;
 }
 .point{
@@ -374,7 +375,9 @@ el-carousel{
   }
 }
 .img1 {
-  height: 564px;
+  width: 100%;
+  height: 410px;
+
 }
 
 .hokids-section div:nth-child(1) {
@@ -392,46 +395,48 @@ el-carousel{
 .hokids-welcome {
   width: 1200px;
   margin: auto;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
+  // display: flex;
+  // justify-content: space-around;
+  // flex-direction: column;
+  // align-items: center;
   text-align: center;
   p:last-child {
     margin-bottom: 50px;
   }
   img {
-    width: 575px;
+    width: 300px;
     margin-top: 100px;
   }
   .p0 {
     color: #1b1b1b;
-    font-size: 36px;
+    font-size: 18px;
     font-weight: bold;
   }
   .p1 {
+    width: 70%;
+    margin: auto;
     color: #1b1b1b;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 550;
-    line-height: 30px;
+    line-height: 24px;
   }
 }
 // 三张图片
 .hokids-welcomeicon {
   margin: 51px auto;
-  width: 1200px;
-  height: 236px;
+  width: 75%;
+  height: 200px;
   display: flex;
   -webkit-justify-content: space-between;
   justify-content: space-between;
   div {
     position: relative;
-    width: 236px;
+    width: 30%;
     // border: 1px solid;
     span {
       position: absolute;
       left: 50%;
-      margin-left: -18px;
+      margin-left: -40px;
       top: 50%;
       // margin-top: -18px;
       font-size: 24px;
@@ -442,65 +447,66 @@ el-carousel{
 .hokids-welcomeicon div:nth-child(1) {
   background: url(../assets/health.png) no-repeat;
   width: 236px;
-  background-size: cover;
+  background-size: contain;
 }
 .hokids-welcomeicon div:nth-child(2) {
   background: url(../assets/comfortable.png) no-repeat;
   width: 236px;
-  background-size: cover;
+  background-size: contain;
 }
 .hokids-welcomeicon div:nth-child(3) {
   background: url(../assets/happy.png) no-repeat;
   width: 236px;
-  background-size: cover;
+  background-size: contain;
 }
 // 三大课程体系
 .hokids-system {
   margin: 0 auto;
-  padding-top: 54px;
+  padding-top: 28px;
   width: 100%;
-  max-width: 1920px;
-  height: 300px;
+  // max-width: 1920px;
+  height: 180px;
   text-align: center;
   color: #fff;
   background: url(../assets/system.jpg) no-repeat center 0;
   background-size: cover;
+  font-weight: bold;
   img {
-    width: 575px;
+    width: 250px;
   }
   .p1 {
-    font-size: 36px;
+    font-size: 18px;
     margin-top: 3px;
-    margin-bottom: 26px;
+    margin-bottom: 12px;
     font-weight: bold;
   }
   .p2 {
-    font-size: 22px;
-    line-height: 29px;
+    font-size: 14px;
+    line-height: 16px;
   }
 }
 // 招生年龄
 .box {
   width: 100%;
   background: #f8f8f8;
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
 .hokids-recruit-content {
-  width: 1300px;
+  width: 80%;
   margin: auto;
   display: flex;
   -webkit-justify-content: space-between;
   justify-content: space-around;
   .recruitDiv {
-    width: 380px;
-    font-size: 18px;
+    width: 280px;
+    font-size: 12px;
     background: #fff;
     border-radius: 8px;
   }
   .age {
-    width: 300px;
-    height: 42px;
+    width: 200px;
+    height: 35px;
     margin: -21px auto 0;
     position: relative;
     z-index: 1;
@@ -508,7 +514,7 @@ el-carousel{
     border-radius: 8px;
     display: flex;
     span {
-      line-height: 42px;
+      line-height: 35px;
 
       color: #fff;
       text-align: center;
@@ -537,43 +543,47 @@ el-carousel{
   text-align: left;
 }
 .ageImg {
-  width: 380px;
+  width: 280px;
 }
 // 探索与发现
 .hokids-explore {
   margin: 0 auto;
   width: 100%;
-  max-width: 1920px;
-  height: 280px;
+  height: 180px;
   color: #fff;
   background: url(../assets/explore.jpg) no-repeat center 0;
   background-size: cover;
   .hokids-explore-content {
-    width: 1400px;
+    width: 90%;
     margin: 0 auto;
+
     button {
       border: none;
       display: inline-block;
-      width: 296px;
-      height: 65px;
-      margin-top: 130px;
-      margin-left: 160px;
+      width: 160px;
+      height: 40px;
+      margin-top: 100px;
+      margin-left: 200px;
       background: #fff;
       border-radius: 8px;
       text-align: center;
-      line-height: 65px;
-      font-size: 36px;
+      line-height: 20px;
+      font-size: 20px;
       color: #ff6f3c;
+      // border: 1px solid black;
+
     }
-    p {
+    span {
       display: inline-block;
-      width: 600px;
-      // border: 1px solid;
+      width: 500px;
+      // border: 1px solid black;
       text-align: left;
-      font-size: 22px;
+      font-size: 16px;
       font-weight: bold;
-      margin-left: 300px;
-      line-height: 40px;
+      margin-left: 220px;
+      line-height: 30px;
+
+
     }
   }
 }
@@ -581,57 +591,57 @@ el-carousel{
 .hokids-advantage {
   margin: 0 auto;
   width: 100%;
-  max-width: 1920px;
-  height: 197px;
+  height: 150px;
   color: #fff;
   background: url(../assets/advantage.jpg) no-repeat center 0;
-  background-size: cover;
-  margin-bottom: 50px;
+  background-size: contain;
+  margin-bottom: 20px;
 }
 .info {
-  width: 1500px;
-  height: 400px;
+  width: 80%;
+  height: 200px;
   margin: auto;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   // border: 1px solid;
 }
 .list {
   // border: 1px solid;
-
-  width: 1500px;
-  //  height: 400px;
+margin: auto;
+  // width: 80%;
   display: flex;
   justify-content: space-around;
+  .leftList:nth-child(2){
+    margin-left: 140px;
+  }
 }
 
 .leftList {
-  width: 700px;
-  height: 300px;
+  width: 48%;
+  height: 180px;
   background-color: #f5f5f5;
   border-radius: 8px;
   display: flex;
   align-items: center;
-margin-left: 30px;
   div {
     color: black;
     img {
-      width: 200px;
+      width: 100px;
       margin-left: -30px;
     }
 
     p {
       margin-left: 20px;
       margin-right: 20px;
-      font-size: 22px;
-      line-height: 30px;
+      font-size: 12px;
+      line-height: 20px;
       .sp {
-        font-size: 26px;
+        font-size: 22px;
         font-weight: bold;
         color: black;
       }
       span {
-        font-size: 60px;
+        font-size: 40px;
         color: #fbcd0d;
       }
     }
@@ -653,60 +663,60 @@ margin-left: 30px;
 .hokids-authentication{
   display: flex;
   justify-content: space-between;
-    margin-bottom: 100px;
-    width: 1400px;
-    height:600px;
-    margin: 78px auto 100px;
+    // margin-bottom: 0px;
+    width: 70%;
+    height:550px;
+    margin:  50px auto ;
     padding-left: 70px;
 
 }
 .rightImg{
-  width: 600px;
+  width: 380px;
   background: url(../assets/authenticationbg.jpg) no-repeat center;
-  background-size: cover;
+  background-size: contain;
 
 }
 .hokids-authentication-l{
-    width: 645px;
+    width: 400px;
     color: #313131;
 }
 .hokids-authentication-l .pname{
-    font-size: 36px;
+    font-size: 18px;
     font-weight:bold;
     margin:14px 0 15px;
 }
 .hokids-authentication-l .description{
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
-    margin-bottom: 28px;
+    // margin-bottom: 28px;
 }
 .im{
-  width: 443px;
+  width: 300px;
 }
 .hokids-authentication-l li{
     margin-right: 80px;
     float: left;
 }
 .image{
-  width: 611px;
+  width: 400px;
 }
 #carousel /deep/ .el-carousel__container{
 // background: #fff;
-  height: 564px;
+  height: 400px;
 
 }
 // 新闻
   .tit{
     font-size: 38px;
     font-weight: bold;
-    width: 1600px;
+    width: 80%;
   margin: auto;
   text-align: center;
   line-height: 60px;
 
   }
 .newsCon {
-  width: 1600px;
+  width: 90%;
   margin: auto;
   // height: 1000px;
   // border: 1px dashed grey;
@@ -715,57 +725,58 @@ margin-left: 30px;
   justify-content: space-around;
 
   .con {
-    width: 500px;
-    height: 780px;
-    border: 1px solid gainsboro;
+    width: 350px;
+    height: 480px;
+    border: 1Px solid gainsboro;
     margin-top: 50px;
-    margin-bottom: 70px;
-    line-height: 36px;
+    margin-bottom: 40px;
+    line-height: 18px;
     p {
-      width: 450px;
+      width: 280px;
       margin: 30px auto;
     }
     .imgg {
       width: 100%;
-      height: 300px;
+      height: 190px;
     }
 
     .newsTit {
-      font-size: 24px;
-      line-height: 36px;
+      font-size: 16px;
+      line-height: 18px;
       font-weight: bold;
+      cursor: pointer;
     }
     .newsTit:hover {
       color: orange;
-      cursor: pointer;
+
     }
     .time,
     .editor,
     .subtit {
-      font-size: 20px;
+      font-size: 12px;
       margin-top: -20px;
     }
   }
 }
 .rm{
-  font-size: 26px;
+  font-size: 14px;
   font-weight: bold;
   color: #475669;
   cursor: pointer;
 }
 </style>
 <style lang="">
-
-  .el-carousel__button{
-width: 30px;
-height: 30px;
+.el-carousel__button{
+width: 20px;
+height: 20px;
 border-radius: 50%;
 background-color: orange;
-top: 200px;
+/* top: 200px; */
 }
-.el-carousel__arrow {
-  width: 51px;
-  height: 51px;
-  /* top: 34%; */
+.el-carousel__container{
+  height: 200px;
 }
 </style>
+
+
+

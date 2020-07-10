@@ -63,14 +63,14 @@ export default {};
 <style lang="scss" scoped>
 .about {
   width: 100%;
-  height: 564px;
+  height: 350px;
   background: url("http://www.52alq.com/statics/images/banner5.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .hokids {
-  width: 1200px;
+  width: 80%;
   // height: 400px;
   margin: auto;
   // border: 1px solid;
@@ -82,28 +82,30 @@ export default {};
   // line-height: 36px;
   // font-weight: 550;
   p {
-    font-size: 24px;
+    font-size: 16px;
     img {
-      width: 405px;
+      width: 250px;
     }
   }
   .des {
+    width: 90%;
+    margin: auto;
     margin-top:0px;
     text-align: center;
-    line-height: 40px;
+    line-height: 26px;
     margin-bottom: 50px;
   }
 }
 .banner2 {
   width: 100%;
-  height: 348px;
+  height: 200px;
   background: url("http://www.52alq.com/statics/images/aboutbg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .release {
-  width: 1500px;
+  width: 80%;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -115,29 +117,29 @@ export default {};
     // border: 1px solid;
 
     img {
-      width: 577px;
+      width: 400px;
     }
   }
   .right {
-    width: 780px;
+    width: 580px;
 
     display: flex;
     flex-direction: column;
     // border: 1px solid;
     p:nth-child(1) {
       img {
-        width: 730px;
+        width: 450px;
       }
     }
   }
 }
 .size36 {
-  font-size: 36px;
+  font-size: 18px;
   font-weight: bold;
-  line-height: 30px;
+  line-height: 10px;
 }
 .size18 {
-  font-size: 22px;
+  font-size: 14px;
 }
 .banner3 {
   width: 100%;
@@ -145,39 +147,39 @@ export default {};
   background: #eee;
   .banner3Content {
     margin: auto;
-    width: 1353px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     img:nth-child(1) {
-      width: 605px;
+      width: 350px;
       margin-top: 100px;
     }
     img:nth-child(2) {
-      width: 1353px;
+      width: 1000px;
       margin-top: 50px;
       margin-bottom: 120px;
     }
   }
 }
 .offical {
-  width: 1200px;
-  margin: 100px auto;
+  width: 80%;
+  margin: 60px auto;
   text-align: center;
   p {
-    font-size: 25px;
+    font-size: 16px;
   }
   p:nth-child(1) {
-    font-size: 60px;
+    font-size: 30px;
     font-weight: bold;
-    line-height: 0px;
+
   }
   p:nth-child(2) {
-    font-size: 40px;
+    font-size: 24px;
     font-weight: bold;
   }
   p:last-child {
     img {
-      width: 611px;
+      width: 400px;
     }
   }
 }

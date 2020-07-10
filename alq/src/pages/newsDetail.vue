@@ -71,7 +71,7 @@ export default {
 <style lang="scss" scoped>
 .banner1 {
   width: 100%;
-  height: 564px;
+  height: 380px;
   background: url("../assets/news-banner1.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -97,13 +97,13 @@ export default {
 .arrow {
   display: flex;
   // border: 1px solid;
-  width: 1600px;
+  width: 85%;
   margin: auto;
   justify-content: space-between;
   margin-top: -80px;
   margin-bottom: 80px;
   color: grey;
-  font-size: 18px;
+  font-size: 14px;
 
   p {
     cursor: pointer;
@@ -118,6 +118,6 @@ export default {
 <style lang="scss">
 [class*=" el-icon-"],
 [class^="el-icon-"] {
-  font-size: 26px;
+  font-size: 20px;
 }
 </style>

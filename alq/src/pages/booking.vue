@@ -236,8 +236,7 @@ export default {
         // 点击省份默认出现城市（获取默认城市名字和id）
         this.cityValue = this.city[0].name;
         this.cityId = this.city[0].id;
-
-        console.log(res);
+        // console.log(res);
       });
     },
     cityVal(value) {
@@ -328,7 +327,7 @@ export default {
 <style lang="scss" scoped>
 .banner1 {
   width: 100%;
-  height: 564px;
+  height: 380px;
   background: url("../assets/booking-banner.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -349,7 +348,7 @@ export default {
 }
 .banner2 {
   width: 100%;
-  height: 348px;
+  height: 180px;
   background: url("../assets/listenbg2.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -358,40 +357,40 @@ export default {
 // 预约体验课
 .bookingLesson {
   width: 100%;
-  height: 1200px;
+  height: 80%;
   .content {
     width: 85%;
-    height: 1100px;
+    height: 1000px;
     margin: auto;
     .desc {
-      font-size: 30px;
+      font-size: 20px;
       font-weight: 550;
     }
     .content1 {
       margin-top: 80px;
       img {
-        width: 635px;
+        width: 380px;
       }
     }
     .content2 {
       margin-top: 50px;
       border: 1px dashed grey;
-      height: 840px;
+      height: 700px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
       .right {
         margin-right: 50px;
 
         img {
-          width: 741px;
+          width: 450px;
         }
       }
       .left {
         margin-left: 50px;
-        width: 600px;
-        height: 760px;
-        border: 1px dashed #eb6100;
+        width: 400px;
+        height: 600px;
+        border: 1Px dashed #eb6100;
 
         .leftCon {
           width: 70%;
@@ -410,39 +409,41 @@ export default {
 .schoolInfo {
   height: auto;
   .img {
-    margin: 80px 0px 50px 260px;
+    margin: 80px 0px 50px 120px;
     img {
-      width: 434px;
+      width: 250px;
     }
   }
   .schoolContent {
-    width: 1400px;
+    width: 80%;
     height: auto;
     margin: auto;
-    border: 1px dashed grey;
+    border: 1Px dashed gainsboro;
     margin-bottom: 80px;
 
+
     .schoolContent1 {
-      margin: 80px auto;
-      // border: 1px solid;
+      margin: 60px auto;
       display: flex;
       justify-content: space-around;
       align-items: center;
+
     }
   }
 }
 .des {
   width: 200px;
   margin-left: 50px;
-  font-size: 20px;
+  font-size: 14px;
   // margin-right: 20px;
 }
 .map {
-  width: 944px;
+  width: 600px;
   margin: 80px auto;
   img {
     display: inline-block;
-    width: 944px;
+    width: 600px;
+
   }
   .mapImg1 {
     position: relative;
@@ -454,43 +455,42 @@ export default {
 }
 .lookfor {
   width: 350px;
-  margin-top: 50px;
-  margin-bottom: -30px;
-  font-size: 34px;
+  margin-top: 30px;
+  font-size: 26px;
   font-weight: bold;
-  margin: 50px auto;
+  margin: 30px auto;
   text-align: center;
 }
 .lookfor2 {
   width: 350px;
   margin-top: 50px;
-  font-size: 34px;
+  font-size: 26px;
   font-weight: bold;
   margin: 50px auto;
   text-align: center;
 }
 .allSchool {
-  width: 1400px;
+  width: 80%;
   height: auto;
   margin: auto;
-  border: 1px dashed grey;
-  margin-bottom: 80px;
+  border: 1Px dashed gainsboro;
+  margin-bottom: 50px;
   padding-bottom: 50px;
 }
 </style>
 <style lang="scss">
 .schoolContent {
   .el-input__inner {
-    width: 300px;
-    height: 60px;
-    font-size: 20px;
-    // background-color: red;
+    width: 185px;
+    height: 35px;
+    font-size: 12px;
+    border: 1Px solid gainsboro;
   }
 }
 .des2 {
   margin-right: 100px;
   .el-icon-search {
-    font-size: 30px;
+    font-size: 14px;
     font-weight: bold;
   }
 }
@@ -498,49 +498,50 @@ export default {
   text-align: center;
 }
 .has-gutter {
-  font-size: 24px;
+  font-size: 14px;
 }
 
 .el-table th,
 .el-table tr {
   background: #eb6100;
   color: white;
-  height: 60px;
+  height: 40px;
+
 }
 .el-table__row {
-  font-size: 22px;
+  font-size: 12px;
   background-color: #eeeeee;
 }
 // vip课程体验
 .left {
   .el-input__inner {
-    width: 400px;
-    height: 60px;
-    font-size: 20px;
-    border: 1px solid gray;
+    width: 200px;
+    height: 35px;
+    font-size: 12px;
+    border: 1Px solid gainsboro;
     // background-color: red;
   }
 }
 .leftCon {
   .el-textarea__inner {
-    border: 1px solid gray;
+    border: 1Px solid gainsboro;
 
-    font-size: 20px;
-    width: 400px;
-    height: 100px;
+    font-size: 12px;
+    width: 200px;
+    height: 60px;
   }
 }
 .btnnn {
   .el-button {
     background-color: #eb6100;
-    font-size: 18px;
-    width: 140px;
-    height: 50px;
+    font-size: 12px;
+    width: 100px;
+    height: 40px;
   }
 }
 #tab {
   .el-table__empty-text {
-    font-size: 20px;
+    font-size: 12px;
   }
 }
 .el-table .warning-row {
@@ -548,6 +549,13 @@ export default {
   color: gray;
 }
 .el-message__content {
-  font-size: 20px;
+  font-size: 12px;
+}
+.el-table--enable-row-transition .el-table__body td{
+ border-bottom: 1Px solid gainsboro;
+}
+.el-table__empty-block{
+ border-bottom: 1Px solid gainsboro;
+
 }
 </style>

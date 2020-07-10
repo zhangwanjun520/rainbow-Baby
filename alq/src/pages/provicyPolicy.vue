@@ -53,14 +53,14 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .provicy {
-  width: 1400px;
+  width: 80%;
   margin: 80px auto;
   border: 1px dashed gainsboro;
   p {
     width: 95%;
     margin: auto;
-    font-size: 22px;
-    line-height: 36px;
+    font-size: 14px;
+    line-height: 30px;
     margin-bottom: 50px;
   }
   .tit {

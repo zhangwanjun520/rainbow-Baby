@@ -67,17 +67,18 @@ export default {
 <style lang="scss" scoped>
 footer {
   width: 100%;
+  min-width: 1200px;
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #565656;
-  height: 80px;
+  height: 55px;
   line-height: 50px;
-  font-size: 18px;
+  font-size: 14px;
   color: white;
   z-index: 1000;
   .footer-content {
-    width: 1200px;
+    width:85%;
     height: 100%;
     margin: auto;
     display: flex;
@@ -85,24 +86,24 @@ footer {
     align-items: center;
     div {
       input {
-        width: 200px;
+        width: 150px;
         border: none;
-        height: 35px;
+        height: 25px;
       }
     }
   }
 
   .submit {
-    width: 100px;
-    height: 40px;
+    width: 70px;
+    height: 25px;
     text-align: center;
-    line-height: 40px;
+    line-height: 25px;
     background-color: #ffaa18;
   }
 }
 </style>
 <style lang="scss">
 .el-message__content {
-  font-size: 20px;
+  font-size: 14px;
 }
 </style>

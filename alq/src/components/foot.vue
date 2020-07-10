@@ -36,8 +36,10 @@
           010-53519528
           <span>拨</span> 0
         </p>
-        <p>( 工作时间 : 周一至周五 9:00至17:00 )</p>
-        <p>分公司所有投诉事宜请拨打总公司全国投诉热线</p>
+        <p style="line-height:20px;">( 工作时间 : 周一至周五 9:00至17:00 )
+          <br>   分公司所有投诉事宜请拨打总公司全国投诉热线
+        </p>
+
       </div>
     </section>
   </footer>
@@ -58,12 +60,12 @@ ul > li {
 footer {
   font-size: 12px;
   width: 100%;
-  height: 500px;
+  height: 350px;
   background: #ffaa18;
   display: flex;
   .content {
-    width: 1400px;
-    margin: auto;
+    width: 85%;
+    margin:30px auto;
     display: flex;
     justify-content: space-between;
     div {
@@ -71,31 +73,33 @@ footer {
       display: flex;
       flex-direction: column;
       // background: wheat;
-      height: 400px;
+      height: 300px;
       // justify-content: space-around;
       font-weight: 550;
       // margin-top: 50px;
     }
     .left {
       p {
-        font-size: 20px;
+        font-size: 14px;
         color: white;
+        margin-top: 20px;
       }
       p:nth-child(1) {
         img {
-          width: 297px;
+          width: 160px;
         }
       }
     }
     .middle {
       // width: 350px;
       display: flex;
-      font-size: 18px;
+      font-size: 12px;
       flex-direction: row;
       ul {
         // border: 1px solid;
-        line-height: 50px;
+        line-height: 30px;
         color: white;
+        margin-top: 50px;
         li {
           width: 100px;
           cursor: pointer;
@@ -110,18 +114,18 @@ footer {
   margin-left: 50px;
 
   img {
-    width: 225px;
+    width: 120px;
   }
   p:nth-child(1) {
     img {
-      width: 225px;
+      width: 120px;
     }
   }
   p:nth-child(2) {
-    font-size: 34px;
+    font-size: 14px;
   }
   .pp {
-    font-size: 28px;
+    font-size: 14px;
   }
 }
 </style>

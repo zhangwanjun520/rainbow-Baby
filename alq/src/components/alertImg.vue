@@ -7,7 +7,7 @@
     </a>
 
     <div class="btn" @click="close">
-      <el-button icon="el-icon-close" circle></el-button>
+      <el-button icon="el-icon-close" circle size="small"></el-button>
     </div>
   </div>
 </template>
@@ -31,20 +31,20 @@ export default {
 </script>
 <style lang="scss" scoped>
 .alertImg {
-  width: 727px;
+  width: 500px;
   position: fixed;
 
-  top: 380px;
+  top: 300px;
   left: 50%;
-  margin-left: -360px;
+  margin-left: -250px;
   z-index: 1000;
   img {
-    width: 727px;
+    width: 500px;
   }
 }
 .btn {
   position: absolute;
-  top: -20px;
-  right: -15px;
+  top: -15px;
+  right: -10px;
 }
 </style>

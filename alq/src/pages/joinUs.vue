@@ -346,7 +346,7 @@ export default {
 <style lang="scss" scoped>
 .banner1 {
   width: 100%;
-  height: 564px;
+  height: 380px;
   background: url("../assets/joinbg.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -365,7 +365,7 @@ export default {
   flex: 1;
 }
 .hokids-welcome {
-  width: 1200px;
+  width: 80%;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -376,32 +376,34 @@ export default {
     margin-bottom: 50px;
   }
   img {
-    width: 575px;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    width: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
 
   .p1 {
+    width: 90%;
+    margin: auto;
     color: #1b1b1b;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 550;
-    line-height: 40px;
+    line-height: 30px;
   }
 }
 .banner2 {
   width: 100%;
-  height: 348px;
+  height: 180px;
   background: url("../assets/joinbg2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .banner3 {
-  width: 836px;
-  height: 881px;
-  margin: 50px auto;
+  width: 400px;
+  height: 460px;
+  margin: 60px auto;
   img {
-    width: 836px;
+    width: 400px;
   }
 }
 
@@ -413,19 +415,20 @@ export default {
   padding-bottom: 100px;
 }
 .attentive {
-  width: 1700px;
+  width: 90%;
   display: flex;
   flex-direction: column;
 
   margin: auto;
   // border: 1px solid;
   img {
-    width: 497px;
-    margin-bottom: -40px;
+    width: 280px;
+    margin-top: 30px;
+
   }
   p {
     text-align: center;
-    font-size: 34px;
+    font-size: 24px;
     font-weight: bold;
   }
 }
@@ -434,13 +437,13 @@ export default {
   justify-content: space-around;
   .title {
     width: 100%;
-    height: 80px;
+    height: 60px;
     text-align: center;
-    line-height: 80px;
+    line-height: 60px;
     font-weight: bold;
     color: white;
     background-color: #f07855;
-    font-size: 24px;
+    font-size: 14px;
   }
   .sup1 {
     background-color: white;
@@ -448,15 +451,15 @@ export default {
   .sup1,
   .sup2,
   .sup3 {
-    width: 550px;
-    height: 700px;
+    width: 350px;
+    height: 500px;
 
     // border: 1px solid;
   }
 }
 .swiper-container {
   width: 100%;
-  height: 620px;
+  // height: 400px;
   // background-color: red;
 }
 
@@ -469,15 +472,15 @@ export default {
     }
   }
   p {
-    font-size: 20px;
+    font-size: 14px;
     text-align: left;
 
     font-weight: normal;
   }
   p:nth-child(2) {
     width: 95%;
-    margin: 60px auto;
-    line-height: 36px;
+    margin: 30px auto;
+    line-height: 26px;
   }
   p:nth-child(1) {
     position: relative;
@@ -485,39 +488,46 @@ export default {
   .subtitle {
     position: absolute;
     width: 100%;
-    height: 60px;
+    height: 35px;
     background-color: rgba($color: #000000, $alpha: 0.4);
-    top: 250px;
+    top: 155px;
     text-align: center;
-    line-height: 60px;
+    line-height: 35px;
     font-weight: 550;
     color: white;
-    font-size: 22px;
+    font-size: 14px;
   }
 }
 .sup3 {
   background: #f07855;
   p:nth-child(1) {
-    font-size: 28px;
+    width: 95%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 30px;
+    margin-top: 50px;
   }
   p {
+    width: 95%;
+    margin: auto;
     font-size: 28px;
     color: white;
     font-weight: 550;
     img {
-      width: 151px;
+      width: 80px;
+      margin-top: 30px;
     }
   }
   p:nth-child(3) {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 40px;
-    margin-top: 80px;
+    line-height: 26px;
+    margin-top: 30px;
   }
   p:nth-child(4) {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 40px;
+    line-height: 26px;
   }
 }
 // 加盟流程
@@ -529,85 +539,86 @@ export default {
   div:nth-child(1) {
     margin-top: 80px;
     img {
-      width: 374px;
+      width: 200px;
     }
   }
   div:nth-child(2) {
     margin-top: 50px;
     margin-bottom: 50px;
     img {
-      width: 1051px;
+      width: 800px;
     }
   }
 }
 #sup2 /deep/.el-carousel__container {
   // background: #fff;
-  height: 620px;
+  height: 441px;
 }
 // 加盟服务顾问
 .banner4 {
   width: 100%;
-  height: 850px;
+  height: 600px;
   background: url("../assets/recruitbg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   .jiameng {
-    padding-top: 100px;
-    padding-left: 300px;
-    font-size: 30px;
+    padding-top: 50px;
+    padding-left: 200px;
+    font-size: 16px;
     color: white;
     font-weight: 550;
     .telphone {
       // border: 1px solid;
-      width: 369px;
+      width: 189px;
       position: relative;
       img {
-        width: 369px;
+        width: 180px;
       }
       span {
         color: black;
         display: inline-block;
         position: absolute;
-        top: 20px;
-        left: 80px;
+        top: 10px;
+        left: 40px;
       }
     }
   }
 }
 // 表单
 .personInfo {
-  width: 650px;
-  height: 850px;
+  width: 400px;
+  height: 580px;
   position: absolute;
   background: #f07855;
-  right: 150px;
+  right: 100px;
   top: -50px;
   border-radius: 20px;
   color: white;
-  font-size: 20px;
+  font-size: 12px;
   font-weight: 550;
   .tit {
-    font-size: 30px;
+    font-size: 14px;
     text-align: center;
     margin-top: 30px;
   }
 }
 .one {
   width: 90%;
-  margin: 20px auto;
-  margin-left: 65px;
+  margin:  auto;
+// border: 1px solid;
+  // margin-left: 30px;
 }
 .two {
   width: 90%;
   margin: 20px auto;
-  margin-left: 65px;
+  // margin-left: 65px;
 }
 .type {
   display: inline-block;
   width: 100px;
-  margin-right: 20px;
+  margin-right: 12px;
   // border: 1px solid;
   text-align: right;
 }
@@ -617,7 +628,7 @@ export default {
   margin-right: 20px;
   // border: 1px solid;
   text-align: right;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 .btn {
   width: 60px;
@@ -627,7 +638,7 @@ export default {
   margin-bottom: 20px;
 }
 .mistakeCon {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
   margin-left: 130px;
 }
@@ -637,16 +648,16 @@ export default {
 
 .el-collapse-item__header {
   background-color: #f09a81;
-  height: 67px;
-  font-size: 20px;
+  height: 45px;
+  font-size: 14px;
   color: white;
   font-weight: 550;
   text-indent: 1em;
 }
 
 .el-collapse-item__content {
-  font-size: 20px;
-  height: 350px;
+  font-size: 14px;
+  height: 260px;
   overflow: auto;
 }
 .el-collapse-item__content > div {
@@ -656,9 +667,9 @@ export default {
 .one,
 .two {
   .el-input__inner {
-    width: 300px;
-    height: 50px;
-    font-size: 18px;
+    width: 150px;
+    height: 35px;
+    font-size: 12px;
   }
 }
 .rad {
@@ -666,7 +677,7 @@ export default {
 }
 .rad > span {
   color: white;
-  font-size: 20px;
+  font-size: 12px;
 }
 .one {
   .el-input {
@@ -675,11 +686,11 @@ export default {
 }
 .one {
   .el-textarea {
-    width: 300px;
-    height: 200px;
+    width: 150px;
+    height: 60px;
     .el-textarea__inner {
-      width: 305px;
-      height: 180px;
+      width: 148px;
+    height: 60px;
     }
   }
 }
@@ -695,14 +706,15 @@ export default {
   font-size: 20px;
 }
 .one .el-textarea {
-  font-size: 18px;
+  font-size: 12px;
 }
 .but {
   .el-button {
     background-color: #eb6100;
-    font-size: 18px;
-    width: 140px;
-    height: 50px;
+    font-size: 12px;
+    width: 80px;
+    height: 35px;
+    // margin-top: 20px;
   }
 }
 </style>

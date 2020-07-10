@@ -42,34 +42,36 @@ export default {
 <style lang="scss" scope>
 header {
   width: 100%;
-  height: 126px;
+  height: 90px;
   border-bottom: 1px solid gainsboro;
   .main {
     // background-color: antiquewhite;
     display: flex;
-    width: 1600px; /*px*/
+    width: 85%; /*px*/
     min-width: 1200px; /*px*/
     margin: auto;
-    height: 126px;
+    height: 100px;
     justify-content: space-between;
     align-items: center;
   }
   .header-logo {
-    width: 33%;
+    // border: 1px solid;
+    // width: 33%;
+    margin-left: 80px;
     // border: 1px solid;
     img {
-      width: 368px;
+      width: 280px;
     }
   }
   .nav {
-    width: 70%;
+    width: 60%;
     ul {
-      font-size: 22px;
+      font-size: 14px;
       list-style: none;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-left: 20px;
+      // border: 1px solid;
       cursor: pointer;
       .list {
         width: auto;

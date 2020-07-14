@@ -7,6 +7,7 @@ VueRouter.prototype.push = function push(location) {
   return routerPush.call(this, location).catch(error=> error)
 }
 const routes = [
+
   {
     path: '/home',
     name: 'home',
@@ -69,6 +70,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+
   routes
 })
 // router.beforeEach((to, from, next) => {

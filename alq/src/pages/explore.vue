@@ -36,7 +36,7 @@ export default {
 }
 .banner2{
    width: 100%;
-  height: 380px;
+  height: 390px;
     background: url("../assets/ts2.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@ export default {
 }
 .banner3{
    width: 100%;
-  height: 380px;
+  height: 390px;
   background: url("../assets/ts3.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -64,7 +64,7 @@ export default {
 }
 .banner5{
    width: 100%;
-  height: 380px;
+  height: 434px;
   background: url("../assets/ts5.jpg");
   background-position: center;
   background-repeat: no-repeat;

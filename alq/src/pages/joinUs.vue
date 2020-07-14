@@ -399,11 +399,11 @@ export default {
   background-size: cover;
 }
 .banner3 {
-  width: 400px;
+  width: 450px;
   height: 460px;
   margin: 60px auto;
   img {
-    width: 400px;
+    width: 450px;
   }
 }
 
@@ -599,7 +599,7 @@ export default {
   font-size: 12px;
   font-weight: 550;
   .tit {
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     margin-top: 30px;
   }
@@ -646,7 +646,8 @@ export default {
 <style lang="scss">
 /* //  <!-- 爱乐祺加盟提供“7+1”管家式服务支持 全局样式--> */
 
-.el-collapse-item__header {
+.sup1{
+  .el-collapse-item__header {
   background-color: #f09a81;
   height: 45px;
   font-size: 14px;
@@ -655,9 +656,11 @@ export default {
   text-indent: 1em;
 }
 
+}
+
 .el-collapse-item__content {
   font-size: 14px;
-  height: 260px;
+  height: 258px;
   overflow: auto;
 }
 .el-collapse-item__content > div {
@@ -667,7 +670,7 @@ export default {
 .one,
 .two {
   .el-input__inner {
-    width: 150px;
+    width: 155px;
     height: 35px;
     font-size: 12px;
   }

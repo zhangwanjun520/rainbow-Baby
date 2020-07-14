@@ -11,15 +11,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      "/website": {
-        target: "http://192.168.40.136/",
-        changeOrigin: true,
-        pathRewrite: {
-            '^/website': 'website/'
-        }
-    }
-    },
+    // proxyTable: {
+    //   "/website": {
+    //     target: "http://192.168.40.136/",
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //         '^/website': 'website/'
+    //     }
+    // }
+    // },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -52,7 +52,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

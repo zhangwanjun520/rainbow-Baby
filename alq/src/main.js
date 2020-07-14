@@ -15,7 +15,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI);
 Vue.use(Carousel,CarouselItem,Collapse,CollapseItem,Tooltip,Radio,Input,Button,Icon,Message);
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true
 Vue.prototype.$axios=axios
 
 router.afterEach(() => {
@@ -24,7 +24,12 @@ router.afterEach(() => {
 })
 
 // Vue.use(VueTouch,{name:'v-touch'})
+// Vue.http.interceptors.push((request, next) => {
 
+//   request.credentials = true;
+
+//      next();
+// });
 
 Vue.config.productionTip = false
 

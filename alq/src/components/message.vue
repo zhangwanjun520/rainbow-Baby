@@ -1,24 +1,25 @@
 <template>
-  <footer>
-    <div class="footer-content">
-      <div class="name">
-        姓名：
-        <input type="text" v-model="name" name id />
+    <!-- 底部表单信息 -->
+    <div class="footer">
+      <div class="footer-content">
+        <div class="name">
+          姓名：
+          <input type="text" v-model="name" name id />
+        </div>
+        <div class="iphone">
+          联系电话：
+          <input type="text" v-model="phoneNumber" name id />
+        </div>
+        <div class="city">
+          意向城市：
+          <input type="text" v-model="city" name id />
+        </div>
+        <div class="submit" @click="submit">提交</div>
       </div>
-      <div class="iphone">
-        联系电话：
-        <input type="text" v-model="phoneNumber" name id />
-      </div>
-      <div class="city">
-        意向城市：
-        <input type="text" v-model="city" name id />
-      </div>
-      <div class="submit" @click="submit">提交</div>
     </div>
-  </footer>
 </template>
 <script>
-import { submitMsg } from "../api/request";
+import {submitMsg} from '../api/request'
 export default {
   data() {
     return {
@@ -38,16 +39,15 @@ export default {
         this.$message({
           message: "请填写信息",
           offset: 200,
-           showClose: true,
+          showClose: true
         });
-      }  else if (this.phoneNumber == "") {
+      } else if (this.phoneNumber == "") {
         this.$message({
           message: "请填写您的手机号码",
           offset: 200,
-           showClose: true,
+          showClose: true
         });
-      }
-      else {
+      } else {
         submitMsg(info).then(res => {
           if (res.msg == "操作成功") {
             this.$message({
@@ -65,7 +65,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-footer {
+.footer {
   width: 100%;
   min-width: 1200px;
   position: fixed;
@@ -78,7 +78,7 @@ footer {
   color: white;
   z-index: 1000;
   .footer-content {
-    width:85%;
+    width: 85%;
     height: 100%;
     margin: auto;
     display: flex;

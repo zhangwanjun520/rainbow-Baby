@@ -23,7 +23,7 @@ export default {
       this.flag = false;
      setTimeout(() => {
         this.flag = true;
-      }, 6000);
+      }, 7000);
 
     }
   }
@@ -34,7 +34,7 @@ export default {
   width: 500px;
   position: fixed;
 
-  top: 300px;
+  top: 350px;
   left: 50%;
   margin-left: -250px;
   z-index: 1000;

@@ -4,7 +4,7 @@
     <router-view></router-view>
     <booking></booking>
     <foot></foot>
-    <message></message>
+   <message></message>
     <rightContent></rightContent>
     <alertImg></alertImg>
   </div>
@@ -18,7 +18,7 @@ import rightContent from "./components/rightSide";
 import alertImg from "./components/alertImg";
 
 export default {
-  components: { headList, booking, foot, message, rightContent, alertImg },
+  components: { headList, booking, message,foot, rightContent, alertImg },
   data() {
     return {
       // screenWidth: "",

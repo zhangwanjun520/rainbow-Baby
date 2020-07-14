@@ -24,7 +24,7 @@
           </p>
         </div>
       </div>
-      <div v-for="(sitem,sindex) in tab" :key="sitem.id" v-show="num==sindex" class="newsCon">
+      <div v-for="(sitem,sindex) in tab" :key="sitem.id" v-show="num==sindex" class="newsCon" >
         <div
           v-for="titem in sitem.slice((currentPage-1)*pagesize,currentPage*pagesize)"
           :key="titem.id"
@@ -51,6 +51,7 @@
           ></el-pagination>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -94,7 +95,7 @@ export default {
       //获取创业者说
 
         this.tab.push(this.$store.state.news.newsInfo);
-        console.log(this.tab)
+        // console.log(this.tab)
 
 
       // 分页

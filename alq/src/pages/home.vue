@@ -7,9 +7,6 @@
             <img :src="item.adr" :alt="item.desc" class="img1" />
           </router-link>
         </el-carousel-item>
-        <!-- <ul class="point">
-          <li v-for='item in 3' :key='item'  :style="{'background-color': (index+1==item ? 'orange':'')}"></li>
-        </ul> -->
       </el-carousel>
     </div>
     <section class="hokids-section">
@@ -66,16 +63,16 @@
               <img :src="item.img" alt class="ageImg" />
             </router-link>
           </div>
-          <div class="age" :style="{'background-color':item.color}">
+          <div class="age" :style="{'background-color':item.color}" >
             <span>招生年龄</span>
-            <span>0-72个月</span>
+            <span>{{item.age}}</span>
           </div>
           <div class="course">
             <ul v-for="(sitem,sindex) in item.lesson" :key="sitem.id">
               <router-link
                 tag="li"
                 :to="item.path"
-                :style="{'color': (sindex==0||sindex==1 ? item.color:'black'),'font-weight': (sindex==0||sindex==1 ? '600':'500')}"
+                :style="{'color': (sindex==0||sindex==1 ? item.color:'black'),'font-weight': (sindex==0||sindex==1 ? '600':'500'),'font-size': (sindex==0||sindex==1 ? '16px':'12px')}"
               >{{sitem}}</router-link>
             </ul>
           </div>
@@ -187,7 +184,8 @@
     </div>
 
     <!-- 新闻中心 -->
-    <p class="tit">NEWS</p>
+    <div class="newscenter">
+         <p class="tit">NEWS</p>
       <p class="tit">新闻中心</p>
     <div class="newsCon">
 
@@ -208,6 +206,9 @@
           </div>
         </div>
     </div>
+
+    </div>
+
 
     <!-- 联合认证 -->
     <div class="hokids-authentication">
@@ -556,14 +557,14 @@ el-carousel{
   .hokids-explore-content {
     width: 90%;
     margin: 0 auto;
-
+    min-width: 1200px;
     button {
       border: none;
       display: inline-block;
       width: 160px;
       height: 40px;
       margin-top: 100px;
-      margin-left: 200px;
+      margin-left: 230px;
       background: #fff;
       border-radius: 8px;
       text-align: center;
@@ -617,12 +618,13 @@ margin: auto;
 }
 
 .leftList {
-  width: 48%;
+  width: 49%;
   height: 180px;
   background-color: #f5f5f5;
   border-radius: 8px;
   display: flex;
   align-items: center;
+  margin-left: 30px;
   div {
     color: black;
     img {
@@ -664,14 +666,14 @@ margin: auto;
   display: flex;
   justify-content: space-between;
     // margin-bottom: 0px;
-    width: 70%;
+    width: 80%;
     height:550px;
     margin:  50px auto ;
     padding-left: 70px;
 
 }
 .rightImg{
-  width: 380px;
+  width: 400px;
   background: url(../assets/authenticationbg.jpg) no-repeat center;
   background-size: contain;
 
@@ -712,8 +714,7 @@ margin: auto;
     width: 80%;
   margin: auto;
   text-align: center;
-  line-height: 60px;
-
+  line-height: 50px;
   }
 .newsCon {
   width: 90%;
@@ -764,8 +765,17 @@ margin: auto;
   color: #475669;
   cursor: pointer;
 }
+.newscenter{
+
+  background: rgba($color: gainsboro, $alpha: .2);
+
+  p:nth-child(1){
+    padding-top: 50px;
+  }
+}
 </style>
-<style lang="">
+<style lang="scss">
+.block{
 .el-carousel__button{
 width: 20px;
 height: 20px;
@@ -773,8 +783,11 @@ border-radius: 50%;
 background-color: orange;
 /* top: 200px; */
 }
+}
+.info{
 .el-carousel__container{
   height: 200px;
+}
 }
 </style>
 

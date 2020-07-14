@@ -51,7 +51,7 @@
             <img src="../assets/classes2.jpg" alt />
             <div class="type type2">
               <p>B</p>
-              <p>18个月-36个月</p>
+              <p>2个月-36个月</p>
             </div>
           </div>
         </div>
@@ -60,8 +60,8 @@
           <div class="img">
             <img src="../assets/classes3.jpg" alt />
             <div class="type type3">
-              <p>A</p>
-              <p>18个月-36个月</p>
+              <p>C</p>
+              <p>2个月-36个月</p>
             </div>
           </div>
           <div class="info3">
@@ -214,8 +214,12 @@ export default {};
   background-size: cover;
 }
 // ABC核心课程
+.box{
+  width: 1000px;
+  margin: auto;
+  // border: 1px solid;
+}
 .title {
-  width: 80%;
   text-align: center;
   margin: auto;
   font-weight: bold;
@@ -223,7 +227,6 @@ export default {};
   padding-top: 50px;
 }
 .content {
-  width: 80%;
   border: 1px solid;
   margin: auto;
   display: flex;

@@ -96,7 +96,7 @@
         </div>
         <!-- 查询信息 -->
         <div class="searchInfo">
-          <el-table :data="center" border style="width: 100%" id="tab" row-class-name="warning-row">
+          <el-table :data="center" border style="width: 100%" id="tab" row-class-name="warning-row"   header-row-class-name="ff">
             <el-table-column prop="coreProvince" label="省份" width="180" header-row-class-name="ff"></el-table-column>
             <el-table-column prop="coreCity" label="城市" width="180"></el-table-column>
             <el-table-column prop="coreName" label="中心名称" width="180"></el-table-column>
@@ -125,8 +125,9 @@
           style="width: 100%"
           id="tab"
           row-class-name="warning-row"
+          header-row-class-name="ff"
         >
-          <el-table-column prop="coreProvince" label="省份" width="180" header-row-class-name="ff"></el-table-column>
+          <el-table-column prop="coreProvince" label="省份" width="180"  ></el-table-column>
           <el-table-column prop="coreCity" label="城市" width="180"></el-table-column>
           <el-table-column prop="coreName" label="中心名称" width="180"></el-table-column>
           <el-table-column prop="coreAddress" label="地址"></el-table-column>
@@ -348,7 +349,7 @@ export default {
 }
 .banner2 {
   width: 100%;
-  height: 180px;
+  height: 200px;
   background: url("../assets/listenbg2.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -409,7 +410,8 @@ export default {
 .schoolInfo {
   height: auto;
   .img {
-    margin: 80px 0px 50px 120px;
+    width:80% ;
+    margin:50px auto;
     img {
       width: 250px;
     }
@@ -477,8 +479,16 @@ export default {
   margin-bottom: 50px;
   padding-bottom: 50px;
 }
+
 </style>
 <style lang="scss">
+.ff{
+  th{
+  background: #eb6100 !important;
+  color: white;
+  }
+
+}
 .schoolContent {
   .el-input__inner {
     width: 185px;
@@ -501,13 +511,13 @@ export default {
   font-size: 14px;
 }
 
-.el-table th,
-.el-table tr {
-  background: #eb6100;
-  color: white;
-  height: 40px;
+// .el-table th,
+// .el-table tr {
+//   background:  !important;
+//   color: white;
+//   height: 40px;
+// }
 
-}
 .el-table__row {
   font-size: 12px;
   background-color: #eeeeee;

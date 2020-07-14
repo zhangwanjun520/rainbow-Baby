@@ -147,7 +147,7 @@ export default {};
   background: #eee;
   .banner3Content {
     margin: auto;
-    width: 80%;
+    width: 1000px;
     display: flex;
     flex-direction: column;
     img:nth-child(1) {

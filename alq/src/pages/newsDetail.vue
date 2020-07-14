@@ -78,26 +78,26 @@ export default {
   background-size: cover;
 }
 .deta {
-  width: 1200px;
+  width: 80%;
   margin: 80px auto;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
 }
 .detail {
   // border: 1px dashed gainsboro;
-  width: 1400px;
+  width: 80%;
   margin: auto;
-  font-size: 24px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 80px;
-  line-height: 36px;
+  margin-bottom: 70px;
+  line-height: 30px;
 }
 .arrow {
   display: flex;
   // border: 1px solid;
-  width: 85%;
+  width: 80%;
   margin: auto;
   justify-content: space-between;
   margin-top: -80px;

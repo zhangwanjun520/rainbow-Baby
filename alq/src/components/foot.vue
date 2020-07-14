@@ -36,16 +36,24 @@
           010-53519528
           <span>拨</span> 0
         </p>
-        <p style="line-height:20px;">( 工作时间 : 周一至周五 9:00至17:00 )
-          <br>   分公司所有投诉事宜请拨打总公司全国投诉热线
+        <p style="line-height:20px;font-size:8px;font-weight:normal">
+          ( 工作时间 : 周一至周五 9:00至17:00 )
+          <br />分公司所有投诉事宜请拨打总公司全国投诉热线
         </p>
-
       </div>
     </section>
+    <div class="hokids-foot-content">
+            <!--p>Copyright © 2018 版权所有 &nbsp;京ICP备11016267号-1 &nbsp;&nbsp; 北京爱乐祺文化发展股份有限公司 &nbsp;&nbsp;All rights reserved.</p-->
+			<p>京ICP备11016267号-1 &nbsp;&nbsp;Copyright © 2018 北京爱乐祺文化发展股份有限公司 &nbsp;&nbsp;All rights reserved </p>
+        </div>
+
   </footer>
 </template>
 <script>
-export default {};
+import { submitMsg } from "../api/request";
+export default {
+
+};
 </script>
 <style lang="scss" scoped>
 a {
@@ -63,9 +71,13 @@ footer {
   height: 350px;
   background: #ffaa18;
   display: flex;
+  flex-direction: column;
+  position: relative;
   .content {
+    height: 180px;
+    // border: 1px solid;
     width: 85%;
-    margin:30px auto;
+    margin: 30px auto;
     display: flex;
     justify-content: space-between;
     div {
@@ -128,4 +140,11 @@ footer {
     font-size: 14px;
   }
 }
+
+.hokids-foot-content{
+// border: 1px solid;
+  color: white;
+  text-align: center;
+}
 </style>
+

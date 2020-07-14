@@ -47,12 +47,14 @@ header {
   .main {
     // background-color: antiquewhite;
     display: flex;
-    width: 85%; /*px*/
-    min-width: 1200px; /*px*/
+    width: 70%;
+    min-width: 1200px;
+    // border: 1px solid;
     margin: auto;
     height: 100px;
     justify-content: space-between;
     align-items: center;
+  
   }
   .header-logo {
     // border: 1px solid;
@@ -60,11 +62,11 @@ header {
     margin-left: 80px;
     // border: 1px solid;
     img {
-      width: 280px;
+      width: 250px;
     }
   }
   .nav {
-    width: 60%;
+    width: 65%;
     ul {
       font-size: 14px;
       list-style: none;

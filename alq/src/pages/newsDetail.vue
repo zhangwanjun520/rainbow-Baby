@@ -5,15 +5,26 @@
     <div v-html="content" class="detail"></div>
     <!-- 上一篇和下一篇 -->
     <div class="arrow">
-      <p @click="goLast(cont.lastNewsId)" v-if="cont.hasOwnProperty('lastNewsTitle')==true">
+      <p
+        @click="goLast(cont.lastNewsId)"
+        v-if="cont.hasOwnProperty('lastNewsTitle')==true"
+        class="left"
+      >
         <span>
           <i class="el-icon-arrow-left"></i>
         </span>
         上一篇：{{cont.lastNewsTitle}}
       </p>
       <p v-else>已经是第一篇了</p>
-      <p @click="goNext(cont.nextNewsId)" v-if="cont.hasOwnProperty('nextNewsTitle')==true">
-        下一篇：{{cont.nextNewsTitle}}
+      <p
+        @click="goNext(cont.nextNewsId)"
+        v-if="cont.hasOwnProperty('nextNewsTitle')==true"
+        class="right"
+      >
+      <span class="right-tex">
+            下一篇：{{cont.nextNewsTitle}}
+      </span>
+
         <span>
           <i class="el-icon-arrow-right"></i>
         </span>
@@ -100,7 +111,7 @@ export default {
   width: 80%;
   margin: auto;
   justify-content: space-between;
-  margin-top: -80px;
+  margin-top: 50px;
   margin-bottom: 80px;
   color: grey;
   font-size: 14px;
@@ -108,11 +119,32 @@ export default {
   p {
     cursor: pointer;
     span {
-      height: 60px;
+      // height: 60px;
       display: inline-block;
       // border: 1px solid;
     }
   }
+}
+.left {
+  display: inline-block;
+  // border: 1px solid;
+  width: 400px;
+  height: 30px;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+.right{
+  height: 30px;
+}
+.right-tex {
+  display: inline-block;
+  // border: 1px solid;
+  width: 400px;
+    // height: 30px;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
 }
 </style>
 <style lang="scss">

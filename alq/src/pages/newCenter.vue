@@ -13,20 +13,19 @@
       </div>
       <div class="tabTitle">
         <div class="t1">
-          <p
-            v-for="(item,index) in title"
-            :key="item.id"
-            :class="{active:num==index}"
-            @click="cli(index)"
-            class="btnn"
-          >
-            <el-button plain>{{item}}</el-button>
+          <p @click="cur = 0" >
+            <el-button plain :style="{'color':(cur==0?'#2CAEFF':'')}">全国中心活动</el-button>
+          </p>
+          <p @click="cur = 1">
+            <el-button plain :style="{'color':(cur==1?'#2CAEFF':'')}">创业者说</el-button>
           </p>
         </div>
       </div>
-      <div v-for="(sitem,sindex) in tab" :key="sitem.id" v-show="num==sindex" class="newsCon" >
+
+      <div class="newsCon" v-if="cur == 0">
+         <div class="noData" v-if="flag"><el-button  :loading="true">加载中</el-button></div>
         <div
-          v-for="titem in sitem.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+          v-for="titem in con.slice((currentPage-1)*pagesize,currentPage*pagesize)"
           :key="titem.id"
           @click="goDetail(titem.newsId)"
         >
@@ -47,11 +46,37 @@
             @current-change="handleCurrentChange"
             layout="prev, pager, next"
             :page-size="4"
-            :total="tab[sindex].length"
+            :total="con.length"
           ></el-pagination>
         </div>
       </div>
-
+      <div class="newsCon" v-if="cur == 1">
+        <div
+          v-for="titem in con2.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+          :key="titem.id"
+          @click="goDetail(titem.newsId)"
+        >
+          <div class="con">
+            <div>
+              <img :src="titem.newsIndexImg" alt class="imgg" />
+            </div>
+            <p class="newsTit">{{titem.newsTitle}}</p>
+            <p class="time">{{titem.createTime}}</p>
+            <p class="editor">作者:{{titem.newsEditor}}</p>
+            <p class="subtit">{{titem.newsSubtitle}}</p>
+          </div>
+        </div>
+        <!-- 分页 -->
+        <div class="pagination">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            layout="prev, pager, next"
+            :page-size="4"
+            :total="con2.length"
+          ></el-pagination>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -66,9 +91,12 @@ export default {
     return {
       num: 0,
       title: ["全国中心活动", "创业者说"],
-      tab: [],
+      con: [],
+      con2: [],
       currentPage: 1,
-      pagesize: 4
+      pagesize: 4,
+      flag: true,
+      cur: 0
     };
   },
   methods: {
@@ -90,30 +118,41 @@ export default {
       };
       // 获取全国活动中心活动
       getAllCenterActivities(info).then(res => {
-        this.tab.unshift(res.rows);
+
+        this.con = res.rows;
+          this.flag = false;
+
       });
-      //获取创业者说
-
-        this.tab.push(this.$store.state.news.newsInfo);
-        // console.log(this.tab)
-
-
-      // 分页
     },
+    getConnt2() {
+      let info = {
+        pageNum: "",
+        pageSize: ""
+      };
+      getEntrepreneurs(info).then(res => {
+        this.cur == 1;
+
+        this.con2 = res.rows;
+        this.flag = false;
+          console.log(this.con2.length);
+      });
+    },
+
     // 跳到详情页
     goDetail(id) {
       // console.log(id)
       this.$router.push({
-        path:`/${id}`,
-        query:{
-          come:'1'
+        path: `/${id}`,
+        query: {
+          come: "1"
         }
-        });
+      });
     }
   },
   created() {
-
     this.getNews();
+    this. getConnt2()
+
   }
 };
 </script>
@@ -155,7 +194,7 @@ export default {
   width: 80%;
   margin: 10px auto;
   font-weight: bold;
-  border: 1Px dashed gainsboro;;/*no*/
+  border: 1px dashed gainsboro; /*no*/
   font-size: 34px;
   .t1 {
     display: flex;
@@ -165,18 +204,27 @@ export default {
     justify-content: space-around;
   }
 }
+.noData {
+  width: 80%;
+  height: 100px;
+  margin: auto;
+  // border: 1px dashed gainsboro; /*no*/
+  text-align: center;
+  color: #666666;
+  line-height: 100px;
+}
 .newsCon {
   width: 80%;
   margin: auto;
   // height: 1000px;
-  border: 1Px dashed gainsboro;;/*no*/
+  border: 1px dashed gainsboro; /*no*/
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   .con {
     width: 400px;
-    height: 480px;
-    border: 1Px solid gainsboro;;/*no*/
+    height: 540px;
+    border: 1px solid gainsboro; /*no*/
     margin-top: 50px;
     margin-bottom: 70px;
     line-height: 30px;
@@ -186,12 +234,12 @@ export default {
     }
     .imgg {
       width: 100%;
-      height: 200px;
+      height: 220px;
     }
 
     .newsTit {
       font-size: 14px;
-      line-height: 10px;
+      line-height: 26px;
       font-weight: bold;
     }
     .newsTit:hover {
@@ -205,6 +253,24 @@ export default {
       margin-top: -20px;
     }
   }
+}
+
+.subtit {
+  position: relative;
+  line-height: 20px;
+  max-height: 100px;
+  overflow: hidden;
+}
+.subtit::after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-left: 40px;
+  background: -webkit-linear-gradient(left, transparent, #fff 55%);
+  background: -o-linear-gradient(right, transparent, #fff 55%);
+  background: -moz-linear-gradient(right, transparent, #fff 55%);
+  background: linear-gradient(to right, transparent, #fff 55%);
 }
 .pagination {
   width: 90%;

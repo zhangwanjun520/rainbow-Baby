@@ -11,7 +11,7 @@
           <!-- 表单 -->
 
           <div class="left">
-            <p style="text-align:center;font-weight:bold;font-size:20px;color:white">申请免费试听课程</p>
+            <p style="text-align:center;font-weight:550;font-size:20px;color:white">申请免费试听课程</p>
             <div class="leftCon">
               <p>
                 <el-input placeholder="宝宝姓名" v-model="babyName"></el-input>
@@ -32,28 +32,28 @@
                 <el-input placeholder="您的联系电话" v-model="phoneNumber"></el-input>
               </p>
               <p>
-                <el-select v-model="value" placeholder="请选择省" @change="val" id="select">
-                  <el-option
-                    v-for="item in province"
-                    :key="item.id"
-                    :value="item"
-                    @click.native="getProvinceId(item)"
-                  ></el-option>
+                <el-select v-model="value" placeholder="请选择省"  id="select">
+                     <el-option
+                v-for="item in province"
+                :key="item.id"
+                :value="item.name"
+                @click.native="getCurrentprovince(item.id)"
+              ></el-option>
                 </el-select>
               </p>
               <p>
-                <el-select placeholder="请选择城市" v-model="cityValue" @change="cityVal">
-                  <el-option
-                    v-for="item in city"
-                    :key="item.id"
-                    :value="item"
-                    @click.native="getCityId(item)"
-                  ></el-option>
+                <el-select placeholder="请选择城市" v-model="cityValue" >
+            <el-option
+                v-for="item in city"
+                :key="item.id"
+                :value="item.name"
+                @click.native="getCityId(item.id)"
+              ></el-option>
                 </el-select>
               </p>
 
               <p>
-                <el-select v-model="centerVal" placeholder="预约中心" id="select" @change="centerValue">
+                <el-select v-model="centerVal" placeholder="预约中心" id="select" >
                   <el-option
                     v-for="item in center"
                     :key="item.id"
@@ -64,7 +64,7 @@
               </p>
 
               <p class="btnnn">
-                <el-button type="warning" @click=" submitInfo">预约课程</el-button>
+                <el-button @click=" submitInfo">预约课程</el-button>
               </p>
             </div>
           </div>
@@ -85,6 +85,22 @@ import qs from "qs";
 export default {
   data() {
     return {
+           province: [],
+      provinceValue: "",
+      currentValue: "",
+      detail: [],
+      province: [],
+      // v-model绑定的值
+      value: "",
+      provinceId: "",
+      cityValue: "",
+      city: "",
+      centerName: "",
+      center: [],
+      allcenter: [],
+      centerVal: "",
+      cityName: "",
+      store: "",
       // vip体验课程表单
       babyName: "",
       birthday: "",
@@ -123,52 +139,48 @@ export default {
     by4(e) {
       this.by3 = e;
     },
-    getProvinceInfo() {
-      // 获取所有省份
+   getprovince() {
       getProvince().then((res) => {
-        this.province = res.data.obj;
+        console.log(res);
+        this.province = res.rows;
       });
     },
-    // 修改v-model绑定的值
-    val(value) {
-      this.value = value;
+    selectProvince(value) {
+      console.log(value);
+      this.provinceValue = value;
+
     },
-    getProvinceId(name) {
-      // console.log(id);
-      this.provinceId = name;
+    getCurrentprovince(name) {
+      this.currentValue = name;
       this.getCityInfo();
     },
     // 获取所有城市
     getCityInfo() {
       let info = {
-        province: this.provinceId,
+      provinceId: this.currentValue,
       };
-      getCity(qs.stringify(info)).then((res) => {
-        console.log(res);
-        this.city = res.data.obj;
-        // 点击省份默认出现城市（获取默认城市名字和id）
-        // this.cityValue = this.city[0];
+      getCity(info).then((res) => {
+        console.log(res)
+        this.city = res.rows;
       });
-      this.getAlq();
     },
-    cityVal(value) {
-      this.cityValue = value;
-    },
-    // 获取城市id
+    // cityVal(value) {
+    //   this.cityValue = value;
+    // },
     getCityId(name) {
       this.cityName = name;
+      this.getcenter();
     },
-
     // 查询地址
-    getAlq() {
+    getcenter() {
       let info = {
-        province: this.provinceId,
+        province: this.currentValue,
         city: this.cityName,
       };
-      console.log(info);
-      getCenter(qs.stringify(info)).then((res) => {
-        console.log(res);
-        this.center = res.data.obj;
+
+      getCenter(info).then((res) => {
+        console.log(res)
+        this.center = res.rows;
       });
     },
     centerValue(e) {
@@ -179,16 +191,21 @@ export default {
     stor(id) {
       this.store = id;
     },
+    // 提交预约报名体验课程
+
+    stor(id) {
+      this.store = id;
+    },
 
     submitInfo() {
       let babyInfo = {
-        appointmentProvince: this.provinceId,
-        appointmentCity: this.cityName,
-        babyBirthMonth: this.by3,
-        telephone: this.phoneNumber,
+        province:  this.currentValue,
+        city: this.cityName,
+        babyMonth: this.by3,
+        phone: this.phoneNumber,
         babyName: this.babyName,
-        babyBirthYear: this.by1,
-        appointmentStore: this.store,
+        babyYear: this.by1,
+        shop: this.store,
       };
       if (
         this.provinceId == "" &&
@@ -212,7 +229,7 @@ export default {
         });
       } else {
         submitBabyInfo(babyInfo).then((res) => {
-          if (res.meta.msg == "addApplyTest success") {
+          if (res.msg == "操作成功") {
             this.$message({
               showClose: true,
               message: "您已提交成功,我们会尽快与您联系",
@@ -234,7 +251,7 @@ export default {
   },
   mounted() {},
   created() {
-    this.getProvinceInfo();
+  this.getprovince();
   },
 };
 </script>
@@ -351,7 +368,7 @@ export default {
   width: 350px;
   margin-top: 30px;
   font-size: 26px;
-  font-weight: bold;
+  font-weight: 550;
   margin: 30px auto;
   text-align: center;
 }
@@ -359,7 +376,7 @@ export default {
   width: 350px;
   margin-top: 50px;
   font-size: 26px;
-  font-weight: bold;
+  font-weight: 550;
   margin: 50px auto;
   text-align: center;
 }
@@ -391,7 +408,7 @@ export default {
   margin-right: 100px;
   .el-icon-search {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 550;
   }
 }
 #tab {
@@ -438,6 +455,8 @@ export default {
     font-size: 12px;
     width: 100px;
     height: 40px;
+    border: none;
+    color: white;
   }
 }
 #tab {

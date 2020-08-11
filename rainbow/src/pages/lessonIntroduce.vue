@@ -30,7 +30,9 @@
       <div class="fanstic">
         <div class="fan">
             <p class="tit">七大课程体系支持</p>
-          <img src="../assets/rain/qq.jpg" alt="">
+          <img :src="image" alt="">
+          <!-- <img :src="image" alt=""> -->
+
 
           <!-- <div class="fan1">
             <ul
@@ -117,56 +119,29 @@
       <div class="box3">
         <div class="title">提升课程</div>
         <div class="promot">
-          <div class="nine-image1">
-            <img src="../assets/rain/kecheng1.jpg" alt srcset />
-            <div class="nine-image-title">大运动感统课程</div>
+          <div class="nine-image1" v-for="item in content" :key="item.id">
+            <img :src="item.img" alt srcset />
+            <div class="nine-image-title">{{item.name}}</div>
 
             <div class="nine-image-info">
               <p
                 class="nine-image-info2"
-              >针对宝宝敏感期感觉统合失调的程度,在游戏中通过感觉统合训练器材, 解决孩子们活动空间被压缩、活动方式受局限、人际交流困难等问题,或指导正常孩子进行娱乐保健活动以及对学前儿童进行预防训练, 激发孩子的优秀潜能,是真正集运动、游戏、学习、生活、智能发展于一体的全能训练。</p>
+              >{{item.content}}</p>
             </div>
           </div>
 
-          <div class="nine-image1">
-            <img src="../assets/rain/kecheng2.jpg" alt srcset />
-            <div class="nine-image-title">多元启智课程</div>
 
-            <div class="nine-image-info">
-              <p
-                class="nine-image-info2"
-              >以民族主题为特色,根据0-3岁婴幼儿生理和心理发展特点以及敏感期的发展特点,将民族内容作为课程主题,通过有针对性的指导和培养,让孩子感受民族文化的同时,为孩子多元潜能提升和良好的性格培养打下成长的基础。</p>
-            </div>
-          </div>
 
-          <div class="nine-image1">
-            <img src="../assets/rain/kecheng3.jpg" alt srcset />
-            <div class="nine-image-title">天才语言课程</div>
 
-            <div class="nine-image-info">
-              <p
-                class="nine-image-info2"
-              >家长常常为孩子胆怯怯场感到担忧,担心孩子会因口笨错失机会,因为表达在当今社会正变得越来越重要,好的口才不仅能让孩子充满自信、能说会说,更能培养阳光、优雅、大方的气质。语言课程通过“语商”的锻炼帮助孩子展示自我,让孩子表达力、表现力、表演力迅速提升,收获自信心、感恩心、上进心、提高公众演讲能力,使这样一项技能伴随孩子一生！</p>
-            </div>
-          </div>
 
-          <div class="nine-image1">
-            <img src="../assets/rain/kecheng4.jpg" alt srcset />
-            <div class="nine-image-title">科学探索课程</div>
 
-            <div class="nine-image-info">
-              <p
-                class="nine-image-info2"
-              >STEAM是一种教育理念,有别与传统的单学科注重注重书本的教育方式。STEAM是一种重实验的超学科教育理念。任何事情的成功都不仅依靠某一种能力的实现,而是要介于多种能力之间,所以单一的技能无法撑起未来的人才的发展,为了给孩子在思维能力的黄金时间最充足的黄精和课程,彩红贝贝推出了STEAM探索课程,让宝宝领先一步育见未来！</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   </div>
 </template>
 <script>
-import { getLesson, getTravel } from "../api/request";
+import { getLesson2,getImg } from "../api/request";
 import qs from "qs";
 
 export default {
@@ -175,43 +150,43 @@ export default {
       content: [],
       info: [],
       num: 0,
+      image:''
     };
   },
   methods: {
     getlesson() {
-      let info = {
-        channel: "course",
-        moduleNum: "1",
-      };
 
-      getLesson(qs.stringify(info)).then((res) => {
-        this.content = res.data.picArticleList;
-        this.content.forEach((item) => {
-          item.img = "http://52chbaby.com/api/" + item.picUrl;
-        });
+
+      getLesson2().then((res) => {
+        this.content = res.rows;
+
       });
     },
     // channel=course&moduleNum=2
-    gettravel() {
-      let info = {
-        channel: "course",
-        moduleNum: "2",
-      };
+    // gettravel() {
+    //   let info = {
+    //     channel: "course",
+    //     moduleNum: "2",
+    //   };
 
-      getTravel(qs.stringify(info)).then((res) => {
-        this.info = res.data.ageCourseList;
-        this.info.forEach((item) => {
-          item.img = "http://52chbaby.com/api/" + item.picUrl;
-        });
-      });
-    },
+    //   getTravel(qs.stringify(info)).then((res) => {
+    //     this.info = res.data.ageCourseList;
+    //     this.info.forEach((item) => {
+    //       item.img = "http://52chbaby.com/api/" + item.picUrl;
+    //     });
+    //   });
+    // },
     getNum(index) {
       this.num = index;
     },
   },
   created() {
     this.getlesson();
-    this.gettravel();
+    // this.gettravel();
+    getImg().then(res=>{
+      console.log(res)
+      this.image=res.data.img
+    })
   },
 };
 </script>
@@ -261,7 +236,7 @@ export default {
     font-size: 34px;
     color: #666666;
     text-align: center;
-    font-weight: bold;
+    font-weight: 550;
   }
   .imgd{
     width: 1000px;
@@ -298,7 +273,7 @@ export default {
       }
       .tit {
         margin-left: 0px;
-        font-weight: bold;
+        font-weight: 550;
         position: absolute;
         color: white;
         text-align: center;
@@ -331,11 +306,11 @@ export default {
 // 奇幻民族之旅
 .fanstic {
   width: 100%;
-  height: 1050px;
+  // height: 1050px;
   // border: 1px solid;
   .fan {
     width: 1100px;
-    height: 1000px;
+    // height: 1000px;
     margin:  auto;
     // border-radius: 300px;
     // box-shadow: rgb(248, 245, 230) 0px 0px 40px 40px;
@@ -349,7 +324,7 @@ export default {
     width: 100%;
     text-align: center;
     font-size: 34px;
-    font-weight: bold;
+    font-weight: 550;
     padding-top: 80px;
    color: #31bb7d;
   }
@@ -414,7 +389,7 @@ export default {
 .title {
   text-align: center;
   margin: auto;
-  font-weight: bold;
+  font-weight: 550;
   font-size: 36px;
   padding-top: 85px;
   color: #666;
@@ -490,7 +465,7 @@ export default {
 .box2 {
   width: 100%;
   height: 600px;
-  background: url("../assets/bg1.jpg");
+  // background: url("../assets/bg1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -548,7 +523,7 @@ export default {
 // 提升课程
 .box3 {
   width: 100%;
-  height: 600px;
+  // height: 600px;
   background: url("../assets/rain/promot.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -556,15 +531,15 @@ export default {
 }
 .promot {
   width: 1200px;
-  margin: 70px auto;
-  // padding-top: 80px;
+  margin:  auto;
+  padding-bottom: 80px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .nine-image1 > img {
   width: 270px;
-
   // float: left;
 }
 
@@ -572,6 +547,7 @@ export default {
   height: auto;
   position: relative;
   transition: all 0.5s linear;
+  margin-top: 30px;
 }
 
 .nine-image-title {

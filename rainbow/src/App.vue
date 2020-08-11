@@ -57,6 +57,8 @@ body {
   width: 100%;
   max-width: 1920px;
   margin: auto;
+ font-family:"Microsoft Yahei";
+ /* font-weight: normal; */
 }
 #app {
   min-width: 1200px;

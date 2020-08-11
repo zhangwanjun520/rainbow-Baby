@@ -11,7 +11,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // proxyTable: {
+    proxyTable: {
+    //   "/website": {
+    //     target: "http://192.168.31.75:9999/",
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //         '^/webchbb': 'webchbb/'
+    //     }
+    // }
+    },
+     // proxyTable: {
     //   "/website": {
     //     target: "http://192.168.40.136/",
     //     changeOrigin: true,
@@ -22,7 +31,7 @@ module.exports = {
     // },
 
     // Various Dev Server settings
-    host:'192.168.31.150' , // can be overwritten by process.env.HOST
+    host:'localhost' , // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

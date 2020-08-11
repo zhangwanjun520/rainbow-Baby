@@ -1,10 +1,39 @@
 <template>
   <div>
     <div class="banner1"></div>
-    <p class="deta">当前位置:新闻动态>{{content.title}}</p>
-    <p class="tit">{{content.title}}</p>
-    <p class="time">{{content.createTimeStr}}</p>
-    <div v-html="cont" class="detail"></div>
+    <p class="deta">当前位置:新闻动态>{{cont.newsTitle}}</p>
+    <p class="tit">{{cont.newsTitle}}</p>
+    <p class="time">{{cont.createTime}}</p>
+
+    <div v-html="content" class="detail"></div>
+      <!-- 上一篇和下一篇 -->
+    <!-- <div class="arrow">
+      <p
+        @click="goLast(cont.lastNewsId)"
+        v-if="cont.hasOwnProperty('lastNewsTitle')==true"
+        class="left"
+      >
+        <span>
+          <i class="el-icon-arrow-left"></i>
+        </span>
+        上一篇：{{cont.lastNewsTitle}}
+      </p>
+      <p v-else>已经是第一篇了</p>
+      <p
+        @click="goNext(cont.nextNewsId)"
+        v-if="cont.hasOwnProperty('nextNewsTitle')==true"
+        class="right"
+      >
+      <span class="right-tex">
+            下一篇：{{cont.nextNewsTitle}}
+      </span>
+
+        <span>
+          <i class="el-icon-arrow-right"></i>
+        </span>
+      </p>
+      <p v-else>已经是最后一篇了</p>
+    </div> -->
   </div>
 </template>
 <script>
@@ -19,10 +48,9 @@ export default {
   methods: {
     getDetail() {
       let newId = this.$route.query.newsId;
-      console.log(this.$route.query.newsId);
       getDetailNews(newId).then(res => {
-        this.cont = res.data.obj.content;
-        this.content = res.data.obj;
+        this.html_decode(res.data.newsContent);
+        this.cont = res.data;
       });
     },
     // 转义标签
@@ -67,7 +95,7 @@ export default {
   width: 100%;
   text-align: center;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 550;
   color: #31bb7d;
   margin-top: 30px;
   margin-bottom: 20px;
@@ -82,19 +110,23 @@ export default {
   margin: 80px auto;
   font-size: 14px;
   color: #666666;
-  font-weight: bold;
+  font-weight: 550;
 }
+
 .detail {
   // border: 1px dashed gainsboro;
-  width: 80%;
+  width: 1000px;
+  height: auto;
+  text-align: center;
   margin: auto;
   font-size: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   line-height: 30px;
 }
+
 </style>
 <style lang="scss">
 [class*=" el-icon-"],

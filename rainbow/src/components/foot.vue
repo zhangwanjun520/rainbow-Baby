@@ -2,29 +2,30 @@
   <footer>
     <section class="content">
       <div class="img">
-        <img src="../assets/rain/bottom-logo.png" alt="">
+        <img src="../assets/rain/bottom-logo.png" alt />
       </div>
       <div class="left">
-
-        <p>地址：北京市东城区广渠门内大街45号雍贵中心</p>
-               <p>
-              <i class="el-icon-phone"></i>服务热线： 400-6677-870 &nbsp;&nbsp;&nbsp;&nbsp; <i class="el-icon-s-platform"></i>官方网站： www.52chbaby.com
+        <p><i class="el-icon-s-platform"></i>官方网站： www.52chbaby.com</p>
+             <p>
+              <i class="el-icon-phone"></i>服务热线： 400-6677-870
             </p>
         <p>
-          <router-link tag="span" to="/aboutUs">关于我们</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
-          <router-link tag="span" to="/explore">探索发现</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
-          <router-link tag="span" to="/booking">预约试听</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
-          <router-link tag="span" to="/joinUs">加盟合作</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
-          <router-link tag="span" to="/lessonIntroduce">课程介绍</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
-          <router-link tag="span" to="/newCenter">新闻中心</router-link>&nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="el-icon-location"></i>总部地址： 北京市东城区广渠门内大街45号雍贵中心
+        </p>
+
+        <p>
+          <router-link tag="span" to="/aboutUs">关于我们</router-link>&nbsp;&nbsp;
+          <router-link tag="span" to="/explore">中心一览</router-link>&nbsp;&nbsp;
+          <router-link tag="span" to="/booking">预约试听</router-link>&nbsp;&nbsp;
+          <router-link tag="span" to="/joinUs">加盟合作</router-link>&nbsp;&nbsp;
+          <router-link tag="span" to="/lessonIntroduce">课程介绍</router-link>&nbsp;&nbsp;
+          <router-link tag="span" to="/newCenter">新闻中心</router-link>&nbsp;&nbsp;
           <!-- <router-link tag="span" to="/joinUs">加盟我们</router-link>&nbsp;&nbsp;&nbsp;&nbsp; -->
           <!-- <router-link tag="span" to="/provicy">隐私条款</router-link> -->
         </p>
 
-            <p>
+        <p></p>
 
-            </p>
-         <p>京ICP备20012741号 &nbsp;&nbsp; 时亦睿宝（北京）文化有限公司</p>
 
         <!-- <p>
           增值电信业务经营许可证：
@@ -32,32 +33,25 @@
         </p>-->
       </div>
 
-
-          <div class="left">
-
-
-
-            <p>
-              <i class="el-icon-location"></i>总部地址： 北京市东城区广渠门内大街45号雍贵中心
-            </p>
-            <p>
-              <i class="el-icon-s-custom"></i>市场合作： 请将资料发送至邮箱：rainbowbaby001@163.com
-            </p>
-            <p>
-              <i class="el-icon-s-cooperation"></i>职位申请： 请将资料发送至邮箱：rainbowbaby001@163.com
-            </p>
-                  <p class="wb">
-              <span>
-                <img src="../assets/rain/sina.png" alt style="width:15px" />
-              </span>官方微博
-              <a
-                href="https://weibo.com/6502554934/manage"
-                class="aa"
-                style="color:white"
-              >:https://weibo.com/6502554934/manage</a>&nbsp;&nbsp;&nbsp;&nbsp; <i class="el-icon-s-finance"></i>邮编地址： 100055
-            </p>
-
-
+      <div class="left">
+        <p>
+          <i class="el-icon-s-custom"></i>市场合作： 请将资料发送至邮箱：rainbowbaby001@163.com
+        </p>
+        <p>
+          <i class="el-icon-s-cooperation"></i>职位申请： 请将资料发送至邮箱：rainbowbaby001@163.com
+        </p>
+        <p class="wb">
+          <span>
+            <img src="../assets/rain/sina.png" alt style="width:15px" />
+          </span>官方微博
+          <a
+            href="https://weibo.com/6502554934/manage"
+            class="aa"
+            style="color:white"
+          >:https://weibo.com/6502554934/manage</a>&nbsp;&nbsp;
+          <i class="el-icon-s-finance"></i>邮编地址： 100055
+        </p>
+          <p>京ICP备20012741号 &nbsp;&nbsp; 时亦睿宝（北京）文化有限公司</p>
 
         <!-- <p>
           增值电信业务经营许可证：
@@ -100,7 +94,7 @@
     <!-- <div class="hokids-foot-content">
 
       <p>京ICP备20012741号 &nbsp;&nbsp; 时亦睿宝（北京）文化有限公司</p>
-    </div> -->
+    </div>-->
   </footer>
 </template>
 <script>
@@ -133,24 +127,20 @@ footer {
 
   position: relative;
   .content {
-        width: 1200px;
+    width: 1300px;
     height: 230px;
-    // border: 1px solid white;
 
     margin: 30px auto;
     display: flex;
     justify-content: space-around;
-    .img{
+    .img {
       margin-top: 40px;
     }
 
     div {
-
       float: left;
-       margin-right: 50px;
+      margin-right: 50px;
       height: 160px;
-      font-weight: 550;
-
     }
     .left {
       p {
@@ -164,10 +154,8 @@ footer {
         }
       }
     }
-
   }
 }
-
 
 .hokids-foot-content {
   // border: 1px solid;

@@ -8,132 +8,154 @@
     </section>
     <!-- 新闻中心 -->
     <div class="box">
-         <div class="news">
-      <div
-        class="news1"
-        style="font-size:34px;padding-top:50px;color:#31bb7d;font-weight:bold"
-      >新闻资讯</div>
-      <div class="tabTitle">
-        <div class="t1">
-          <p
-            @click="cur = 0"
-            :style="{'color':(cur==0?'#31bb7d':'')}"
-            style="font-size:18px"
+      <div class="news">
+        <!-- <div
+          class="news1"
+          style="font-size:34px;padding-top:50px;color:#31bb7d;font-weight:550;padding-bottom:50px"
+        >新闻资讯</div> -->
+        <!-- <div class="tabTitle"> -->
+          <!-- <div class="t1">
+            <p @click="cur = 0" :style="{'color':(cur==0?'#31bb7d':'')}" style="font-size:18px">
+              新闻动态
+              <el-divider direction="vertical"></el-divider>
+            </p>
+            <p @click="getConnt2" :style="{'color':(cur==1?'#31bb7d':'')}" style="font-size:18px">
+              活动预告
+              <el-divider direction="vertical"></el-divider>
+            </p>
+            <p
+              @click="getConnt3"
+              :style="{'color':(cur==2?'#31bb7d':'')}"
+              style="font-size:18px"
+            >活动回顾</p>
+          </div> -->
+        <!-- </div> -->
+
+        <div class="newsCon" v-if="cur == 0" style="padding-top:70px">
+          <div class="noData" v-if="flag">
+            <el-button :loading="true" style="border:none;background:#f7f7f7;color:gray">加载中</el-button>
+          </div>
+          <div
+            v-for="titem in con"
+            :key="titem.id"
+            @click="goDetail(titem.newsId)"
           >
-            新闻动态
-            <el-divider direction="vertical"></el-divider>
-          </p>
-          <p
-            @click="getConnt2"
-            :style="{'color':(cur==1?'#31bb7d':'')}"
-            style="font-size:18px"
+            <div class="con">
+              <div>
+                <img :src="titem.newsIndexImg" alt class="imgg" />
+              </div>
+              <div style="height:130px">
+                    <p class="newsTit">{{titem.newsTitle}}</p>
+              <p class="time">{{titem.createTimeStr}}</p>
+              <!-- <p class="editor">作者:{{titem.newsEditor}}</p> -->
+              <p class="subtit">{{titem.newsSubtitle}}</p>
+
+              </div>
+
+              <div class="more">
+                <div>
+                  {{titem.createTime}}
+                </div>
+                <div @click="goDetail(titem.newsId)">
+                  更多>>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 分页 -->
+          <div class="pagination">
+            <el-pagination
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+                  :current-page="currentPage"
+              layout="prev, pager, next"
+              :page-size="6"
+              :total="totalCount"
+            ></el-pagination>
+          </div>
+        </div>
+        <!-- <div class="newsCon" v-if="cur == 1">
+          <div class="noData" v-if="flag2">
+            <el-button :loading="true" style="border:none;background:#f7f7f7">加载中</el-button>
+          </div>
+          <div
+            v-for="titem in con2"
+            :key="titem.id"
+            @click="goDetail(titem.newsId)"
           >
-            活动预告
-            <el-divider direction="vertical"></el-divider>
-          </p>
-          <p
-            @click="getConnt3"
-            :style="{'color':(cur==2?'#31bb7d':'')}"
-            style="font-size:18px"
-          >活动回顾</p>
-        </div>
-      </div>
+               <div class="con">
+              <div>
+                <img :src="titem.newsIndexImg" alt class="imgg" />
+              </div>
+              <p class="newsTit">{{titem.newsTitle}}</p>
+              <p class="time">{{titem.createTimeStr}}</p>
 
-      <div class="newsCon" v-if="cur == 0">
-        <div class="noData" v-if="flag">
-          <el-button :loading="true" style="border:none;background:#f7f7f7">加载中</el-button>
-        </div>
-        <div
-          v-for="titem in con.slice((currentPage-1)*pagesize,currentPage*pagesize)"
-          :key="titem.id"
-          @click="goDetail(titem.id)"
-        >
-          <div class="con">
-            <div>
-              <img :src="titem.img" alt class="imgg" />
+              <p class="subtit">{{titem.newsSubtitle}}</p>
             </div>
-            <p class="newsTit">{{titem.title}}</p>
-            <p class="time">{{titem.createTimeStr}}</p>
-            <!-- <p class="editor">作者:{{titem.newsEditor}}</p> -->
-            <p class="subtit">{{titem.intro}}</p>
-          </div>
-        </div>
-        <!-- 分页 -->
-        <div class="pagination">
-          <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            layout="prev, pager, next"
-            :page-size="6"
-            :total="con.length"
-          ></el-pagination>
-        </div>
-      </div>
-      <div class="newsCon" v-if="cur == 1">
-        <div class="noData" v-if="flag2">
-          <el-button :loading="true" style="border:none;background:#f7f7f7">加载中</el-button>
-        </div>
-        <div
-          v-for="titem in con2.slice((currentPage-1)*pagesize,currentPage*pagesize)"
-          :key="titem.id"
-          @click="goDetail(titem.id)"
-        >
-          <div class="con">
-            <div>
-              <img :src="titem.img" alt class="imgg" />
-            </div>
-            <p class="newsTit">{{titem.title}}</p>
-            <p class="time">{{titem.createTimeStr}}</p>
-            <!-- <p class="editor">作者:{{titem.newsEditor}}</p> -->
-            <p class="subtit">{{titem.intro}}</p>
-          </div>
-        </div>
-        <!-- 分页 -->
-        <div class="pagination">
-          <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            layout="prev, pager, next"
-            :page-size="6"
-            :total="con2.length"
-          ></el-pagination>
-        </div>
-      </div>
 
-      <div class="newsCon" v-if="cur == 2">
-        <div class="noData" v-if="flag3">
-          <el-button :loading="true" style="border:none;background:#f7f7f7">加载中</el-button>
-        </div>
-        <div
-          v-for="titem in con3.slice((currentPage-1)*pagesize,currentPage*pagesize)"
-          :key="titem.id"
-          @click="goDetail(titem.id)"
-        >
-          <div class="con">
-            <div>
-              <img :src="titem.img" alt class="imgg" />
-            </div>
-            <p class="newsTit">{{titem.title}}</p>
-            <p class="time">{{titem.createTimeStr}}</p>
-            <!-- <p class="editor">作者:{{titem.newsEditor}}</p> -->
-            <p class="subtit">{{titem.intro}}</p>
+
+
+
+
+
+
           </div>
-        </div>
-        <!-- 分页 -->
-        <div class="pagination">
-          <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            layout="prev, pager, next"
-            :page-size="6"
-            :total="con3.length"
-          ></el-pagination>
-        </div>
+
+
+      <div class="pagination">
+            <el-pagination
+              @size-change="handleSizeChange2"
+              @current-change="handleCurrentChange2"
+                  :current-page="currentPage2"
+              layout="prev, pager, next"
+              :page-size="6"
+              :total="totalCount2"
+            ></el-pagination>
+          </div>
+
+
+
+
+        </div> -->
+
+        <!-- <div class="newsCon" v-if="cur == 2">
+          <div class="noData" v-if="flag3">
+            <el-button :loading="true" style="border:none;background:#f7f7f7;">加载中</el-button>
+          </div>
+          <div
+            v-for="titem in con3"
+            :key="titem.id"
+               @click="goDetail(titem.newsId)"
+          >
+
+           <div class="con">
+              <div>
+                <img :src="titem.newsIndexImg" alt class="imgg" />
+              </div>
+              <p class="newsTit">{{titem.newsTitle}}</p>
+              <p class="time">{{titem.createTimeStr}}</p>
+
+              <p class="subtit">{{titem.newsSubtitle}}</p>
+            </div>
+
+
+
+          </div>
+
+          <div class="pagination">
+            <el-pagination
+              @size-change="handleSizeChange3"
+              @current-change="handleCurrentChange3"
+                :current-page="currentPage3"
+              layout="prev, pager, next"
+              :page-size="6"
+              :total="totalCount3"
+            ></el-pagination>
+          </div>
+        </div> -->
+        <div class="cl"></div>
       </div>
-      <div class="cl"></div>
     </div>
-    </div>
-
   </div>
 </template>
 <script>
@@ -149,65 +171,85 @@ export default {
       con2: [],
       con3: [],
       currentPage: 1,
-      pagesize: 6,
+      pagesize: 1,
       flag: true,
       flag2: true,
       flag3: true,
       cur: 0,
+      totalCount:null,
+       currentPage2: 1,
+      pagesize2: 1,
+      totalCount2:null,
+     currentPage3: 1,
+      pagesize3: 1,
+      totalCount3:null,
+
     };
   },
   methods: {
     // 分页
     handleSizeChange: function (size) {
+      console.log(size)
       this.pagesize = size;
+      this.getnews()
     },
     //当前页currentPage
     handleCurrentChange: function (currentPage) {
       this.currentPage = currentPage;
+      this.getnews()
     },
+    //     handleSizeChange2: function (size) {
+    //   this.pagesize2 = size;
+    //   this.getConnt2()
+    // },
+    // //当前页currentPage
+    // handleCurrentChange2: function (currentPage) {
+    //   this.currentPage2 = currentPage;
+    //   this.getConnt2()
+    // },
+
+
+    //         handleSizeChange3: function (size) {
+    //   this.pagesize3 = size;
+    //   this.getConnt3()
+    // },
+    // //当前页currentPage
+    // handleCurrentChange3: function (currentPage) {
+    //   this.currentPage3 = currentPage;
+    //   this.getConnt3()
+    // },
     cli(ind) {
       this.num = ind;
     },
+    // 新闻动态
     getnews() {
-      let info = {
-        channel: "ayjdt",
-      };
-      // 获取全国活动中心活动
-      getNews(qs.stringify(info)).then((res) => {
-        this.con = res.data.pageInfo.list;
-        this.flag = false;
-        this.con.forEach((item) => {
-          item.img = "http://52chbaby.com/api/" + item.photo;
-        });
+      let info = { pageSize: 6, pageNum: this.currentPage }
+      getNews(info).then((res) => {
+      this.con=res.rows
+      this.totalCount=res.total
+            this.flag = false;
       });
     },
-    getConnt2() {
-      this.cur = 1;
-      let info = {
-        channel: "hdyg",
-      };
-      getNews(qs.stringify(info)).then((res) => {
-        this.con2 = res.data.pageInfo.list;
-        this.flag2 = false;
-
-        this.con2.forEach((item) => {
-          item.img = "http://52chbaby.com/api/" + item.photo;
-        });
-      });
-    },
-    getConnt3() {
-      this.cur = 2;
-      let info = {
-        channel: "hdhg",
-      };
-      getNews(qs.stringify(info)).then((res) => {
-        this.con3 = res.data.pageInfo.list;
-        this.flag3 = false;
-        this.con3.forEach((item) => {
-          item.img = "http://52chbaby.com/api/" + item.photo;
-        });
-      });
-    },
+    // 活动预告
+    // getConnt2() {
+    //    let info = { pageSize: 6, pageNum: this.currentPage2 }
+    //   this.cur = 1;
+    //   getNews2(info).then((res) => {
+    //     this.con2 = res.rows;
+    //           this.totalCount2=res.total
+    //     this.flag2 = false;
+    //   });
+    // },
+    // 活动回顾
+//     getConnt3() {
+//       let info = { pageSize: 6, pageNum: this.currentPage3 }
+//       this.cur = 2;
+//       getNews3(info).then((res) => {
+//         this.con3 = res.rows;
+//  this.totalCount3=res.total
+//         this.flag3 = false;
+//       });
+//     },
 
     // 跳到详情页
     goDetail(id) {
@@ -249,15 +291,14 @@ export default {
   flex: 1;
 }
 // 新闻中心
-.box{
+.box {
   width: 100%;
-height: auto;
+  height: auto;
   //     background: url("../assets/rain/conb.jpg");
   // background-position: center;
   // background-repeat: no-repeat;
   // background-size: cover;
   background-color: #f7f7f7;
-
 
 }
 .news1 {
@@ -267,19 +308,18 @@ height: auto;
   flex-direction: column;
   align-items: center;
 
-
   img {
     width: 450px;
     margin: 80px 0 80px 0;
   }
 }
-.cl{
+.cl {
   clear: both;
 }
 .tabTitle {
   width: 80%;
   margin: 10px auto;
-  font-weight: bold;
+  font-weight: 550;
   // border: 1px dashed gainsboro; /*no*/
   font-size: 34px;
   .t1 {
@@ -310,13 +350,14 @@ height: auto;
   justify-content: space-around;
   .con {
     width: 380px;
-    height: 540px;
-  margin-left: 15px;
+    height: 500px;
+    margin-left: 15px;
     // border: 1px solid gainsboro; /*no*/
     // margin-top: 50px;
     margin-bottom: 70px;
     line-height: 30px;
     background-color: white;
+    margin-bottom: 20px;
     p {
       width: 90%;
       margin: 30px auto;
@@ -329,7 +370,7 @@ height: auto;
     .newsTit {
       font-size: 16px;
       line-height: 30px;
-      font-weight: bold;
+      font-weight: 550;
     }
     .newsTit:hover {
       color: #31bb7d;
@@ -361,59 +402,66 @@ height: auto;
   background: -moz-linear-gradient(right, transparent, #fff 55%);
   background: linear-gradient(to right, transparent, #fff 55%);
 }
+.more{
+  width: 90%;
+  font-size: 12px;
+  margin: auto;
+
+  div:nth-child(1){
+   width:150px;
+    float: left;
+  }
+    div:nth-child(2){
+    width:50px;
+    float: right;
+    color: #31bb7d;
+  }
+}
 .pagination {
   width: 90%;
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
 }
+
 </style>
 <style lang="scss">
+
 .btnn {
   .el-button {
     width: 180px;
     height: 60px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 550;
     margin-right: 20px;
   }
 }
-.pagination{
+.pagination {
   .el-pagination .btn-next .el-icon,
-.el-pagination .btn-prev .el-ico{
-background-color: #f7f7f7;
+  .el-pagination .btn-prev .el-ico {
+    background-color: #f7f7f7;
 
-  font-size: 18px;
+    font-size: 18px;
+  }
+  .el-pager li {
+    font-size: 18px;
+    background-color: #f7f7f7;
+  }
+  .el-pagination button:disabled {
+    background-color: #f7f7f7;
+    font-size: 18px;
+  }
+  .el-pagination .btn-next {
+    background-color: #f7f7f7;
+  }
+  .el-pagination .btn-prev {
+    font-size: 18px;
+
+    background-color: #f7f7f7;
+  }
+  .el-pagination .btn-next .el-icon,
+  .el-pagination .btn-prev .el-icon {
+    font-size: 18px;
+  }
 }
-.el-pager li {
-  font-size: 18px;
-background-color: #f7f7f7;
-
-}
-.el-pagination button:disabled{
-background-color: #f7f7f7;
-  font-size: 18px;
-
-
-}
-.el-pagination .btn-next{
-background-color: #f7f7f7;
-
-}
-.el-pagination .btn-prev{
-  font-size: 18px;
-
-background-color: #f7f7f7;
-
-}
-.el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon{
-  font-size: 18px;
-
-}
-
-}
-
-
-
-
 </style>

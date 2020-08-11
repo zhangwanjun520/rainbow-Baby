@@ -68,7 +68,7 @@ export default {};
     width: 200px;
     margin: 50px auto;
     text-align: center;
-    font-weight: bold;
+    font-weight: 550;
   }
 }
 </style>

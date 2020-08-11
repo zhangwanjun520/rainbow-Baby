@@ -29,7 +29,7 @@ export default {
 .hokids-appointment {
     width: 100%;
     height: 220px;
-  background: url("../assets/appointment.jpg");
+  // background: url("../assets/appointment.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,7 +42,7 @@ export default {
     text-align: right;
     color: #f76930;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 550;
     }
     .hokids-appointment a {
       text-decoration: none;

@@ -4,7 +4,7 @@
       <el-carousel trigger="click" id="carousel" @change="onchange" arrow="always">
         <el-carousel-item v-for="item in imgs" :key="item.id" class="ll">
           <div
-            :style="{backgroundImage: 'url(' + item.adr + ')', backgroundRepeat: 'no-repeat'}"
+            :style="{backgroundImage: 'url(' + item.img + ')', backgroundRepeat: 'no-repeat'}"
             style="width:100%;height:580px;backgroundPosition:center;background-size:cover;"
           ></div>
           <!-- <img :src="item.adr" :alt="item.desc" class="img1" style="margin:auto" /> -->
@@ -23,29 +23,26 @@
         <br />
         <span style="font-size:12px;">——— Brand Introduction ———</span>
       </p>
-      <p>
-        彩红贝贝作为托与育产业集团中成熟的托育品牌之一,在托育元年横空出世,定位“普惠托育”,让更多0-3岁婴幼儿家庭用低端的价格享受到优质、专业的婴幼儿托管服务,打造普通家庭的宝宝也能够上得起的托育中心！
-        <br />让妈妈回归职场,不再纠结！
+      <p v-html="html_decode(ppjs)">
+
       </p>
-      <div class="promot">
-        <div class="nine-image1">
-          <img src="../assets/rain/brand1.jpg" alt srcset />
-          <div class="nine-image-title">科学</div>
+      <div class="promot" >
+        <div class="nine-image1" v-for="item in idea" :key="item.id">
+          <img :src="item.img" alt srcset />
+          <div class="nine-image-title">{{item.name}}</div>
           <!-- 动画定位 -->
           <div class="nine-image-info">
             <p class="nine-image-info2">
-              <span class="title">科学</span>
-              <br />1.寓教于乐,六大领域全面发展；
-              <br />2.适龄教学,八大智能多元发展；
-              <br />3.进阶缓适,提早适应学前生活；
+              <!-- <span class="title">{{item.name}}</span> -->
+              <span v-html="html_decode(item.content)"></span>
             </p>
           </div>
         </div>
 
-        <div class="nine-image1">
+        <!-- <div class="nine-image1">
           <img src="../assets/rain/brand2.jpg" alt srcset />
           <div class="nine-image-title">优质</div>
-          <!-- 动画定位 -->
+
           <div class="nine-image-info">
             <p class="nine-image-info2">
               <span class="title">优质</span>
@@ -55,12 +52,12 @@
               <br />3.真正快乐,丰富多彩的主题活
             </p>
           </div>
-        </div>
+        </div> -->
 
-        <div class="nine-image1">
+        <!-- <div class="nine-image1">
           <img src="../assets/rain/brand3.jpg" alt srcset />
           <div class="nine-image-title">便捷</div>
-          <!-- 动画定位 -->
+
           <div class="nine-image-info">
             <p class="nine-image-info2" style="text-align:center">
               <span class="title">便捷</span>
@@ -70,12 +67,12 @@
               <br />
             </p>
           </div>
-        </div>
+        </div> -->
 
-        <div class="nine-image1">
+        <!-- <div class="nine-image1">
           <img src="../assets/rain/brand4.jpg" alt srcset />
           <div class="nine-image-title">专业</div>
-          <!-- 动画定位 -->
+
           <div class="nine-image-info">
             <p class="nine-image-info2">
               <span class="title">专业</span>
@@ -84,7 +81,7 @@
               <br />3.为中国的托育行业赋能的惠普品牌
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -98,58 +95,11 @@
         </p>
         <!-- <p>核心日托,照料中国育儿家庭刚性需求,金字塔结构课程体系,进阶式入园缓适班</p> -->
         <el-tabs v-model="activeName" @tab-click="handleClick" type="border-card">
-          <el-tab-pane label="核心托育" name="first">
+          <el-tab-pane :label="item.name" :name="String(index)"  v-for="(item,index) in lesson" :key="item.id" @click.native="ll(index)">
             <p id="img">
-              <img src="../assets/rain/lesson1.jpg" alt />
+              <img :src="item.img" alt />
             </p>
-            <p id="text">
-              【适龄2个月—36个月】
-              <br />全日托班针对性使用集体教学、小组教学和独立学习的形式。 课堂教学内容基于宝宝的情感和认知发展进行安排,当他们适应环境后,就开始分成小组进行学习。差异化的教学能够更好的让孩⼦们保持自信⼼,愿意主动去学习和探索。
-            </p>
-          </el-tab-pane>
-          <el-tab-pane label="多元启智" name="second">
-            <p id="img">
-              <img src="../assets/rain/lesson2.jpg" alt />
-            </p>
-            <p id="text">
-              【适龄6个月—36个月】
-              <br />以民族主题为特色,根据0-3岁婴幼儿生理和心理发展特点以及敏感期的发展特点,通过有针对性的指导和培养,让孩子感受民族文化的同时,为孩子多元潜能提升和良好的性格培养打下成长的基础。
-            </p>
-          </el-tab-pane>
-          <el-tab-pane label="运动感统" name="third">
-            <p id="img">
-              <img src="../assets/rain/lesson3.jpg" alt />
-            </p>
-            <p id="text">
-              【适龄24个月-48个月】
-              <br />STEAM是一种教育理念,有别与传统的单学科注重书本的教育方式。STEAM是一种重实验的超学科教育理念。任何事情的成功都不仅依靠某一种能力的实现,而是要介于多种能力之间,所以单一的技能无法撑起未来的人才的发展,为了给孩子在思维能力的黄金时间最充足的黄精和课程,彩红贝贝推出了STEAM探索课程,让宝宝领先一步育见未来！
-            </p>
-          </el-tab-pane>
-          <el-tab-pane label="天才语言" name="fourth">
-            <p id="img">
-              <img src="../assets/rain/lesson4.jpg" alt />
-            </p>
-            <p id="text">
-              【适龄24个月-48个月】
-              <br />选取国内外经典绘本,通过阅读绘本,增强孩子的词汇量输入,培养良好的阅读习惯,通过朗诵,让孩子掌握演讲技巧,促进语言能力的发展,通过角色扮演,激发孩子的想象力和创造力,锻炼孩子的人际关系,合作协调能力的发展。
-            </p>
-          </el-tab-pane>
-          <el-tab-pane label="科学探索" name="fifth">
-            <p id="img">
-              <img src="../assets/rain/lesson5.jpg" alt />
-            </p>
-            <p id="text">
-              【适龄24个月-48个月】
-              <br />STEAM是一种教育理念,有别与传统的单学科注重书本的教育方式。STEAM是一种重实验的超学科教育理念。任何事情的成功都不仅依靠某一种能力的实现,而是要介于多种能力之间,所以单一的技能无法撑起未来的人才的发展,为了给孩子在思维能力的黄金时间最充足的黄精和课程,彩红贝贝推出了STEAM探索课程,让宝宝领先一步育见未来！
-            </p>
-          </el-tab-pane>
-          <el-tab-pane label="民族沉浸" name="sixth">
-            <p id="img">
-              <img src="../assets/rain/lesson6.jpg" alt />
-            </p>
-            <p id="text">
-              【适龄24个月-48个月】
-              <br />以中国十二个民族的风土人情为载体：通过音乐、舞蹈、运动、拼图、故事、民俗文化等丰富的活动内容,让宝宝体验我们国家不同的领域、不同的民族文化、开拓幼儿的眼界。通过采用人机互动与硬件设备共同实现的技术,从而促进宝宝多元智能的发展,增强宝宝的体感、观察力、思维逻辑能力。
+            <p id="text" v-html="html_decode(item.content)">
             </p>
           </el-tab-pane>
         </el-tabs>
@@ -166,16 +116,19 @@
       </p>
 
       <div class="newsCon">
-        <div v-for="item in newsCon" :key="item.id" @click="goDetail(item.id)">
+             <div class="noData" v-if="flag">
+            <el-button :loading="true" style="border:none;background:#f7f7f7;color:gray">加载中</el-button>
+          </div>
+        <div v-for="item in newsCon" :key="item.id" @click="goDetail(item.newsId)">
           <div class="con">
             <div class="image">
-              <img :src="item.img" alt class="imgg" />
-              <div class="contt" @click="goDetail(item.id)">
+              <img :src="item.newsIndexImg" alt class="imgg" />
+              <div class="contt" @click="goDetail(item.newsId)">
                 <div
                   class="newsTit"
                   style="height:70px;line-height:50px;width:90%;margin:auto"
-                >{{item.title}}</div>
-                <p class="subtit">{{item.intro}}</p>
+                >{{item.newsTitle}}</div>
+                <p class="subtit">{{item.newsSubtitle}}</p>
               </div>
             </div>
           </div>
@@ -188,24 +141,47 @@
   </div>
 </template>
 <script>
-import { getEntrepreneurs, getBanner } from "../api/request";
+import { getLesson , getEntrepreneurs,getBanner,getAboutUs,getPPJS} from "../api/request";
+import qs from "qs";
+
 export default {
   data() {
     return {
-      activeName: "first",
+      activeName: '0',
       index: "",
       newsCon: [],
       imgs: [],
+      lesson:[],
+      ppjs:'',
+      idea:[],
+      flag: true,
     };
   },
   methods: {
+        // 转义标签
+    html_decode(str) {
+      var s = "";
+      if (str.length == 0) return "";
+      s = str.replace(/&amp;/g, "&");
+      s = s.replace(/&lt;/g, "<");
+      s = s.replace(/&gt;/g, ">");
+      s = s.replace(/&nbsp;/g, " ");
+      s = s.replace(/&#39;/g, "'");
+      s = s.replace(/&quot;/g, '"');
+      s = s.replace(/<br\/>/g, "\n");
+      return s
+      // this.content = s;
+    },
+    ll(ind){
+      console.log(ind)
+      this.activeName=ind
+    },
     // 获取banner图
     getBannerImg() {
       getBanner().then((res) => {
-        this.imgs = res.data.pageInfo.list;
-        this.imgs.forEach((item) => {
-          item.adr = "http://52chbaby.com/api/" + item.picUrl;
-        });
+        console.log(res)
+        this.imgs = res.rows;
+
         console.log(this.imgs);
       });
     },
@@ -218,14 +194,14 @@ export default {
     getNews() {
       //获取创业者说
       getEntrepreneurs().then((res) => {
-        this.newsCon = res.data.pageInfo.list;
-        this.newsCon.forEach((item) => {
-          item.img = "http://52chbaby.com/api/" + item.photo;
-        });
+        console.log(res)
+        this.newsCon = res.rows;
+        this.flag = false;
+
       });
     },
     goDetail(id) {
-      console.log(id);
+
       this.$router.push({
         path: `/${id}`,
         query: {
@@ -234,10 +210,31 @@ export default {
         },
       });
     },
+    // 课程体系
+    getlesson(){
+
+
+
+      getLesson().then((res) => {
+
+        this.lesson = res.rows;
+
+      });
+
+
+    }
   },
   created() {
     this.getNews();
     this.getBannerImg();
+    this.getlesson()
+    getAboutUs().then(res=>{
+      console.log(res)
+      this.ppjs=res.data.ppjs
+    }),
+         getPPJS().then(res=>{
+         this.idea=res.rows
+      })
   },
 };
 </script>
@@ -310,7 +307,7 @@ el-carousel {
   .p0 {
     color: #1b1b1b;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 550;
   }
   .p1 {
     width: 70%;
@@ -326,7 +323,7 @@ el-carousel {
 // 提升课程
 .box3 {
   width: 100%;
-  height: 600px;
+  // height: 600px;
   background-color: white;
   background-position: center;
   background-repeat: no-repeat;
@@ -336,18 +333,18 @@ el-carousel {
     margin: auto;
     text-align: center;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 550;
     color: #31bb7d;
 
     margin-top: 50px;
     margin-bottom: 40px;
   }
   p:nth-child(2) {
-    width: 900px;
+    width: 890px;
     margin: auto;
     text-align: center;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 550;
     line-height: 34px;
     margin-top: 50px;
     margin-bottom: 40px;
@@ -358,12 +355,14 @@ el-carousel {
   width: 1200px;
   margin: 70px auto;
   // padding-top: 80px;
+  // border: 1px solid;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .nine-image1 > img {
-  width: 270px;
+  width: 290px;
   height: 197px;
 
   // float: left;
@@ -376,7 +375,7 @@ el-carousel {
 }
 
 .nine-image-title {
-  width: 270px;
+  width: 290px;
   height: 40px;
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
@@ -392,7 +391,7 @@ el-carousel {
 }
 
 .nine-image-info {
-  width: 270px;
+  width: 290px;
   height: 197px;
   position: absolute;
   top: 0;
@@ -409,6 +408,7 @@ el-carousel {
   font-weight: 500;
   color: white;
   font-size: 13px;
+
 }
 
 .nine-image-info2 {
@@ -419,11 +419,11 @@ el-carousel {
     // border: 1px solid;
   }
   font-weight: 400;
-  width: 85%;
+  width: 80%;
   font-size: 14px;
-  margin: 20px auto;
+  margin:  auto;
   color: white;
-  line-height: 26px;
+  line-height: 20px;
   // border: 1px solid;
   text-align: left;
   // font-weight: 550;
@@ -441,14 +441,15 @@ el-carousel {
   width: 100%;
 
   // height: 570px;
-  background: url("../assets/rain/lesson7.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background: url("../assets/rain/lesson7.jpg");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  background-color: #f6f6f6;
   .cont {
     width: 902px;
     margin: auto;
-    height: 1000px;
+    height: 800px;
     .tit {
       width: 900px;
 
@@ -456,7 +457,7 @@ el-carousel {
       padding-top: 50px;
       padding-bottom: 20px;
       font-size: 36px;
-      font-weight: bold;
+      font-weight: 550;
       color: #31bb7d;
     }
     p:nth-child(2) {
@@ -470,17 +471,17 @@ el-carousel {
   }
 }
 #img {
-  width: 700px;
-  margin: 70px auto;
+  width: 600px;
+  margin: 30px auto;
   img {
-    width: 700px;
+    width: 600px;
   }
 }
 #text {
   width: 700px;
-  margin: 50px auto;
+  margin: 20px auto;
   line-height: 40px;
-  font-size: 19px;
+  font-size: 17px;
   text-align: center;
 }
 // 三张图片
@@ -506,21 +507,21 @@ el-carousel {
     }
   }
 }
-.hokids-welcomeicon div:nth-child(1) {
-  background: url(../assets/health.png) no-repeat;
-  width: 236px;
-  background-size: contain;
-}
-.hokids-welcomeicon div:nth-child(2) {
-  background: url(../assets/comfortable.png) no-repeat;
-  width: 236px;
-  background-size: contain;
-}
-.hokids-welcomeicon div:nth-child(3) {
-  background: url(../assets/happy.png) no-repeat;
-  width: 236px;
-  background-size: contain;
-}
+// .hokids-welcomeicon div:nth-child(1) {
+//   // background: url(../assets/health.png) no-repeat;
+//   width: 236px;
+//   background-size: contain;
+// }
+// .hokids-welcomeicon div:nth-child(2) {
+//   background: url(../assets/comfortable.png) no-repeat;
+//   width: 236px;
+//   background-size: contain;
+// }
+// .hokids-welcomeicon div:nth-child(3) {
+//   background: url(../assets/happy.png) no-repeat;
+//   width: 236px;
+//   background-size: contain;
+// }
 // 三大课程体系
 .hokids-system {
   margin: 0 auto;
@@ -530,9 +531,9 @@ el-carousel {
   height: 230px;
   text-align: center;
   color: #fff;
-  background: url(../assets/system.jpg) no-repeat center 0;
+  // background: url(../assets/system.jpg) no-repeat center 0;
   background-size: cover;
-  font-weight: bold;
+  font-weight: 550;
   img {
     width: 250px;
   }
@@ -540,7 +541,7 @@ el-carousel {
     font-size: 36px;
     margin-top: 3px;
     margin-bottom: 12px;
-    // font-weight: bold;
+    // font-weight: 550;
   }
   .p2 {
     font-size: 18px;
@@ -614,7 +615,7 @@ el-carousel {
   width: 100%;
   height: 230px;
   color: #fff;
-  background: url(../assets/explore.jpg) no-repeat center 0;
+  // background: url(../assets/explore.jpg) no-repeat center 0;
   background-size: cover;
   .hokids-explore-content {
     width: 1200px;
@@ -641,7 +642,7 @@ el-carousel {
       // border: 1px solid black;
       text-align: left;
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 550;
       margin-left: 220px;
       line-height: 30px;
     }
@@ -653,7 +654,7 @@ el-carousel {
   width: 100%;
   height: 180px;
   color: #fff;
-  background: url(../assets/advantage.jpg) no-repeat center 0;
+  // background: url(../assets/advantage.jpg) no-repeat center 0;
   background-size: cover;
   margin-bottom: 20px;
 }
@@ -698,7 +699,7 @@ el-carousel {
       line-height: 20px;
       .sp {
         font-size: 22px;
-        font-weight: bold;
+        font-weight: 550;
         color: black;
       }
       span {
@@ -731,7 +732,7 @@ el-carousel {
 }
 .rightImg {
   width: 480px;
-  background: url(../assets/authenticationbg.jpg) no-repeat center;
+  // background: url(../assets/authenticationbg.jpg) no-repeat center;
   background-size: contain;
 }
 .hokids-authentication-l {
@@ -740,7 +741,7 @@ el-carousel {
 }
 .hokids-authentication-l .pname {
   font-size: 36px;
-  font-weight: bold;
+  font-weight: 550;
   margin: 14px 0 15px;
 }
 .hokids-authentication-l .description {
@@ -765,7 +766,7 @@ el-carousel {
 // 新闻
 .tit {
   font-size: 38px;
-  font-weight: bold;
+  font-weight: 550;
   width: 1100px;
   margin: auto;
   text-align: center;
@@ -786,7 +787,7 @@ el-carousel {
     // border: 1px solid gainsboro;
     margin-top: 50px;
     margin-bottom: 40px;
-    line-height: 22px;
+    line-height: 24px;
     background-color: white;
     position: relative;
     transition: all 0.5s linear;
@@ -826,7 +827,7 @@ el-carousel {
     .newsTit {
       font-size: 18px;
       line-height: 22px;
-      font-weight: bold;
+      font-weight: 550;
       cursor: pointer;
       width: 90%;
       margin: auto;
@@ -840,9 +841,9 @@ el-carousel {
     .time,
     .editor,
     .subtit {
-      font-size: 16px;
+      font-size: 14px;
       margin-top: -20px;
-      line-height: 20px;
+      line-height: 24px;
     }
   }
 }
@@ -870,7 +871,7 @@ el-carousel {
   bottom: 10px;
   left: 30px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 550;
   color: #475669;
   cursor: pointer;
 }
@@ -890,6 +891,15 @@ el-carousel {
     background-color: #31bb7d;
     border: 1px solid #31bb7d;
   }
+}
+.noData {
+  width: 80%;
+  height: 100px;
+  margin: auto;
+  // border: 1px dashed gainsboro; /*no*/
+  text-align: center;
+  color: #666666;
+  line-height: 100px;
 }
 </style>
 <style lang="scss">
@@ -912,12 +922,18 @@ el-carousel {
   .el-tabs__item {
     width: 151px;
   }
+  .el-tabs__content{
+    height: 580px;
+    font-size: 15px;
+  }
 }
 .cont {
   .el-tabs--border-card > .el-tabs__header .el-tabs__item {
     text-align: center;
     background-color: #31bb7d;
     color: white;
+    font-size: 17px;
+
   }
   .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
     text-align: center;
@@ -932,6 +948,7 @@ el-carousel {
   }
 }
 </style>
+
 
 
 

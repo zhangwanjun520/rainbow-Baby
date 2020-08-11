@@ -17,7 +17,7 @@
               :key="index"
               :label="item.name"
               :value="item.id"
-              @click.native="getprovince(item.name)"
+
             ></el-option>
           </el-select>
         </div>
@@ -30,12 +30,12 @@
               :key="index"
               :label="item.name"
               :value="item.id"
-                @click.native="getcity(item.name)"
+
             ></el-option>
           </el-select>
         </div>
 
-        <div class="two">
+        <!-- <div class="two">
           <span class="type">意向县/区</span>
           <el-select placeholder="请选择县/区" v-model="RegionValue" id="sel">
             <el-option
@@ -45,7 +45,7 @@
               :value="item.id"
             ></el-option>
           </el-select>
-        </div>
+        </div> -->
 
         <div class="one">
           <span class="type">联系电话</span>
@@ -55,13 +55,13 @@
 
         <div class="btn">
           <p class="but">
-            <el-button type="warning" @click=" submitInfo">提交</el-button>
+            <el-button  @click=" submitInfo">立即申请</el-button>
           </p>
         </div>
       </div>
     </div>
     <!-- 加盟我们下的介绍 -->
-    <div class="titt" >我们的优势</div>
+    <!-- <div class="titt" >我们的优势</div> -->
     <div class="intro">
       <div class="con">
         <el-col :span="8" v-for="item in content" :key="item.id">
@@ -70,7 +70,7 @@
               <img :src="item.img" alt />
             </p>
 
-            <p>{{item.title}}</p>
+            <p>{{item.name}}</p>
             <p>{{item.content}}</p>
           </el-card>
         </el-col>
@@ -131,7 +131,7 @@ export default {
       this.RegionValue = "";
       for (let item of this.provincearr) {
         if (id == item.id) {
-          console.log(item);
+          // console.log(item);
           this.cityarr = item.children;
         }
       }
@@ -146,20 +146,15 @@ export default {
         }
       }
     },
-    getprovince(name){
-      this.provin=name
-    },
-      getcity(name){
-      this.cityy=name
-    },
+
     //表单加盟信息提交
 
     submitInfo() {
       let info = {
         name: this.name,
-        telephone: this.phone,
-        province: this.provin,
-        city: this.cityy,
+        phone: this.phone,
+        province: this.provinceValue,
+        city: this.cityValue,
       };
       if (
         this.name == "" &&
@@ -180,7 +175,7 @@ export default {
         });
       } else if (this.judgePhone == true) {
         submitJoiner(info).then((res) => {
-          if (res.meta.msg == 'success') {
+          if (res.msg == '操作成功') {
             this.$message({
               showClose: true,
               message: "您已提交成功,我们会尽快与您联系",
@@ -189,7 +184,7 @@ export default {
               offset: 200,
             });
           }
-            else if(res.meta.code=1111){
+            else if(res.code=1111){
            this.$message({
           message: res.meta.msg,
           offset: 200,
@@ -204,16 +199,10 @@ export default {
     // 加盟我们下的品牌介绍
     // channel=league&moduleNum=1
     getintro() {
-      let info = {
-        channel: "league",
-        moduleNum: "1",
-      };
-      getIntro(qs.stringify(info)).then((res) => {
-        this.content = res.data.picArticleList;
-        this.content.forEach((item) => {
-          item.img = "http://52chbaby.com/api/" + item.picUrl;
-        });
-        console.log(this.content);
+
+      getIntro().then((res) => {
+      console.log(res)
+      this.content=res.rows
       });
     },
   },
@@ -255,7 +244,7 @@ export default {
 .banner4 {
   width: 100%;
   height: 700px;
-  background: url("../assets/rain/qq2.jpg");
+  background: url("../assets/rain/join.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -290,7 +279,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.2);
 
   right: 100px;
-  top: 150px;
+  top: 195px;
   border-radius: 20px;
   color: white;
   font-size: 16px;
@@ -309,7 +298,7 @@ export default {
 }
 .two {
   width: 90%;
-  margin: 20px auto;
+  margin: 30px auto;
   // margin-left: 65px;
 }
 .type {
@@ -330,8 +319,10 @@ export default {
 .btn {
   width: 60px;
   height: auto;
-  margin: auto;
-  background-color: rgb(1, 172, 202);
+  // margin: auto;
+  margin-top: 35px;
+  margin-left: 140px;
+  // background-color: rgb(1, 172, 202);
   margin-bottom: 20px;
 }
 .mistakeCon {
@@ -345,11 +336,10 @@ export default {
   margin-top: 70px;
   font-size: 36px;
     color:#31bb7d;
-  font-weight: bold;
+  font-weight: 550;
 }
 .intro {
   width: 100%;
-
   margin: 50px auto;
    background: url("../assets/rain/conb.jpg");
   background-position: center;
@@ -363,7 +353,7 @@ export default {
     margin: auto;
     .el-col-8 {
       width: 280px;
-      height: 300px;
+      height: 320px;
       margin-left: 20px;
       margin-bottom: 20px;
       .el-card.is-always-shadow,
@@ -371,7 +361,7 @@ export default {
       .el-card.is-hover-shadow:hover {
         width: 280px;
 
-        height: 300px;
+        height: 320px;
       }
     }
     p {
@@ -388,13 +378,14 @@ export default {
       text-align: center;
       margin-top: 15px;
       margin-bottom: 10px;
-      font-size: 18px;
+      font-size: 17px;
       color: black;
-      font-weight: bold;
+      font-weight: 550;
     }
     p:nth-child(3) {
-      font-size: 14px;
+      font-size: 13px;
       color: #666666;
+      line-height: 22px;
     }
   }
 }
@@ -470,8 +461,11 @@ export default {
   .el-button {
     background-color: #31bb7d;
     font-size: 12px;
-    width: 80px;
+    width: 150px;
     height: 35px;
+    border: none;
+    color: white;
+    // border-radius: 8px;
     // margin-top: 20px;
   }
 }

@@ -8,38 +8,38 @@
       <!-- 查询 -->
       <div class="search1">
         <div class="search2">
-          <div class="left">全国早教中心>{{currentValue}}早教中心</div>
+          <div class="left">全国早教中心>{{ provinceValue}}早教中心</div>
           <div class="right">
             <el-select placeholder="请选择省份" v-model="provinceValue" @change="selectProvince">
               <el-option
                 v-for="item in province"
                 :key="item.id"
-                :value="item"
-                @click.native="getCurrentprovince(item)"
+                :value="item.name"
+                @click.native="getCurrentprovince(item.id)"
               ></el-option>
             </el-select>
 
-             <el-select placeholder="请选择城市" v-model="cityValue" @change="cityVal">
-                  <el-option
-                    v-for="item in city"
-                    :key="item.id"
-                    :value="item"
-                    @click.native="getCityId(item)"
-                  ></el-option>
-                </el-select>
+            <el-select placeholder="请选择城市" v-model="cityValue" @change="cityVal">
+              <el-option
+                v-for="item in city"
+                :key="item.id"
+                :value="item.name"
+                @click.native="getCityId(item.id)"
+              ></el-option>
+            </el-select>
           </div>
         </div>
         <div class="search-con">
           <div class="banner"></div>
-          <div class="con" v-for="item in center" :key="item.id">
+          <div v-if="center.length==0" class="nodata">暂无数据</div>
+          <div class="con" v-for="item in center" :key="item.id" v-else >
             <div class="left">
-              <img src="../assets/rain/brand4.jpg" alt="">
+              <img src="../assets/rain/brand4.jpg" alt />
             </div>
             <div class="right">
               <p class="name">{{item.name}}</p>
               <p>地址：{{item.address}}</p>
               <p>联系方式：{{item.phone}}</p>
-
             </div>
           </div>
         </div>
@@ -48,7 +48,12 @@
   </div>
 </template>
 <script>
-import { getProvince,getCity ,  getCenter} from "../api/request";
+import {
+  getProvince,
+  getCity,
+  getCenter,
+  getAllCenterActivities,
+} from "../api/request";
 import qs from "qs";
 
 export default {
@@ -57,8 +62,8 @@ export default {
       province: [],
       provinceValue: "",
       currentValue: "",
-      detail:[],
-        province: [],
+      detail: [],
+      province: [],
       // v-model绑定的值
       value: "",
       provinceId: "",
@@ -76,45 +81,45 @@ export default {
     getprovince() {
       getProvince().then((res) => {
         console.log(res);
-        this.province = res.data.obj;
+        this.province = res.rows;
       });
     },
     selectProvince(value) {
       console.log(value);
       this.provinceValue = value;
+
     },
     getCurrentprovince(name) {
       this.currentValue = name;
-        this.getCityInfo();
+      this.getCityInfo();
     },
-        // 获取所有城市
+    // 获取所有城市
     getCityInfo() {
       let info = {
-        province: this.currentValue,
+      provinceId: this.currentValue,
       };
-      getCity(qs.stringify(info)).then((res) => {
-        this.city = res.data.obj;
+      getCity(info).then((res) => {
+        console.log(res)
+        this.city = res.rows;
       });
-
     },
-     cityVal(value) {
+    cityVal(value) {
       this.cityValue = value;
     },
-    getCityId(name){
-      this.cityName=name
-      this.getcenter()
+    getCityId(name) {
+      this.cityName = name;
+      this.getcenter();
     },
     // 查询地址
     getcenter() {
-      console.log(this.cityName)
       let info = {
         province: this.currentValue,
         city: this.cityName,
       };
 
-      getCenter(qs.stringify(info)).then((res) => {
-        console.log(res);
-        this.center = res.data.obj;
+      getCenter(info).then((res) => {
+        console.log(res)
+        this.center = res.rows;
       });
     },
     centerValue(e) {
@@ -128,17 +133,10 @@ export default {
   },
   created() {
     this.getprovince();
-this.currentValue='北京市'
-      let info = {
-        province: '北京市',
-        city: '市辖区',
-      };
-
-      getCenter(qs.stringify(info)).then((res) => {
-        console.log(res);
-        this.center = res.data.obj;
-      });
-
+    getAllCenterActivities().then((res) => {
+      this.center = res.rows;
+      this.currentValue = "全国";
+    });
   },
 };
 </script>
@@ -158,7 +156,7 @@ this.currentValue='北京市'
     width: 1000px;
     height: 80px;
     // border: 1px solid;
-    margin:  auto;
+    margin: auto;
     // padding-top: 30px;
     line-height: 80px;
 
@@ -175,7 +173,6 @@ this.currentValue='北京市'
     margin: auto;
     border: 1px dashed #ebe9e9;
 
-
     .banner {
       height: 230px;
       background: url("../assets/rain/new.jpg");
@@ -183,34 +180,39 @@ this.currentValue='北京市'
       background-repeat: no-repeat;
       background-size: cover;
     }
-    .con{
+    .con {
       width: 1000px;
       height: 170px;
       border-bottom: 1px solid #f6f6f6;
+      // margin-bottom: 5px;
       background-color: white;
 
-
-      .left{
+      .left {
         float: left;
-        img{
+        img {
           width: 200px;
-        margin-top: 10px;
-
+          margin-top: 10px;
         }
       }
-      .right{
+      .right {
         float: left;
         margin-left: 30px;
         margin-top: 20px;
         font-size: 14px;
-        p:nth-child(1){
+        p:nth-child(1) {
           font-size: 19px;
           color: #31bb7d;
           font-weight: 550;
         }
       }
     }
-
   }
+}
+.nodata{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+
 }
 </style>

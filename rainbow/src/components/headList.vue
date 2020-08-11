@@ -3,7 +3,7 @@
     <div class="main">
       <div class="header-logo">
         <router-link tag="span" to="/home">
-          <img src="../assets/rain/logo.png" alt />
+          <img :src="image" alt />
         </router-link>
       </div>
       <nav class="nav">
@@ -23,9 +23,11 @@
   </header>
 </template>
 <script>
+import {getLogo} from '../api/request'
 export default {
   data() {
     return {
+      image:'',
       tablist: [
         { name: "首页", path: "/home" },
         { name: "关于我们", path: "/aboutUs" },
@@ -48,7 +50,7 @@ export default {
         document.body.scrollTop;
       let to = document.querySelectorAll(".header1")[0].offsetTop;
       //
-      console.log(to);
+      // console.log(to);
 
       if (scrollTop > 80) {
         //  console.log(scrollTop)
@@ -61,6 +63,14 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
   },
+  created(){
+    getLogo().then(res=>{
+      // console.log(res)
+         this.image=res.data.img
+    })
+
+
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -95,11 +105,11 @@ min-width: 1200px;
     margin-left: 80px;
     // border: 1px solid;
     img {
-      width: 120px;
+      width: 130px;
     }
   }
   .nav {
-    width: 800px;
+    width: 850px;
     ul {
       font-size: 16px;
       list-style: none;
